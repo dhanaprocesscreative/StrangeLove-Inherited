@@ -1,0 +1,59 @@
+{% assign index = 1 %}
+{% for i in (1..7) %}
+{% case i %}
+{% when 7 %}
+{% assign index = 1 %}
+{% when 8 %}
+{% assign index = 2 %}
+{% endcase %}
+<div class="col-lg-3 col-md-4 col-sm-6 col-tn-6">
+  <div class="br-product br-product--grid ">
+    <div class="br-product__media">
+      <div class="br-product__thumb">
+        <a href="/admin/products">
+          {% capture imageUrl %}//cdn.shopify.com/s/images/themes/product-{{ index }}.png{% endcapture %}
+          {{ imageUrl | img_tag }}
+        </a>
+      </div>
+      <!-- .br-product__thumb -->
+      <div class="br-product__label-wrapper">
+        <span class="br-product__label sale">SALE</span>
+        <!-- .br-product__label -->
+      </div>
+      <div class="br-product__action">
+        <div class="tb">
+          <div class="table-cell-center">
+            <a class="btn" href="/admin/products" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to cart">
+              <span class="sr-only">Add to cart</span>
+              <i class="fa fa-shopping-bag"></i>
+            </a>
+          </div>
+          <div class="table-cell-center">
+            <a class="btn" href="/admin/products" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to wishlist">
+              <span class="sr-only">Add to wishlist</span>
+              <i class="fa fa-heart"></i>
+            </a>
+          </div>
+          <div class="table-cell-center">
+            <a class="btn js-product-popup " href="/admin/products" data-toggle="tooltip" data-placement="top" title="" data-original-title="quick view">
+              <span class="sr-only">quick view</span>
+              <i class="fa fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End .br-product__media -->
+    <div class="br-product__main">
+      <h4 class="br-product__name"><a href="/admin/products">Brilliant Product</a></h4>
+      <span class="br-product__price">
+        $69.50
+        <del>$96.00</del>
+      </span>
+      <!-- .br-product__price -->
+    </div>
+    <!-- .br-product__main -->
+  </div>
+</div>
+{% assign index = index | plus: 1 %}
+{% endfor %}

@@ -1,0 +1,118 @@
+<!-- /snippets/product-item-list.liquid -->
+{% assign product_label_new = false %}
+{% capture _time %}{{settings.product_new_time | times:86400}}{% endcapture %} 
+{% assign time = _time|plus:0 %}
+{% assign now = 'now' | date: '%s'|plus:0 %}
+
+{% capture _value %}{{product.published_at | date: "%s" | plus : time }}{% endcapture %} 
+{% assign value = _value|plus:0 %}
+
+{% if now < value %}
+{% assign product_label_new = true %}
+{% endif %}
+
+
+{% assign label_popular = false %}
+{% if product.tags contains "popular" %}
+{% assign label_popular = true %}
+{% endif %} 
+
+{% assign label_hot = false %}
+{% if product.tags contains "hot" %}
+{% assign label_hot = true %}
+{% endif %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+{% assign sold_out = false %}
+{% endif %}
+
+<div class="br-product br-product--list {% if sold_out %}br-product--sold-out{% endif %}">
+  <div class="br-product__media">
+    <div class="br-product__thumb">
+      <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}"></a>
+    </div>
+    <!-- End .br-product__thumb -->
+    {% if sold_out %}
+    <div class="sold-out">{{ 'products.product.sold_out' | t }}</div>
+    {% endif %}
+    <div class="br-product__label-wrapper">
+      {% if settings.show_new_label and product_label_new == true %}
+      <span class="br-product__label new engoc_new_label">{{settings.new_label_name}}</span>
+      {% endif %}
+      {% if settings.show_hot_label and label_hot %}
+      <span class="br-product__label hot engoc_hot_label">{{settings.hot_label_name}}</span>
+      {% endif %}
+      {% if settings.show_sale_label and on_sale %}
+      <span class="br-product__label sale engoc_sale_label">{{settings.sale_label_name}}</span>
+      {% endif %}
+      {% if settings.show_popular_label and label_popular %}
+      <span class="br-product__label popular engoc_popular_label">{{settings.popular_label_name}}</span>
+      {% endif %}
+      <!-- .br-product__label -->
+    </div>
+  </div>
+  <!-- End .br-product__media -->
+  <div class="br-product__main">
+    <h2 class="br-product__name upcase"><a href="{{ product.url | within: collection }}">{{ product.title }} </a></h2>
+    <span class="br-product__price">
+      {% capture price %}{{ product.price | money }}{% endcapture %}
+      {% if product.price_varies %}{{ 'products.general.from_text_html' | t: price: price }}{% else %}{{ price }}{% endif %}
+      {% if on_sale %} <del>{{ product.compare_at_price | money }}</del> {% endif %}
+    </span> <!-- End .br-product__price -->
+    <div class="rating mb-20">
+      <span data-style-width="100%" class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+    </div>
+    <div class="br-product__description">
+      <p>{{ product.description | strip_html | truncatewords: 35}}</p>
+    </div>
+    <div class="br-product__action">
+      <div class="tb">
+        {% if sold_out %}
+        <div class="table-cell-center">
+          <a class="btn btn-default btn-cart" href="{{ product.url | within: collection }}" data-placement="top" title="" data-original-title="cart" disabled>
+            <i class="fa {{settings.product_icon_action_cart}}"></i>
+            <span>{{ 'products.product.unavailable' | t }}</span>
+          </a>
+        </div>
+        {% else %}
+          {% if product.variants.size > 1 %}
+          <div class="table-cell-center">
+            <a class="btn btn-default btn-cart" href="{{ product.url | within: collection }}" data-placement="top" title="" data-original-title="cart">
+              <i class="fa {{settings.product_icon_action_select_option}}"></i>
+              <span>{{settings.product_select_option_name}}</span>
+            </a>
+          </div>
+          {% else %}
+          <div class="table-cell-center">
+            <form method="post" action="/cart/add" class="add-to-cart">
+              <span class="sr-only">{{settings.product_cart_name}}</span>
+              <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+              <button type="submit" name="add" id="AddToCart{{ product.id }}" class="enj-add-to-cart-btn btn btn-default btn-cart" data-placement="top" title="" data-original-title="cart">
+                <i class="fa {{settings.product_icon_action_cart}}"></i>
+                <span>{{settings.product_cart_name}}</span>
+              </button>
+            </form>
+          </div>
+          {% endif %}
+        {% endif %}
+        
+        <div class="table-cell-center engoc-border-wistlist">
+          {% include 'add-wishlist' %}
+        </div>
+        <div class="table-cell-center">
+          <a class="btn btn-default btn-outline quickview btn-quickview" href="javascript:void(0)" data-id="{{ product.handle }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{settings.product_quickview_name}}">
+            <span class="sr-only">{{settings.product_quickview_name}}</span>
+            <i class="fa {{settings.product_icon_action_quickview}}"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End .br-product__main -->
+</div>

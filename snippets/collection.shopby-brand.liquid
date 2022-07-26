@@ -1,0 +1,10 @@
+<section class="widget widget_categories">
+  <h2 class="widget-title">{{section.settings.shop_by_tags_4_title}}</h2>
+  <!-- widget-title -->
+  <ul>
+    {% capture collection_title %}{{ collection.title }}{% endcapture %}
+    {% for product_vendor in collection.all_vendors %}
+    <li >{{ product_vendor | link_to_vendor }}</li>
+    {% endfor %}
+  </ul>
+</section>

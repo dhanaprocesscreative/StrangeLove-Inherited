@@ -1,0 +1,311 @@
+<!-- /snippets/footer.liquid -->
+<style> 
+{% if section.settings.select_footer_style == "footer-s1-black" %}
+.engoc-footer-s1 {background-color: {{settings.footer_s1_black_bg}}; }
+.engoc-footer-s1 .widget-title { color: {{settings.footer_s1_black_heading}}; }
+.engoc-footer-s1 .br-site-social a { color: {{settings.footer_s1_black_social}}; }
+.engoc-footer-s1 .br-payment a { color: {{settings.footer_s1_black_payment}}; }
+
+.engoc-footer-s1 .br-site-social { border-color: {{settings.footer_s1_black_border}}; }
+.engoc-footer-s1 .br-site-info { border-color: {{settings.footer_s1_black_border}}; }
+.engoc-footer-s1 .dropdown-menu { border-color: {{settings.footer_s1_black_border}}; }
+
+.engoc-footer-s1 .btn { color: {{settings.footer_s1_black_btn_text}}; background-color: {{settings.footer_s1_black_btn}}; }
+.engoc-footer-s1 input[type="submit"] { color: {{settings.footer_s1_black_btn_text}}; background-color: {{settings.footer_s1_black_btn}}; }
+
+.engoc-footer-s1 .btn:hover { color: {{settings.footer_s1_black_btn_text_hover}}; background-color: {{settings.footer_s1_black_btn_hover}}; }
+.engoc-footer-s1 input[type="submit"]:hover { color: {{settings.footer_s1_black_btn_text_hover}}; background-color: {{settings.footer_s1_black_btn_hover}}; }
+
+.br-site-info a, .br-site-info .dropdown  i { color: {{settings.footer_s1_black_text_link}}; }
+
+.site-footer .widget ul li a { color: {{settings.footer_s1_black_text_link}}; }
+.site-footer .widget ol li a { color: {{settings.footer_s1_black_text_link}}; }
+.site-footer p, .site-footer span.textwidget { color: {{settings.footer_s1_black_text}}; }
+{% endif %}
+  
+{% if section.settings.select_footer_style == "footer-s1-white" %}
+.engoc-footer-s1 {background-color: {{settings.footer_s1_white_bg}}; }
+.engoc-footer-s1 .widget-title { color: {{settings.footer_s1_white_heading}}; }
+.engoc-footer-s1 .br-site-social a { color: {{settings.footer_s1_white_social}}; }
+.engoc-footer-s1 .br-payment a { color: {{settings.footer_s1_white_payment}}; }
+
+.engoc-footer-s1 .br-site-social { border-color: {{settings.footer_s1_white_border}}; }
+.engoc-footer-s1 .br-site-info { border-color: {{settings.footer_s1_white_border}}; }
+.engoc-footer-s1 .dropdown-menu { border-color: {{settings.footer_s1_white_border}}; }
+
+.engoc-footer-s1 .btn { color: {{settings.footer_s1_white_btn_text}}; background-color: {{settings.footer_s1_white_btn}}; }
+.engoc-footer-s1 input[type="submit"] { color: {{settings.footer_s1_white_btn_text}}; background-color: {{settings.footer_s1_white_btn}}; }
+
+.engoc-footer-s1 .btn:hover { color: {{settings.footer_s1_white_btn_text_hover}}; background-color: {{settings.footer_s1_white_btn_hover}}; }
+.engoc-footer-s1 input[type="submit"]:hover { color: {{settings.footer_s1_white_btn_text_hover}}; background-color: {{settings.footer_s1_white_btn_hover}}; }
+
+.br-site-info a, .br-site-info .dropdown  i { color: {{settings.footer_s1_white_text_link}}; }
+
+.site-footer .widget ul li a { color: {{settings.footer_s1_white_text_link}}; }
+.site-footer .widget ol li a { color: {{settings.footer_s1_white_text_link}}; }
+.site-footer p, .site-footer span.textwidget { color: {{settings.footer_s1_white_text}}; }
+{% endif %}  
+  
+{% if section.settings.select_footer_style == "footer-s2" %}
+.engoc-footer-s2 { background-color: {{settings.footer_s2_bg}}; }
+.engoc-footer-s2 .widget-title { color: {{settings.footer_s2_heading}}; }
+.engoc-footer-s2 .nav-social a { color: {{settings.footer_s2_social}} !important; }
+.engoc-footer-s2 .br-payment a { color: {{settings.footer_s2_payment}}; }
+
+.engoc-footer-s2 .btn { color: {{settings.footer_s2_btn_text}}; background-color: {{settings.footer_s2_btn}}; }
+.engoc-footer-s2 input[type="submit"] { color: {{settings.footer_s2_btn_text}}; background-color: {{settings.footer_s2_btn}}; }
+
+.engoc-footer-s2 .btn:hover { color: {{settings.footer_s2_btn_text_hover}}; background-color: {{settings.footer_s2_btn_hover}}; }
+.engoc-footer-s2 input[type="submit"]:hover { color: {{settings.footer_s2_btn_text_hover}}; background-color: {{settings.footer_s2_btn_hover}}; }
+
+.br-site-info a { color: {{settings.footer_s2_text_link}}; }
+.br-site-info span, .br-site-info .dropdown  i { color: {{settings.footer_s2_text}}; }
+.engoc-icon-color { color: {{settings.footer_s2_heading}}; }
+@media (min-width: 992px) {
+  .engoc-footer-s2 .br-widget-wrapper .widget:last-child {
+    border-right: 1px solid {{settings.footer_s2_border}};
+  }
+}
+@media (min-width: 992px) {
+  .engoc-footer-s2 .br-widget-wrapper {
+    border-bottom: 1px solid {{settings.footer_s2_border}};
+  }
+}
+.engoc-footer-s2 .br-site-info {
+  border-color: 1px solid {{settings.footer_s2_border}};
+}
+.engoc-footer-s2 .widget {
+  border-left: 1px solid {{settings.footer_s2_border}};
+}
+
+.site-footer .widget ul li { color: {{settings.footer_s2_text}} !important; }
+.site-footer .widget ol li { color: {{settings.footer_s2_text}} !important; }
+.site-footer .widget ul li a { color: {{settings.footer_s2_text_link}}; }
+.site-footer .widget ol li a { color: {{settings.footer_s2_text_link}}; }
+.site-footer p, .site-footer p.textwidget, .site-footer span.textwidget { color: {{settings.footer_s2_text}}; }
+{% endif %}
+
+</style>
+
+
+{% if section.settings.select_footer_style == "footer-s2" %}
+{% include 'footer-v2' %}
+{% else %}
+<footer class="site-footer {% if section.settings.select_footer_style == "footer-s1-black" or section.settings.select_footer_style == "footer-s1-white" %}engoc-footer-s1{% endif %}">
+  {% if settings.ft_s1_top_enable %}
+  <div class="br-site-social">
+    <div class="container">
+      {{settings.ft_s1_top_social_content}}
+    </div>
+  </div>
+  {% endif %}
+  {% if settings.ft_s1_main_enable %}
+  <div class="br-footer-content">
+    <div class="container">
+      <div class="row">
+        {% assign footer_menu_col_2 = settings.footer_s1_menu_col_2 %}
+        {% assign footer_menu_col_3 = settings.footer_s1_menu_col_3 %}
+        {% assign footer_menu_col_4 = settings.footer_s1_menu_col_4 %}
+        {% assign footer_menu_bottom = settings.footer_s1_menu_bottom %}
+
+        {% if settings.ft_s1_main_col_1_enable %}
+        <div class="col-md-2">
+          <div class="br-logo-wrapper">
+            {% if section.settings.select_footer_style == "footer-s1-black" %}
+              {% if settings.enable_svglogo_s1b %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1b}}px;">{{settings.svglogo_text_s1b}}</a>
+              {% else %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1b}}px;"><img src="{{ 'logo-white.png' | asset_url }}" alt=""></a>
+              {% endif %}
+            {% endif %}
+            {% if section.settings.select_footer_style == "footer-s1-white" %}
+              {% if settings.enable_svglogo_s1w %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1w}}px;">{{settings.svglogo_text_s1w}}</a>
+              {% else %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1w}}px;"><img src="{{ 'logo-black.png' | asset_url }}" alt=""></a>
+              {% endif %}
+            {% endif %}
+            {% if settings.ft_s1_main_col_1_content != blank %}
+            <p>{{settings.ft_s1_main_col_1_content}}</p>
+            {% else %}
+            <p>Copyright &copy; {{ 'now' | date: "%Y" }} by <a href="http://engotheme.com" title="EngoTheme" target="_blank">EngoTheme</a>. All Rights Reserved.
+              <br> <small>{{ powered_by_link }}</small>
+            </p>
+            {% endif %}
+          </div>
+          <!-- br-logo-wrapper -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_2_enable %}
+        <div class="col-md-2 col-sm-4">
+          <section class="widget widget_categories">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_2_title}}</h2>
+            <!-- widget-title -->
+            <ul>
+              {% for link in linklists[footer_menu_col_2].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_3_enable %}
+        <div class="col-md-2 col-sm-4">
+          <section class="widget widget_links">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_3_title}}</h2>
+            <!-- widget-title -->
+            <ul>
+              {% for link in linklists[footer_menu_col_3].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_4_enable %}
+        <div class="col-md-2 col-sm-4">
+          <section class="widget widget_links">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_4_title}}</h2>
+            <!-- widget-title -->
+            <ul>
+              {% for link in linklists[footer_menu_col_4].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_5_enable %}
+        <div class="col-md-4 col-sm-12">
+          <section class="widget widget-text">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_5_title}}</h2>
+            <!-- widget-title -->
+            <span class="textwidget mb-20">{{settings.ft_s1_main_col_5_des}}</span>
+            {% if settings.newsletter_form_action_ft_s1 != blank %}
+            {% assign form_action = settings.newsletter_form_action_ft_s1 %}
+            {% else %}
+            {% assign form_action = '#' %}
+            {% endif %}
+            <form action="{{ form_action }}" method="post" class="mb-35">
+              <label class="sr-only">Email</label>
+              <input name="email" type="email" placeholder="{{settings.ft_s1_main_col_5_placeholder}}" value="{% if customer %}{{ customer.email }}{% endif %}">
+              <input type="submit" value="{{settings.ft_s1_main_col_5_btn_name}}" class="btn btn-primary">
+            </form>
+            {% if settings.ft_s1_main_col_5_icon_payment_enable %}
+            {{settings.ft_s1_main_col_5_icon_payment_content}}
+            {% endif %}
+            <!-- br-payment -->
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% if settings.ft_s1_bottom_enable %}
+  <div class="br-site-info">
+    <div class="container">
+      <div class="row">
+        {% if settings.ft_s1_bottom_left_enable %}
+        <div class="col-md-8 col-sm-8">
+          <div class="br-site-contact">
+            {% for link in linklists[footer_menu_bottom].links %}
+            <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+          <!-- br-site-contact -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_bottom_right_enable %}
+        <div class="col-md-4 col-sm-4">
+          <div class="br-dropdown text-uppercase">
+            {% if settings.language_enable %}
+            {% assign language_menu = settings.multi_language_menu %}
+            <div class="dropdown">
+              <a data-target="#" href="#" data-toggle="dropdown" role="button">{{settings.language_default_name}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu">
+                {% for link in linklists[language_menu].links %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% include 'currency-picker' %}
+          </div>
+          <!-- br-dropdown -->
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <script type="text/javascript">
+  {% if section.blocks.size > 0 %}products_countdown = [{% for block in section.blocks %}{% if block.settings.product != blank and block.settings.time != blank %}{"id":"{{block.settings.product}}", "time":"{{block.settings.time}}"},{% endif %}{% endfor %}];products_handle_list = [{% for block in section.blocks %}{% if block.settings.product != blank and block.settings.time != blank %}"{{block.settings.product}}",{% endif %}{% endfor %}];{% else %}products_countdown = [];products_handle_list = [];{% endif %}
+</script>
+</footer>
+{% endif %}
+
+{% schema %}
+
+  {
+    "name": "Footer",
+	"max_blocks": 100,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Select Footer Style"
+      },
+      {
+        "type": "select",
+        "id": "select_footer_style",
+        "label": "Select Footer Style",
+        "options": [
+          {
+            "value": "footer-s1-black",
+            "label": "Footer Style 1 Black"
+          },
+          {
+            "value": "footer-s1-white",
+            "label": "Footer Style 1 White"
+          },
+          {
+            "value": "footer-s2",
+            "label": "Footer Style 2"
+          }
+        ],
+        "default": "footer-s1-black",
+        "info": "[View image with footer designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer.png?5914695247792649038)"
+      },
+		{
+        "type": "header",
+        "content": "Insert products for countdown library",
+		"info": "You need to create a list of discounted products here. They will be used for displaying the countdown time for each sale off product."
+      }
+    ],
+	"blocks": [{
+		"type": "product",
+		"name": "Product",
+		"settings": [
+			{
+              "type": "header",
+              "content": "Select product"
+            },
+            {
+              "type": "product",
+              "id": "product",
+              "label": "Select Product"
+            },
+            {
+              "type": "text",
+              "id": "time",
+              "label": "Set time",
+              "info": "Format datatime: YYYY-MM-DD-hh-mm-ss"
+            }
+		]}
+	]
+  }
+{% endschema %}

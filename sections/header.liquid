@@ -1,0 +1,277 @@
+<!-- header.liquid -->
+<style type="text/css">
+.dropdown .engoc-cart-count {
+  color: {{section.settings.cart_count_text_color}};
+  background-color: {{section.settings.cart_count_bg_color}};
+}
+
+/*========== Custom Wistlist Count Lable ==========*/
+.dropdown .engoc-count-wl {
+  color: {{section.settings.wistlist_count_text_color}};
+  background-color: {{section.settings.wistlist_count_bg_color}};
+}
+
+/*========== Border Wistlist Button ==========*/
+.engoc-border-wistlist a {
+  border: 1px solid #242626;
+}
+  
+{% if section.settings.select_header_style == "header_style_1" %}
+/*========== Custom Header Promotion ==========*/
+.engoc-promotion {
+  color: {{settings.header_s1_promotion_text_color}};
+  background-color: {{settings.header_s1_promotion_bg_color}};
+}
+.br-promotion .btn {
+  color: {{settings.header_s1_promotion_text_color}};
+  border-color: {{settings.header_s1_promotion_text_color}};
+}
+.br-promotion .close {
+  color: {{settings.header_s1_promotion_text_color}};
+}
+  
+/* ====== Promotion Countdown ====== */
+.engo-promotion-countdown {
+  	font-family: Montserrat, sans-serif;}
+.engo-promotion-countdown li {
+  	color: {{settings.header_s2_promotion_text_color}};
+    margin-right: 3px !important;}
+.engo-promotion-countdown li:first-child { margin-right: 10px !important;}
+  
+/*========== Custom Header Topbar ==========*/
+.engoc-topbar {
+  color: {{settings.header_s1_topbar_text_color}};
+  background-color: {{settings.header_s1_topbar_bg_color}};
+}
+.br-board .dropdown a {
+  color: {{settings.header_s1_topbar_text_color}};
+}
+{% endif %}
+  
+{% if section.settings.select_header_style == "header_style_2" %}
+/*========== Custom Header Promotion ==========*/
+.engoc-promotion {
+  color: {{settings.header_s2_promotion_text_color}};
+  background-color: {{settings.header_s2_promotion_bg_color}};
+}
+.br-promotion .btn {
+  color: {{settings.header_s2_promotion_text_color}};
+  border-color: {{settings.header_s2_promotion_text_color}};
+}
+.br-promotion .close {
+  color: {{settings.header_s2_promotion_text_color}};
+}
+/* ====== Promotion Countdown ====== */
+.engo-promotion-countdown {
+  	font-family: Montserrat, sans-serif;}
+.engo-promotion-countdown li {
+  	color: {{settings.header_s2_promotion_text_color}};
+    margin-right: 3px !important;}
+.engo-promotion-countdown li:first-child { margin-right: 10px !important;}
+  
+/*========== Custom Header Topbar ==========*/
+.engoc-topbar {
+  color: {{settings.header_s2_topbar_text_color}};
+  background-color: {{settings.header_s2_topbar_bg_color}};
+  border-bottom: 1px solid {{settings.header_s2_topbar_border_color}};
+}
+.br-board .dropdown a {
+  color: {{settings.header_s2_topbar_text_color}};
+}
+{% endif %}
+  
+{% if section.settings.select_header_style == "header_style_3" %}
+/*========== Custom Header Promotion ==========*/
+.engoc-promotion {
+  color: {{settings.header_s3_promotion_text_color}};
+  background-color: {{settings.header_s3_promotion_bg_color}};
+}
+.br-promotion .btn {
+  color: {{settings.header_s3_promotion_text_color}};
+  border-color: {{settings.header_s3_promotion_text_color}};
+}
+.br-promotion .close {
+  color: {{settings.header_s3_promotion_text_color}};
+}
+/* ====== Promotion Countdown ====== */
+.engo-promotion-countdown {
+  	font-family: Montserrat, sans-serif;}
+.engo-promotion-countdown li {
+  	color: {{settings.header_s2_promotion_text_color}};
+    margin-right: 3px !important;}
+.engo-promotion-countdown li:first-child { margin-right: 10px !important;}
+  
+/*========== Custom Header Topbar ==========*/
+.engoc-topbar {
+  color: {{settings.header_s3_topbar_text_color}};
+  background-color: {{settings.header_s3_topbar_bg_color}};
+}
+.br-board .dropdown a {
+  color: {{settings.header_s3_topbar_text_color}};
+}  
+{% endif %}
+</style>
+
+{% if section.settings.select_header_style == "header_style_1" %}
+<header class="site-header">
+  {% include 'header-promotion' %}
+  {% include 'header-1-topbar' %}
+  <nav class="awemenu-nav awemenu-nav--black awemenu-fadeup engoc-header-nav-s1">
+    <div class="container">
+      <div class="awemenu-container">
+        <div class="navbar-icons">
+          <div class="dropdown dropdown-animation">
+            <a href="#" data-toggle="dropdown" role="button">
+              <i class="fa {{section.settings.header_icon_search}}" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu dropdown-search">
+              <div class="form-search">
+                {% include 'search-bar' %}
+              </div>
+            </div>
+            <!-- .dropdown-search -->
+          </div>
+          <div {% if settings.enable_rtl %}class="dropdown-left"{% else %}class="dropdown-right"{% endif %}>
+            {% include 'header-minicart' %}
+            {% include 'header-miniwishlist' %}
+            {% include 'header-miniaccount' %}
+          </div>
+        </div>
+        <!-- .navbar-icons -->
+        <div class="awemenu-logo engoc-h1-maxwidth-logo">
+          {% if settings.svg_logo_header_s1 %}
+          <a href="{{shop.url}}">{{settings.svg_logo_text_header_s1}}</a>
+          {% else %}
+          <a href="{{shop.url}}"><img src="{{ 'logo-white-br.png' | asset_url }}" alt="logo"></a>
+          {% endif %}
+        </div>
+        {% include 'menu' %}
+      </div>
+      <!-- .awemenu-container -->
+    </div>
+  </nav>
+</header>
+{% endif %}
+
+{% if section.settings.select_header_style == "header_style_2" %}
+{% include 'header-v2' %}
+{% endif %}
+
+{% if section.settings.select_header_style == "header_style_3" %}
+{% include 'header-v3' %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Select Header Style"
+      },
+      {
+        "type": "select",
+        "id": "select_header_style",
+        "label": "Select Header Style",
+        "options": [
+          {
+            "value": "header_style_1",
+            "label": "Header Style 1"
+          },
+          {
+            "value": "header_style_2",
+            "label": "Header Style 2"
+          },
+          {
+            "value": "header_style_3",
+            "label": "Header Style 3"
+          }
+        ],
+        "default": "header_style_1",
+        "info": "[View image with header designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_header.png?14464779362216848603)"
+      },
+      {	"type": "header",
+	    "content": "Multi Currency & Multi Language",
+		"info": "Setting multi currency & multi language in Customize theme > Settings tab > General"
+      },
+      {
+        "type": "header",
+        "content": "Select Menu"
+      },
+      {
+        "type": "link_list",
+        "id": "main_menu_store",
+        "label": "Menu Main"
+      },
+      {
+        "type": "header",
+        "content": "Header Icon"
+      },
+      {
+        "type": "text",
+        "id": "header_icon_search",
+        "label": "ICON Search",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-search"
+      },
+      {
+        "type": "text",
+        "id": "header_icon_cart",
+        "label": "ICON Minicart",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-shopping-bag"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_enable_count",
+        "label": "Enable Label Cart Count?",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "cart_count_bg_color",
+        "label": "Cart Count Background Color",
+        "default": "#7fc9c4"
+      },
+      {
+        "type": "color",
+        "id": "cart_count_text_color",
+        "label": "Cart Count Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "header_icon_wishlist",
+        "label": "ICON Wishlist",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-heart"
+      },
+      {
+        "type": "checkbox",
+        "id": "wistlist_enable_count",
+        "label": "Enable Label Wishlist Count?",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "wistlist_count_bg_color",
+        "label": "Wishlist Count Background Color",
+        "default": "#e5b299"
+      },
+      {
+        "type": "color",
+        "id": "wistlist_count_text_color",
+        "label": "Wishlist Count Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "header_icon_account",
+        "label": "ICON Account",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-user"
+      }
+    ]
+  }
+{% endschema %}
+

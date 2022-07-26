@@ -1,0 +1,125 @@
+<!-- /snippets/footer-v2.liquid -->
+<div class="site-footer site-footer--black site-footer--style2 engoc-footer-s2">
+  <div class="container">
+    {% if settings.ft_s2_main_row_1_enable %}
+    <div class="br-widget-wrapper">
+      {% if settings.ft_s2_main_row_1_col_1_enable %}
+      <section class="widget widget-text">
+        <span class="show fz-16 white mb-20 engoc-icon-color"><i class="fa {{settings.ft_s2_main_row_1_col_1_icon}}" aria-hidden="true"></i></span>
+        <h2 class="widget-title">{{settings.ft_s2_main_row_1_col_1_title}}</h2><!-- widget-title -->
+        <span class="textwidget mb-20">{{settings.ft_s2_main_row_1_col_1_des}}</span>
+        {% if settings.newsletter_form_action_ft_s2 != blank %}
+        {% assign form_action = settings.newsletter_form_action_ft_s2 %}
+        {% else %}
+        {% assign form_action = '#' %}
+        {% endif %}
+        <form action="{{ form_action }}" method="post" class="mb-35">
+          <label class="sr-only" >Email</label>
+          <input name="email" type="email" placeholder="{{settings.ft_s2_main_row_1_col_1_placeholder}}" value="{% if customer %}{{ customer.email }}{% endif %}">
+          <input type="submit" value="{{settings.ft_s2_main_row_1_col_1_btn_name}}" class="btn btn-primary">
+        </form>
+      </section>
+      {% endif %}
+      {% if settings.ft_s2_main_row_1_col_2_enable %}
+      <section class="widget widget_links">
+        {{settings.ft_s2_main_row_1_col_2_payment_content}}
+
+        <h2 class="widget-title">{{settings.ft_s2_main_row_1_col_2_title}}</h2><!-- widget-title -->
+        <p class="textwidget">{{settings.ft_s2_main_row_1_col_2_des}}</p>
+      </section><!-- widget -->
+      {% endif %}
+      {% if settings.ft_s2_main_row_1_col_3_enable %}
+      <section class="widget widget_links">
+        {{settings.ft_s2_main_row_1_col_3_social_content}}
+
+        <h2 class="widget-title">{{settings.ft_s2_main_row_1_col_3_title}}</h2><!-- widget-title -->
+        <p class="textwidget">{{settings.ft_s2_main_row_1_col_3_des}}</p>
+      </section><!-- widget -->
+      {% endif %}
+    </div><!-- br-widget-wrapper -->
+    {% endif %}
+    {% if settings.ft_s2_main_row_2_enable %}
+    <div class="br-widget-wrapper">
+      {% if settings.ft_s2_main_row_2_col_1_enable %}
+      <section class="widget widget_links">
+        <h2 class="widget-title">{{settings.ft_s2_main_row_2_col_1_title}}</h2><!-- widget-title -->
+        {{settings.ft_s2_main_row_2_col_1_content}}
+      </section><!-- widget -->
+      {% endif %}
+
+      {% assign footer_menu_col_2 = settings.footer_s2_menu_col_2 %}
+      {% assign footer_menu_col_3 = settings.footer_s2_menu_col_3 %}
+
+      {% if settings.ft_s2_main_row_2_col_2_enable %}
+      <section class="widget widget_links">
+        <h2 class="widget-title">{{settings.ft_s2_main_row_2_col_2_title}}</h2><!-- widget-title -->
+        <ul>
+          {% for link in linklists[footer_menu_col_2].links %}
+          <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </section><!-- widget -->
+      {% endif %}
+      {% if settings.ft_s2_main_row_2_col_3_enable %}
+      <section class="widget widget_links">
+        <h2 class="widget-title">{{settings.ft_s2_main_row_2_col_3_title}}</h2><!-- widget-title -->
+        <ul>
+          {% for link in linklists[footer_menu_col_3].links %}
+          <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </section><!-- widget -->
+      {% endif %}
+    </div><!-- br-widget-wrapper -->
+    {% endif %}
+
+    {% if settings.ft_s2_bottom_enable %}
+    <div class="br-site-info">
+      <div class="row">
+
+        {% assign footer_menu_bottom = settings.footer_s2_menu_bottom %}
+
+        {% if settings.ft_s2_bottom_left_enable %}
+        <div class="col-md-4">
+          {% if settings.enable_svglogo_s2 %}
+          <a class="br-logo-wrapper" href="{{shop.url}}" style="display: inline-block; max-width: {{settings.logo_maxwidth_s2}}px;">{{settings.svglogo_text_s2}}</a>
+          {% else %}
+          <a class="br-logo-wrapper" href="{{shop.url}}" style="display: inline-block; max-width: {{settings.logo_maxwidth_s2}}px;"><img src="{{ 'logo-small-white.png' | asset_url }}" alt=""></a>
+          {% endif %}
+          {% if settings.ft_s2_bottom_left_content != blank %}
+          <span>{{settings.ft_s2_bottom_left_content}}</span>
+          {% else %}
+          <span>Copyright {{ 'now' | date: "%Y" }} &copy; <a href="http://engotheme.com" title="EngoTheme" target="_blank">EngoTheme.</a><br><small>{{ powered_by_link }}</small></span>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if settings.ft_s2_bottom_right_enable %}
+        <div class="col-md-8">
+          <div class="br-dropdown text-uppercase">
+            {% if settings.language_enable %}
+            {% assign language_menu = settings.multi_language_menu %}
+            <div class="dropdown">
+              <a data-target="#" href="#" data-toggle="dropdown" role="button">{{settings.language_default_name}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu">
+                {% for link in linklists[language_menu].links %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% include 'currency-picker' %}
+          </div><!-- br-dropdown -->
+
+          <div class="br-site-contact">
+            {% for link in linklists[footer_menu_bottom].links %}
+            <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+            {% endfor %}
+          </div><!-- br-site-contact -->
+
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>

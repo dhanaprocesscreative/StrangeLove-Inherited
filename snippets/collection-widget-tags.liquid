@@ -1,0 +1,16 @@
+{% if collection.all_tags.size > 0 %}
+<section class="widget">
+  <h2 class="widget-title">{{section.settings.shop_by_tags_5_title}}</h2>
+  <!-- widget-title -->
+  <div class="tagcloud">
+    {% for tag in collection.all_tags %}
+    {% if current_tags contains tag %}
+    {{ tag | link_to_remove_tag: tag }}
+    {% else %}
+    {{ tag | link_to_tag: tag }}
+    {% endif %}
+    {% endfor %}
+  </div>
+  <!-- tagcloud -->
+</section>
+{% endif %}

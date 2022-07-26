@@ -1,0 +1,19 @@
+<section class="widget widget_categories widget-container widget_product_categories filter-block filter-custom filter-tag color">
+  {% assign tags = section.settings.shop_by_tags_1_list_tags | split: ',' %}
+  <h2 class="widget-title">{{ section.settings.shop_by_tags_1_title }}<a href="javascript:void(0)" class="clear" style="display:none">{{ 'collections.sidebar.clear_all' | t }}</a></h2>
+  <ul class=" colors">
+    {% for i in (1..10) %}
+    {% capture shop_by_color_text %}shop_by_color_text_{{ i }}{% endcapture %}
+
+    {% if section.settings[shop_by_color_text] != blank %}
+    {% assign tag = section.settings[shop_by_color_text] | strip %}
+    <li class="li-color{% if current_tags contains tag %}  active{% endif %}">
+      {% assign tag_value = tag | handleize %}
+      <input type="checkbox" value="{{ tag_value }}" {% if current_tags contains tag %}checked{% endif %}/>
+      <a href="javascript:void(0)" title="{{tag}}" class="{% if current_tags contains tag %}active{% endif %}">{{tag}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+

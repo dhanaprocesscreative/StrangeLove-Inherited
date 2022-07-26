@@ -1,0 +1,26 @@
+<ul class="top-navigation">
+  <li class="language-switcher">
+    <a href="#">EN</a>
+    <ul class="top-navigation-submenu">
+      <li><a href="#">FR</a></li>
+      <li class="active"><a href="#">EN</a></li>
+      <li><a href="#">DE</a></li>
+    </ul>
+  </li><!-- .language-switcher -->
+  <li class="currency-switcher">
+    <a href="#" class="selected-currency">USD</a>
+    <ul class="top-navigation-submenu">
+      <li>
+        <span id="currencies">
+            {% assign supported = settings.supported_currencies | split: ' ' %}
+            {% for c in supported %}
+                <span data-currency="{{c}}">{{c}}</span>
+            {% endfor %}
+        </span>
+      </li>
+    </ul>
+  </li><!-- .language-switcher -->
+  <li class="search-action">
+    <a href="#search-fullwidth"><i class="fa fa-search"></i></a>
+  </li>
+</ul><!-- .top-navigation -->

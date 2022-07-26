@@ -1,0 +1,399 @@
+<!-- section-call-to-action.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-call-to-action" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+<section class="pb-80">
+<div class="container">
+  <div class="br-card-wrapper br-card-categories" data-gap="5">
+    <div class="grid-sizer"></div>
+    {% if section.settings.cta_1_enable %}
+    <div class="br-card inner-title br-card--quad-h2 br-card-categories__item">
+      <div class="br-card__media">
+        <div class="br-card__thumb engoc_hover_img">
+          <a href="{{section.settings.cta_1_url}}">
+            {% if section.settings.cta_1_banner == blank %}
+            {% capture _img_url %}banner-cat1.png{% endcapture %}
+            <img src="{{ _img_url | asset_url}}"/>
+            {% else %}
+            <img src="{{ section.settings.cta_1_banner | img_url:'master' }}" alt="">
+            {% endif %}
+          </a>
+          <div class="br-card__main">
+            <h2 class="br-card-categories__title text-uppercase">{{section.settings.cta_1_content_1}} <br><span>{{section.settings.cta_1_content_2}}</span></h2>
+            <a href="{{section.settings.cta_1_btn_url}}" class="btn btn-primary">{{section.settings.cta_1_btn_name}}</a>
+          </div>
+        </div>
+      </div>
+      <!-- br-card__media -->
+    </div>
+    {% endif %}
+    <!-- br-cart -->
+    {% if section.settings.cta_2_enable %}
+    <div class="br-card br-card--quad-w2">
+      <div class="br-card__media">
+        <div class="br-card__thumb engoc_hover_img">
+          <a href="{{section.settings.cta_2_url}}">
+            {% if section.settings.cta_2_banner == blank %}
+            {% capture _img_url %}banner-1.png{% endcapture %}
+            <img src="{{ _img_url | asset_url}}"/>
+            {% else %}
+            <img src="{{ section.settings.cta_2_banner | img_url:'master' }}" alt="">
+            {% endif %}          
+          </a>
+        </div>
+      </div>
+      <!-- br-card__media -->
+    </div>
+    {% endif %}
+    <!-- br-cart -->
+    {% if section.settings.cta_3_enable %}
+    <div class="br-card br-card--quad-h2 inner-title br-card-categories__item">
+      <div class="br-card__media">
+        <div class="br-card__thumb engoc_hover_img">
+          <a href="{{section.settings.cta_3_url}}">
+            {% if section.settings.cta_3_banner == blank %}
+            {% capture _img_url %}banner-cat2.png{% endcapture %}
+            <img src="{{ _img_url | asset_url}}"/>
+            {% else %}
+            <img src="{{ section.settings.cta_3_banner | img_url:'master' }}" alt="">
+            {% endif %}
+          </a>
+          <div class="br-card__main">
+            <h2 class="br-card-categories__title text-uppercase">{{section.settings.cta_3_content_1}} <br><span>{{section.settings.cta_3_content_2}}</span></h2>
+            <a href="{{section.settings.cta_3_btn_url}}" class="btn btn-primary">{{section.settings.cta_3_btn_name}}</a>
+          </div>
+        </div>
+      </div>
+      <!-- br-card__media -->
+    </div>
+    {% endif %}
+    <!-- br-cart -->
+    {% if section.settings.cta_4_enable %}
+    <div class="br-card br-card--quad">
+      <div class="br-card__media">
+        <div class="br-card__thumb engoc_hover_img">
+          <a href="{{section.settings.cta_4_url}}">
+            {% if section.settings.cta_4_banner == blank %}
+            {% capture _img_url %}banner-disccount.png{% endcapture %}
+            <img src="{{ _img_url | asset_url}}"/>
+            {% else %}
+            <img src="{{ section.settings.cta_4_banner | img_url:'master' }}" alt="">
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <!-- br-card__media -->
+    </div>
+    {% endif %}
+    <!-- br-cart -->
+    {% if section.settings.cta_5_enable %}
+    <div class="br-card br-card--quad-h2 inner-title br-card-categories__item">
+      <div class="br-card__media">
+        <div class="br-card__thumb engoc_hover_img">
+          <a href="{{section.settings.cta_5_url}}">
+            {% if section.settings.cta_5_banner == blank %}
+            {% capture _img_url %}banner-cat3.png{% endcapture %}
+            <img src="{{ _img_url | asset_url}}"/>
+            {% else %}
+            <img src="{{ section.settings.cta_5_banner | img_url:'master' }}" alt="">
+            {% endif %}
+          </a>
+          <div class="br-card__main">
+            <h2 class="br-card-categories__title text-uppercase">{{section.settings.cta_5_content_1}} <br><span>{{section.settings.cta_5_content_2}}</span></h2>
+            <a href="{{section.settings.cta_5_btn_url}}" class="btn btn-primary">{{section.settings.cta_5_btn_name}}</a>
+          </div>
+        </div>
+      </div>
+      <!-- br-card__media -->
+    </div>
+    {% endif %}
+    <!-- br-cart -->
+    {% if section.settings.cta_6_enable %}
+    <div class="br-card br-card--quad">
+      <div class="br-card__media">
+        <div class="br-card__thumb engoc_hover_img">
+          <a href="{{section.settings.cta_6_url}}">
+            {% if section.settings.cta_6_banner == blank %}
+            {% capture _img_url %}banner-lookbook-kid.png{% endcapture %}
+            <img src="{{ _img_url | asset_url}}"/>
+            {% else %}
+            <img src="{{ section.settings.cta_6_banner | img_url:'master' }}" alt="">
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <!-- br-card__media -->
+    </div>
+    {% endif %}
+    <!-- br-cart -->
+    {% if section.settings.cta_7_enable %}
+    <div class="br-card br-card--quad-w2">
+      <div class="br-card__media">
+        <div class="br-card__thumb engoc_hover_img">
+          <a href="{{section.settings.cta_7_url}}">
+            {% if section.settings.cta_7_banner == blank %}
+            {% capture _img_url %}banner-2.png{% endcapture %}
+            <img src="{{ _img_url | asset_url}}"/>
+            {% else %}
+            <img src="{{ section.settings.cta_7_banner | img_url:'master' }}" alt="">
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <!-- br-card__media -->
+    </div>
+    {% endif %}
+    <!-- br-cart -->
+  </div>
+</div>
+</section>
+</div>
+
+{% schema %}
+
+{
+  "name": "Call To Action",
+  "class" : "index-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "CTA 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_1_enable",
+      "label": "Enable CTA 1",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_1_banner",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_1_url",
+      "label": "Banner URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "text",
+      "id": "cta_1_content_1",
+      "label": "Content 1",
+      "default": "shop"
+    },
+    {
+      "type": "text",
+      "id": "cta_1_content_2",
+      "label": "Content 2",
+      "default": "Men"
+    },
+    {
+      "type": "text",
+      "id": "cta_1_btn_name",
+      "label": "Button Name",
+      "default": "shop now"
+    },
+    {
+      "type": "text",
+      "id": "cta_1_btn_url",
+      "label": "Button URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "header",
+      "content": "CTA 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_2_enable",
+      "label": "Enable CTA 2",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_2_banner",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_2_url",
+      "label": "Banner URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "header",
+      "content": "CTA 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_3_enable",
+      "label": "Enable CTA 3",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_3_banner",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_3_url",
+      "label": "Banner URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "text",
+      "id": "cta_3_content_1",
+      "label": "Content 1",
+      "default": "shop"
+    },
+    {
+      "type": "text",
+      "id": "cta_3_content_2",
+      "label": "Content 2",
+      "default": "Women"
+    },
+    {
+      "type": "text",
+      "id": "cta_3_btn_name",
+      "label": "Button Name",
+      "default": "shop now"
+    },
+    {
+      "type": "text",
+      "id": "cta_3_btn_url",
+      "label": "Button URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "header",
+      "content": "CTA 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_4_enable",
+      "label": "Enable CTA 4",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_4_banner",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_4_url",
+      "label": "Banner URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "header",
+      "content": "CTA 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_5_enable",
+      "label": "Enable CTA 5",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_5_banner",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_5_url",
+      "label": "Banner URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "text",
+      "id": "cta_5_content_1",
+      "label": "Content 1",
+      "default": "shop"
+    },
+    {
+      "type": "text",
+      "id": "cta_5_content_2",
+      "label": "Content 2",
+      "default": "Kid"
+    },
+    {
+      "type": "text",
+      "id": "cta_5_btn_name",
+      "label": "Button Name",
+      "default": "shop now"
+    },
+    {
+      "type": "text",
+      "id": "cta_5_btn_url",
+      "label": "Button URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "header",
+      "content": "CTA 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_6_enable",
+      "label": "Enable CTA 6",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_6_banner",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_6_url",
+      "label": "Banner URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "header",
+      "content": "CTA 7"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_7_enable",
+      "label": "Enable CTA 7",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_7_banner",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_7_url",
+      "label": "Banner URL",
+      "default": "\/collections\/all"
+    },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+  ],
+  "presets": [
+    {
+      "name": "Call To Action",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

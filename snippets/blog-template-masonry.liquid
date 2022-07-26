@@ -1,0 +1,57 @@
+{% assign engo_custom = blog.metafields.engo %}
+<!-- /templates/snippets/blog-template-masonry.liquid --><div class="page-title page-title--white mb-65" style="background-image: url('{% if engo_custom.background_img != blank %}{{engo_custom.background_img}}{% else %}{% if section.settings.bg_header_blog != blank %}{{section.settings.bg_header_blog | img_url: "master"}}{% else %}{{ 'bg_header_blog.png' | asset_url }}{% endif %} {% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <h1 class="text-uppercase mb-5">{{blog.title}}</h1>
+      {% include 'breadcrumb' %}
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+<section class="section pt-60">
+  <div class="container">
+    <h2 class="sr-only">{{blog.title}}</h2>
+    <div class="js-br-card-hover br-card-wrapper br-portfolio mb-50" data-col="3" data-gap="30">
+      <div class="filtering__container">
+        {% assign i = 1 %}
+        {% for article in blog.articles limit: 12 %}
+        <div class="br-card inner-title br-card--quad">
+          <div class="br-card__media">
+            <div class="br-card__thumb">
+              <a href="{{ article.url }}">
+                <img src="{{ article.image.src | img_url: '480x480' }}" alt="{{ article.title }}">
+              </a>
+              <div class="br-card__hover">
+                <div class="br-card__main">
+                  <h4 class="br-card__title"><a href="{{ article.url }}">{{ article.title }}</a></h4>
+                  <span>{{blog.title}}</span>
+                  <br>
+                  {% comment %}
+                  <small style="color: #fff; font-size: 12px;">{{ article.content | strip_html | truncate: 96 }}</small>
+                  {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- br-card__media -->
+        </div>
+        {% assign i = i | plus: 1 %}
+        {% endfor %}
+      </div>
+    </div>
+    {% if paginate.pages > 1 %}
+    <div class="text-center br-pagination">
+      <div class="pagination">
+        {% if settings.enable_rtl %}
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-right"></i>' | replace: 'Next &raquo;', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-left"></i>' }}
+        {% else %}
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-left"></i>' | replace: 'Next &raquo;', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-right"></i>' }}
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+

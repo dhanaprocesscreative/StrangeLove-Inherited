@@ -1,0 +1,63 @@
+<div class="page-title page-title--classic   bg-2" style="background-image: url('{% if section.settings.bg_header_lists_collection != blank %}{{section.settings.bg_header_lists_collection | img_url: "master"}}{% else %}{{ 'bg_header_lists_collection.png' | asset_url }}{% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <h1 class="text-uppercase mb-5">{{ 'collections.general.list_of_collection' | t }}</h1>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          {% include 'breadcrumb' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section pt-30">
+  <div class="container">
+    <div class="js-masonry-testimonial masonry-testimonial mb-20">
+      <div class="row">
+        {% for collection in collections %}
+        {% unless collection.handle == 'frontpage' %}
+        <div class="col-md-4">
+          <div class="br-testimonial br-testimonial--classic">
+            <div class="br-testimonial__main">
+              <div>
+                <a href="{{ collection.url }}" title="{{ collections.title}}">
+                  {% if collection.image %} <img  src="{{ collection.image | img_url: 'grande' }}" alt="{{collection.title}}" title="{{collection.title}}"/>{% endif %}
+                </a>
+              </div>
+              <div class="text-center">
+                <h3 class="pt-25 br-testimonial__name">{{ collection.title }}</h3>
+                <div> {{ collection.all_products_count }} {{ collection.all_products_count | pluralize: 'Item total', 'Items total' }} </div>
+                <a href="{{ collection.url }}" class="btn btn-lg btn-dark btn-outline">
+                  <button class="btn btn-outline btn-default">{{ 'collections.general.view_collection' | t }}</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "List collections",
+    "settings": [
+	{
+        "type": "header",
+        "content": "Settings",
+        "info": "Background image in breadcrumbs of list collections page"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_header_lists_collection",
+        "label": "Image Header Background"
+      }
+	]
+  }
+{% endschema %}

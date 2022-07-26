@@ -1,0 +1,23 @@
+<!-- /snippets/header-3-topbar.liquid -->
+{% if settings.enable_header_3_topbar %}
+<div class="br-board hidden-xs engoc-topbar">
+  <div class="container">
+    <span class="small">{{settings.header_3_topbar_left_content}}</span>
+    <div class="br-dropdown">
+      {% if settings.language_enable %}
+      {% assign language_menu = settings.multi_language_menu %}
+      <div class="dropdown text-uppercase">
+        <a data-target="#" href="#" data-toggle="dropdown" role="button">{{settings.language_default_name}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+        <ul class="dropdown-menu">
+          {% for link in linklists[language_menu].links %}
+          <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% include 'currency-picker' %}
+    </div>
+  </div>
+</div>
+<!-- .br-board -->
+{% endif %}

@@ -1,0 +1,142 @@
+<!-- /snippets/section-collection-intro.liquid -->
+{% assign products_limit = section.settings.ccdown_limit %}
+{% assign col = section.settings.ccdown_collection %}
+<div data-section-id="{{ section.id }}" data-section-type="section-collection-intro" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+<section class="pb-30 pt-40">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6{% if section.settings.select_style == "s2" %} col-md-push-6{% endif %}">
+        <div class="inner-title br-card--quad-h2 br-card-categories__item br-card-big">
+          <div class="br-card__media">
+            <div class="br-card__thumb">
+              <a href="{{section.settings.ccdown_btn_url}}">
+                {% if section.settings.ccdown_img == blank %}
+                {% capture _img_url %}banner_scountdown.png{% endcapture %}
+                <img src="{{ _img_url | asset_url}}" alt="">
+                {% else %}
+                <img src="{{ section.settings.ccdown_img | img_url: "master" }}" alt="">
+                {% endif %}
+              </a>
+              <div class="br-card__main">
+                <h2 class="br-card-categories__title text-uppercase">{{section.settings.ccdown_content1}} <br><span>{{section.settings.ccdown_content2}}</span></h2>
+                {% if section.settings.ccdown_btn_url != blank %}
+                <a href="{{section.settings.ccdown_btn_url}}" class="btn btn-primary">{{section.settings.ccdown_btn_name}}</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <!-- br-card__media -->
+        </div>
+        <!-- br-cart -->
+      </div>
+      <div class="col-md-6{% if section.settings.select_style == "s2" %} col-md-pull-6{% endif %}">
+        <div class="row">
+          {% for product in collections[col].products limit: products_limit %}
+          <div class="col-md-6 col-sm-6 col-tn-6">
+            {% include 'product-item' %}
+            <!-- .br-product -->
+          </div>
+          {% else %}
+            {% include 'onboarding-empty-item-ccdown' %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+    "name": "Collection Intro",
+    "class" : "index-section",
+    "settings": [
+    {
+        "type": "select",
+        "id": "select_style",
+        "options": [
+          {
+            "value": "s1",
+            "label": "Banner Left"
+          },
+          {
+            "value": "s2",
+            "label": "Banner Right"
+          }
+        ],
+        "label": "Choose Style",
+        "default": "s1"
+      },      
+	  {
+        "type": "header",
+        "content": "IBanner"
+      },
+      {
+        "type": "image_picker",
+        "id": "ccdown_img",
+        "label": "Intro Banner"
+      },
+      {
+        "type": "text",
+        "id": "ccdown_content1",
+        "label": "Content 1",
+        "default": "shop"
+      },
+      {
+        "type": "text",
+        "id": "ccdown_content2",
+        "label": "Content 2",
+        "default": "Clothes"
+      },
+      {
+        "type": "text",
+        "id": "ccdown_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "ccdown_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "PRODUCT"
+      },
+      {
+        "type": "collection",
+        "id": "ccdown_collection",
+        "label": "Select collection"
+      },
+      {
+        "type": "text",
+        "id": "ccdown_limit",
+        "label": "Limit number of products",
+        "default": "4"
+      },
+      {
+            "type": "header",
+            "content": "Section Space"
+          },
+          {
+            "type": "text",
+            "id": "margin_top",
+            "label": "Margin Top",
+            "info": "Defined in pixels. Do not add the 'px' unit."
+          },
+          {
+            "type": "text",
+            "id": "margin_bottom",
+            "label": "Margin Bottom",
+            "info": "Defined in pixels. Do not add the 'px' unit."
+          }
+    ],
+    "presets": [
+	    {
+	      "name": "Collection Intro",
+	      "category": "Content"
+	    }
+	  ]
+  }
+{% endschema %}

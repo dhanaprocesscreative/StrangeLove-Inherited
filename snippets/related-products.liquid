@@ -1,0 +1,22 @@
+<!-- /snippets/related-products.liquid -->
+{% if section.settings.enable_related_products %}
+
+{% assign col = section.settings.related_product_collection %}
+
+<section class="pt-80 pb-60 engoc_no_rtl">
+  <div class="container">
+    <h2 class="br-title text-center">{{section.settings.related_product_title}}</h2>
+    <div class="row js-new-arrivals br-slick-white">
+      {% for product in collections[col].products limit: section.settings.related_product_limit %}
+      <div class="col-md-3">
+        {% include 'product-item' %}
+        <!-- .br-product -->
+      </div>
+      {% else %}
+        {% include 'onboarding-empty-item-relatesp' %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+

@@ -1,0 +1,41 @@
+<!-- /snippets/blog-template-text-only.liquid -->
+<div class="page-title page-title--white mb-0 bg-8" style="background-image: url('{% if section.settings.bg_header_blog != blank %}{{section.settings.bg_header_blog | img_url: "master"}}{% else %}{{ 'bg_header_blog.png' | asset_url }}{% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <h1 class="text-uppercase mb-5">{{blog.title}}</h1>
+      {% include 'breadcrumb' %}
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+{% for article in blog.articles %}
+{% assign label_sticky = false %}
+{% if article.tags contains "Sticky" %}
+{% assign label_sticky = true %}
+{% endif %}
+
+<article class="post post-textonly">
+  {% if label_sticky %}
+  <div class="label-sticky">
+    <i class="fa fa-star"></i>
+  </div>
+  {% endif %}
+  <!-- .label-sticky -->
+  <div class="entry-container">
+    <div class="post-time">{{article.published_at | date: "%b %d.%Y" }}</div>
+    <!-- post-time -->
+    <h2 class="entry-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+    <div class="entry-meta">
+      <ul class="entry-meta-list">
+        <li class="light">{{ 'blogs.article.poster_by' | t }} <a href="{{ article.url }}">{{ article.author }}</a> {{ 'blogs.article.in_the' | t }} <a href="{{blog.url}}">{{blog.title}}</a></li>
+        <li><a class="link-comment" href="{{ article.url }}#comments">{{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}</a></li>
+      </ul>
+      <!-- .entry-meta-list -->
+    </div>
+    <!-- entry-meta -->
+  </div>
+  <!-- entry-container -->
+</article>
+<!-- post -->
+{% endfor %}

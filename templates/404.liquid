@@ -1,0 +1,16 @@
+<!-- /templates/404.liquid -->
+<div class="br-background section-404 section-404--white bg-404" style="background-image: url('{% if settings.bg-404 == blank %}{{ 'bg-404.png' | asset_url }}{% else %}{{settings.bg-404 |  img_url : "master"}}{% endif %}');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="mb-20">{{ 'general.404.title' | t }}</h1>
+        <h2>{{ 'general.404.content_one' | t }}</h2>
+        <p class="fz-16 mb-25">{{ 'general.404.content_two' | t }}</p>
+        <div class="form-search mb-35">
+          {% include 'search-bar' %}
+        </div>
+        <p>{{ 'general.404.subtext_html' | t }}</p>
+      </div>
+    </div>
+  </div>
+</div>

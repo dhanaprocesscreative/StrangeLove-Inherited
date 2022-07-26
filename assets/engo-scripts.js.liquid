@@ -1,0 +1,162 @@
+/* Hover color change image product */
+jQuery(document).ready(function($) {
+  jQuery('.engoj_select_color a').each(function(){
+    jQuery(this).on("mouseover",function(){
+      var engoImage = jQuery(this).data('engojvariant-img');
+      jQuery(this).parents('.engoj_grid_parent').find('.engoj_find_img img').attr({ src: engoImage }); 
+      return false;
+    });
+  });
+});
+
+
+/* Promotion Countdown */
+jQuery(document).ready(function($) {
+  $.fn.ENGO_CountDown = function( options ) {
+    return this.each(function() {
+      // get instance of the ENGO_CountDown.
+      new  $.ENGO_CountDown( this, options );
+    });
+  }
+  $.ENGO_CountDown = function( obj, options ){
+    var ddiff, gsecs;
+    this.options = $.extend({
+      autoStart           : true,
+      LeadingZero:true,
+      DisplayFormat:"<div><span>%%D%%</span> Days</div><div><span>%%H%%</span> Hours</div><div><span>%%M%%</span> Mins</div><div><span>%%S%%</span> Secs</div>",
+      FinishMessage:"Expired",
+      CountActive:true,
+      TargetDate:null
+    }, options || {} );
+    if( this.options.TargetDate == null || this.options.TargetDate == '' ){
+      return ;
+    }
+    this.timer  = null;
+    this.element = obj;
+    this.CountStepper = -1;
+    this.CountStepper = Math.ceil(this.CountStepper);
+    this.SetTimeOutPeriod = (Math.abs(this.CountStepper)-1)*1000 + 990;
+    var dthen = new Date(this.options.TargetDate);
+    var dnow = new Date();
+    if( this.CountStepper > 0 ) {
+      ddiff = new Date(dnow-dthen);
+    }
+    else {
+      ddiff = new Date(dthen-dnow);
+    }
+    gsecs = Math.floor(ddiff.valueOf()/1000);
+    this.CountBack(gsecs, this);
+  };
+  $.ENGO_CountDown.fn =  $.ENGO_CountDown.prototype;
+  $.ENGO_CountDown.fn.extend =  $.ENGO_CountDown.extend = $.extend;
+  $.ENGO_CountDown.fn.extend({
+    calculateDate:function( secs, num1, num2 ){
+      var s = ((Math.floor(secs/num1))%num2).toString();
+      if ( this.options.LeadingZero && s.length < 2) {
+        s = "0" + s;
+      }
+      return "<b>" + s + "</b>";
+    },
+    CountBack:function( secs, self ){
+      var DisplayStr;
+      if (secs < 0) {
+        self.element.innerHTML = '<div class="labelexpired"> '+self.options.FinishMessage+"</div>";
+        return;
+      }
+      clearInterval(self.timer);
+      DisplayStr = self.options.DisplayFormat.replace(/%%D%%/g, self.calculateDate( secs,86400,100000) );
+      DisplayStr = DisplayStr.replace(/%%H%%/g, self.calculateDate(secs,3600,24));
+      DisplayStr = DisplayStr.replace(/%%M%%/g, self.calculateDate(secs,60,60));
+      DisplayStr = DisplayStr.replace(/%%S%%/g, self.calculateDate(secs,1,60));
+      self.element.innerHTML = DisplayStr;
+      if (self.options.CountActive) {
+        self.timer = null;
+        self.timer =  setTimeout( function(){
+          self.CountBack((secs+self.CountStepper),self);
+        },( self.SetTimeOutPeriod ) );
+      }
+    }
+
+  });
+
+  function init_countdown() {
+    /** Countdown **/
+    $('[data-countdown="countdown"]').each(function(index, el) {
+      var $this = $(this);
+      var $date = $this.data('date').split("-");
+      $this.ENGO_CountDown({
+        TargetDate:$date[0]+"/"+$date[1]+"/"+$date[2]+" "+$date[3]+":"+$date[4]+":"+$date[5],
+        DisplayFormat:"<li><span><i class=\"fa fa-clock-o\"></i></span></li><li><span>%%D%% :</span></li><li><span>%%H%% :</span></li><li><span>%%M%% :</span></li><li><span>%%S%%</span></li>",
+        FinishMessage: "Expired"
+      });
+    });
+    
+    /* product item */
+    $('[data-countdown="engoj_product_countdown"]').each(function(index, el) {
+            var $this = $(this);
+            var $date = $this.data('date').split("-");
+            $this.ENGO_CountDown({
+                TargetDate:$date[0]+"/"+$date[1]+"/"+$date[2]+" "+$date[3]+":"+$date[4]+":"+$date[5],
+                DisplayFormat:"<div class=\"countdown-times\"><div class=\"day distance\"><div class='number'>%%D%%</div> <div class='text'>days </div></div><div class=\"hours distance\"><div class='number'>%%H%%</div><div class='text'> <div class='text'>hours </div></div></div><div class=\"minutes distance\"><div class='number'>%%M%%</div><div class='text'> mins</div> </div><div class=\"seconds distance\"><div class='number'>%%S%%</div> <div class='text'>secs</div> </div></div>",
+                FinishMessage: "Expired"
+            });
+        });
+    
+    $('[data-countdown="engoj_countdown"]').each(function(index, el) {
+      var $this = $(this);
+      var $date = $this.data('date').split("-");
+      $this.ENGO_CountDown({
+        TargetDate:$date[0]+"/"+$date[1]+"/"+$date[2]+" "+$date[3]+":"+$date[4]+":"+$date[5],
+        DisplayFormat:"<span><strong>%%D%%</strong> <br> days</span> <span><strong>%%H%%</strong> <br> hours</span> <span><strong>%%M%%</strong> <br> minutes</span> <span><strong>%%S%%</strong> <br> seconds</span>",
+        FinishMessage: "Expired"
+      });
+    });
+    
+    
+  }
+  init_countdown();
+});
+
+
+/* ---------------------------------------------
+     Back to top
+--------------------------------------------- */
+{% unless template contains 'password' %}
+(function($){
+  "use strict"; 
+  init_backtotop();
+
+  function init_backtotop(){
+
+    $('body').append('<div id="engo_backtotop"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></div>');
+    var $backtotop = $('#engo_backtotop');
+
+    $backtotop.hide();
+
+    $(window).scroll(function() {
+      var heightbody = $('body').outerHeight(),
+          window_height = $(window).outerHeight(),
+          top_pos = heightbody/2-25;
+      if($(window).scrollTop() + window_height/2 >= top_pos) {
+        $backtotop.fadeIn();
+      } else {
+        $backtotop.fadeOut();
+      }
+    });
+
+    $backtotop.on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0},500);
+    });
+  }
+})(jQuery);
+{% endunless %}
+
+/* ---------------------------------------------
+     Hide live search in Header 3 (Homepage 6)
+--------------------------------------------- */
+jQuery(document).ready(function($) {
+  $("div:not(#productSearchResults)").click(function(){
+    $("#productSearchResults").hide();
+  });
+});

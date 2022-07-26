@@ -1,0 +1,334 @@
+<!-- section-interactive-banner-and-slider.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-interactive-banner-and-slider" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <section class="pb-70 hidden-xs engoc_no_rtl">
+    <div class="container">
+      <div class="br-card-wrapper br-card-banner" data-item="3" data-gap="5">
+        <div class="grid-sizer"></div>
+        {% if section.settings.s_ibs_enable_banner_1 %}
+        <div class="br-card inner-title">
+          <div class="br-card__media">
+            <div class="br-card__thumb engoc_hover_img">
+              <a href="{{ section.settings.s_ibs_banner_1_url }}">
+                {% if section.settings.banner-small-4 == blank %}
+                {% capture _img_url %}banner-small-4.png{% endcapture %}
+                <img src="{{ _img_url | asset_url}}" alt="">
+                {% else %}
+                <img src="{{ section.settings.banner-small-4 | img_url:'master' }}" alt="">
+                {% endif %}
+              </a>
+            </div>
+          </div>
+          <!-- br-card__media -->
+        </div>
+        {% endif %}
+        <!-- br-cart -->
+        {% if section.settings.s_ibs_enable_slider %}
+        <div class="br-card br-card--quad-w2 inner-title">
+          <div class="br-card__media">
+            <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="js-slide-banner slide-banner br-slick-white">
+              {% if section.settings.s_ibs_enable_slider_1 %}
+              <div class="br-card__thumb ">
+                <a href="{{section.settings.s_ibs_slider_1_btn_url}}">
+                  {% if section.settings.slider-banner-1 == blank %}
+                  {% capture _img_url %}slider-banner-1.png{% endcapture %}
+                  <img src="{{ _img_url | asset_url}}" alt="">
+                  {% else %}
+                  <img src="{{ section.settings.slider-banner-1 | img_url:'master' }}" alt="">
+                  {% endif %}
+                </a>
+                <div class="br-card__main-noh">
+                  <div class="slide-banner-content">
+                    <div class="tb-cell">
+                      <span class="uppercase fz-20 white">{{section.settings.s_ibs_slider_1_content_1}}</span>
+                      <h2 class="white font-secondary white">{{section.settings.s_ibs_slider_1_content_2}}</h2>
+                      <span class="uppercase fz-20 white mb-40 mb-md-30">{{section.settings.s_ibs_slider_1_content_3}}</span>
+                      <a href="{{section.settings.s_ibs_slider_1_btn_url}}" class="btn btn-primary">{{section.settings.s_ibs_slider_1_btn_name}}</a>
+                    </div>
+                  </div>
+                  <!-- .slide-banner-content -->
+                </div>
+              </div>
+              {% endif %}
+              {% if section.settings.s_ibs_enable_slider_2 %}
+              <div class="br-card__thumb">
+                <a href="{{section.settings.s_ibs_slider_2_btn_url}}">
+                  {% if section.settings.slider-banner-2 == blank %}
+                  {% capture _img_url %}slider-banner-2.png{% endcapture %}
+                  <img src="{{ _img_url | asset_url}}" alt="">
+                  {% else %}
+                  <img src="{{ section.settings.slider-banner-2 | img_url:'master' }}" alt="">
+                  {% endif %}
+                </a>
+                <div class="br-card__main-noh">
+                  <div class="slide-banner-content">
+                    <div class="tb-cell">
+                      <span class="uppercase fz-20 white">{{section.settings.s_ibs_slider_2_content_1}}</span>
+                      <h2 class="white font-secondary white mb-15">{{section.settings.s_ibs_slider_2_content_2}} <br> {{section.settings.s_ibs_slider_2_content_3}}</h2>
+                      <span class="uppercase fz-20 white mb-40">{{section.settings.s_ibs_slider_2_content_4}}</span>
+                      <a href="{{section.settings.s_ibs_slider_2_btn_url}}" class="btn btn-primary">{{section.settings.s_ibs_slider_2_btn_name}}</a>
+                    </div>
+                  </div>
+                  <!-- .slide-banner-content -->
+                </div>
+              </div>
+              {% endif %}
+              {% if section.settings.s_ibs_enable_slider_3 %}
+              <div class="br-card__thumb">
+                <a href="{{section.settings.s_ibs_slider_3_btn_url}}">
+                  {% if section.settings.slider-banner-3 == blank %}
+                  {% capture _img_url %}slider-banner-3.png{% endcapture %}
+                  <img src="{{ _img_url | asset_url}}" alt="">
+                  {% else %}
+                  <img src="{{ section.settings.slider-banner-3 | img_url:'master' }}" alt="">
+                  {% endif %}
+                </a>
+                <div class="br-card__main-noh text-left">
+                  <div class="slide-banner-content ">
+                    <div class="tb-cell">
+                      <span class="uppercase fz-20 white">{{settings.s_ibs_slider_3_content_1}}</span>
+                      <h2 class="white font-secondary white">{{settings.s_ibs_slider_3_content_2}}</h2>
+                      <span class="uppercase fz-20 white mb-40">{{settings.s_ibs_slider_3_content_3}}</span>
+                      <a href="{{section.settings.s_ibs_slider_3_btn_url}}" class="btn btn-primary">shop now</a>
+                    </div>
+                  </div>
+                  <!-- .slide-banner-content -->
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <!-- br-card__media -->
+        </div>
+        {% endif %}
+        <!-- br-cart -->
+        {% if section.settings.s_ibs_enable_banner_2 %}
+        <div class="br-card inner-title">
+          <div class="br-card__media">
+            <div class="br-card__thumb engoc_hover_img">
+              <a href="{{ section.settings.s_ibs_banner_2_url }}">
+                {% if section.settings.banner-small-7 == blank %}
+                {% capture _img_url %}banner-small-7.png{% endcapture %}
+                <img src="{{ _img_url | asset_url}}" alt="">
+                {% else %}
+                <img src="{{ section.settings.banner-small-7 | img_url:'master' }}" alt="">
+                {% endif %}
+              </a>
+            </div>
+          </div>
+          <!-- br-card__media -->
+        </div>
+        {% endif %}
+        <!-- br-cart -->
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+
+  {
+    "name": "iBanner & Slider",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Left: Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_ibs_enable_banner_1",
+        "label": "Enable Banner 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-small-4",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_banner_1_url",
+        "label": "Banner 1 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_ibs_enable_banner_2",
+        "label": "Enable Banner 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-small-7",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_banner_2_url",
+        "label": "Banner 2 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Right: Slider"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_ibs_enable_slider",
+        "label": "Enable Slider?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "s_ibs_enable_slider_1",
+        "label": "Enable Slider 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "slider-banner-1",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_1_content_1",
+        "label": "Content 1",
+        "default": "the result for men"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_1_content_2",
+        "label": "Content 2",
+        "default": "Vibrant Colours"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_1_content_3",
+        "label": "Content 3",
+        "default": "You Won’t Find Anywhere Else"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_1_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_1_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_ibs_enable_slider_2",
+        "label": "Enable Slider 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "slider-banner-2",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_2_content_1",
+        "label": "Content 1",
+        "default": "Street Fashion"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_2_content_2",
+        "label": "Content 2",
+        "default": "Lookbook"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_2_content_3",
+        "label": "Content 3",
+        "default": "Black & White"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_2_content_4",
+        "label": "Content 4",
+        "default": "Starting  $69.99"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_2_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_2_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_ibs_enable_slider_3",
+        "label": "Enable Slider 3?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "slider-banner-3",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_3_content_1",
+        "label": "Content 1",
+        "default": "NEW STYLE"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_3_content_2",
+        "label": "Content 2",
+        "default": "Minimal Color"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_3_content_3",
+        "label": "Content 3",
+        "default": "only $69.99"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_3_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "s_ibs_slider_3_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+    ],
+    "presets": [
+      {
+        "name": "iBanner & Slider",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

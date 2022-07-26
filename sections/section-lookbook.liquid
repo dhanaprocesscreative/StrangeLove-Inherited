@@ -1,0 +1,142 @@
+<!-- section-lookbook.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-lookbook" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <section class="engoc_no_rtl">
+    <div class="container">
+      <div class="br-lookbook br-lookbook--moderm mb-140 mb-md-80">
+        <button type="button" class="slick-prev slick-prev-1">Previous</button>
+        <button type="button" class="slick-next slick-next-1">Next</button>
+        <h2 class="br-title">{{section.settings.lk_name}}</h2>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+            <div class="br-lookbook__gallery">
+              <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="js-br-lookbook__gallery-moderm-1">
+                {% if section.blocks.size > 0 %}
+                {%- assign i = 1 -%}
+                {% for block in section.blocks %}
+                <div class="br-lookbook__item">
+                  {% if block.settings.lb-img == blank %}
+                  {% capture _img_url %}lb-{{i}}.png{% endcapture %}
+                  <img src="{{ _img_url | asset_url}}" alt="">
+                  {% else %}
+                  <img src="{{ block.settings.lb-img | img_url:'master' }}" alt="">
+                  {% endif %}
+                </div>
+                {%- assign i = i | plus : 1 -%}
+                {% endfor %}
+                {% endif %}
+              </div>
+              <!-- js-br-lookbook__gallery -->
+            </div>
+            <!-- br-lookbook__gallery -->
+            <div class="br-lookbook__main">
+              <h2 class="br-lookbook__name"><a href="{{section.settings.lk_title_url}}">{{section.settings.lk_title}}</a></h2>
+              <!-- br-lookbook__name -->
+              <div class="br-lookbook__description">
+                <p>{{section.settings.lk_content}}</p>
+              </div>
+              <a href="{{section.settings.lk_btn_url}}" class="btn btn-default">{{section.settings.lk_btn_name}}</a>
+            </div>
+            <!-- br-lookbook__main -->
+          </div>
+        </div>
+      </div>
+      <!-- br-lookbook -->
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Lookbook",
+  "class": "index-section",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "text",
+      "id": "lk_name",
+      "label": "Name",
+      "default": "Lookbook"
+    },
+    {
+      "type": "text",
+      "id": "lk_title",
+      "label": "Title",
+      "default": "Spring & Summer 2016"
+    },
+    {
+      "type": "text",
+      "id": "lk_title_url",
+      "label": "Title URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "textarea",
+      "id": "lk_content",
+      "label": "Content",
+      "default": "The Spring Summer 2013 collection is based on a road trip through California. Drawing on the influences of surfer culture and the vibrant colours of the streets, the collection nods to a 50s aesthetic with clean tailored lines and more fitted silhouettes."
+    },
+    {
+      "type": "text",
+      "id": "lk_btn_name",
+      "label": "Button Name",
+      "default": "view collection"
+    },
+    {
+      "type": "text",
+      "id": "lk_btn_url",
+      "label": "Button URL",
+      "default": "\/collections\/all"
+    },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+  ],
+  "blocks": [
+    {
+      "type": "gallery",
+      "name": "Gallery",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "lb-img",
+          "label": "Lookbook Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lookbook",
+      "category": "Content",
+      "settings": {
+        
+      },
+      "blocks": [
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "gallery"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

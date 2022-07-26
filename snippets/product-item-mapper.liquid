@@ -1,0 +1,56 @@
+<!-- /snippets/product-item-mapper.liquid -->
+
+<div class="close"></div>
+<div class="col-md-5">
+  <a href="{{ product.url | within: collection }}"><img class="img-responsive" src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}"></a>
+</div>
+<div class="col-md-7">
+  <h2 class="text-uppercase normal"><a href="{{ product.url | within: collection }}">{{ product.title }} </a></h2>
+  <span class="br-product__price fz-16">
+      {% capture price %}{{ product.price | money }}{% endcapture %}
+      {% if product.price_varies %}{{ 'products.general.from_text_html' | t: price: price }}{% else %}{{ price }}{% endif %}
+      {% if on_sale %} <del>{{ product.compare_at_price | money }}</del> {% endif %}
+  </span> <!-- End .br-product__price -->
+  <div class="rating mb-15">
+      <span data-style-width="100%" class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+  </div>
+  <div class="br-product__description">
+    <p>{{ product.description | strip_html | truncatewords: 7}}</p>
+  </div>
+  <div class="br-product__action mb-15">
+    <div class="tb">
+      {% if sold_out %}
+      <div class="table-cell-center">
+        <a class="btn btn-default btn-cart" href="{{ product.url | within: collection }}" data-placement="top" title="" data-original-title="cart" disabled>
+          <i class="fa {{settings.product_icon_action_cart}}"style="margin-top: -5px;"></i>
+          <span>{{ 'products.product.unavailable' | t }}</span>
+        </a>
+      </div>
+      {% else %}
+      {% if product.variants.size > 1 %}
+      <div class="table-cell-center">
+        <a class="btn btn-default btn-cart" href="{{ product.url | within: collection }}" data-placement="top" title="" data-original-title="cart">
+          <i class="fa {{settings.product_icon_action_select_option}}"></i>
+          <span>{{settings.product_select_option_name}}</span>
+        </a>
+      </div>
+      {% else %}
+      <div class="table-cell-center">
+        <form method="post" action="/cart/add" class="add-to-cart">
+          <span class="sr-only">{{settings.product_cart_name}}</span>
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          <button type="submit" name="add" id="AddToCart{{ product.id }}" class="enj-add-to-cart-btn btn btn-default btn-cart" data-placement="top" title="" data-original-title="cart">
+            <i class="fa {{settings.product_icon_action_cart}}"style="margin-top: -5px;"></i>
+            <span>{{settings.product_cart_name}}</span>
+          </button>
+        </form>
+      </div>
+      {% endif %}
+      {% endif %}
+
+      <div class="table-cell-center engoc-border-wistlist">
+        {% include 'add-wishlist' %}
+      </div>
+    </div>
+  </div>
+</div>

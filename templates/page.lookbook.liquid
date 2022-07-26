@@ -1,0 +1,122 @@
+<!-- /templates/page.lookbook.liquid -->
+<div class="page-title page-title--white  bg-5" style="background-image: url('{% if settings.bg_header_lookbook == blank %}{{ 'bg_header_lookbook.png' | asset_url }}{% else %}{{settings.bg_header_lookbook |  img_url : "master"}}{% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <h1 class="text-uppercase mb-5">{{page.title}}</h1>
+      {% include 'breadcrumb' %}
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+<section class="section br-lookbook-wrapper">
+  <div class="container mb-140">
+    <div class="text-center">
+      {% if settings.enable_lb_page_title %}
+      <h2 class="h1 heading-page fz-40 mb-35">{{settings.lb_page_title}}</h2>
+      {% endif %}
+      {% if settings.enable_lb_page_search %}
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="form-search">
+            {% include 'search-bar' %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="container engoc_no_rtl">
+    {% for i in (1..4) %}
+    {% capture _enable %}enable_lb_page_{{i}}{% endcapture %}
+    {% capture _title %}lb_page_{{i}}_title{% endcapture %}
+    {% capture _content %}lb_page_{{i}}_des{% endcapture %}
+    {% capture _img_1 %}lb{{i}}_1.png{% endcapture %}
+    {% capture _img_2 %}lb{{i}}_2.png{% endcapture %}
+    {% capture _img_1_up %}lb{{i}}_1{% endcapture %}
+    {% capture _img_2_up %}lb{{i}}_2{% endcapture %}
+    {% capture _btn_name %}lb_page_{{i}}_btn{% endcapture %}
+    {% capture _url %}lb_page_{{i}}_url{% endcapture %}
+
+    {% assign enable = settings[_enable] %}
+    {% if enable %}
+    {% assign title = settings[_title] %}
+    {% assign content = settings[_content] %}
+    {% assign img_1 = settings[_img_1] %}
+    {% assign img_2 = settings[_img_2] %}
+    {% assign img_1_up = settings[_img_1_up] %}
+    {% assign img_2_up = settings[_img_2_up] %}
+    {% assign btn_name = settings[_btn_name] %}
+    {% assign url = settings[_url] %}
+
+    {% if settings.slk_style == "lk_s1" %}
+    <div class="br-lookbook br-lookbook--moderm">
+      <button type="button" class="slick-prev slick-prev-{{i}}">Previous</button>
+      <button type="button" class="slick-next slick-next-{{i}}">Next</button>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+          <div class="br-lookbook__gallery">
+            <div class="js-br-lookbook__gallery-moderm-{{i}}">
+              <div class="br-lookbook__item">
+                <img src="{% if img_1_up != blank %}{{img_1_up | img_url: "master"}}{% else %}{{ _img_1 | asset_url }}{% endif %}" alt="image lookbook">
+              </div>
+              <div class="br-lookbook__item">
+                <img src="{% if img_2_up != blank %}{{img_2_up | img_url: "master"}}{% else %}{{ _img_2 | asset_url }}{% endif %}" alt="image lookbook">
+              </div>
+            </div>
+            <!-- js-br-lookbook__gallery -->
+          </div>
+          <!-- br-lookbook__gallery -->
+          <div class="br-lookbook__main">
+            <h2 class="br-lookbook__name"><a href="{{url}}">{{title}}</a></h2>
+            <!-- br-lookbook__name -->
+            <div class="br-lookbook__description">
+              <p>{{content}}</p>
+            </div>
+            <a href="{{url}}" class="btn btn-default btn-150">{{btn_name}}</a>
+          </div>
+          <!-- br-lookbook__main -->
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if settings.slk_style == "lk_s2" %}
+    <div class="br-lookbook">
+      <div class="br-lookbook__gallery">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+            <div class="js-br-lookbook__gallery">
+              <div class="br-lookbook__item">
+                <img src="{% if img_1_up != blank %}{{img_1_up | img_url: "master"}}{% else %}{{ _img_1 | asset_url }}{% endif %}" alt="image lookbook">
+              </div>
+              <div class="br-lookbook__item">
+                <img src="{% if img_2_up != blank %}{{img_2_up | img_url: "master"}}{% else %}{{ _img_2 | asset_url }}{% endif %}" alt="image lookbook">
+              </div>
+            </div>
+            <!-- js-br-lookbook__gallery -->
+          </div>
+          <!-- br-lookbook__gallery -->
+        </div>
+      </div>
+      <div class="br-lookbook__main">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h2 class="br-lookbook__name"><a href="{{url}}">{{title}}</a></h2>
+            <!-- br-lookbook__name -->
+            <div class="br-lookbook__description">
+              <p>{{content}}</p>
+            </div>
+            <a href="{{url}}" class="btn btn-default btn-150">{{btn_name}}</a>
+          </div>
+        </div>
+      </div>
+      <!-- br-lookbook__main -->
+    </div>
+    {% endif %}
+    
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</section>

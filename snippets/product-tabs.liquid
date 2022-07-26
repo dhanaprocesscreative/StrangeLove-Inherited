@@ -1,0 +1,82 @@
+<!-- /snippets/product-tabs.liquid -->
+{% if section.settings.enable_product_tabs %}
+<section class="br-bb pt-55">
+  <div class="container">
+    <div role="tabpanel">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs nav-tabs--row text-center mb-35" role="tablist">
+        {% if section.settings.enable_des_tab %}
+        <li role="presentation" class="active">
+          <a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{section.settings.title_des_tab}}</a>
+        </li>
+        {% endif %}
+        
+        {% if engo_custom.custom_tab1 != blank %}
+        <li role="presentation">
+          <a href="#custom_tab1" aria-controls="custom_tab1" role="tab" data-toggle="tab">{{ 'product_detail.custom_tab1' | t}}</a>
+        </li>
+        {% endif %}
+        
+        {% if section.settings.enable_custom_tab %}
+        <li role="presentation">
+          <a href="#information" aria-controls="information" role="tab" data-toggle="tab">{{section.settings.title_custom_tab}}</a>
+        </li>
+        {% endif %}
+        {% if section.settings.enable_review_tab %}
+        <li role="presentation">
+          <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{section.settings.title_review_tab}}</a>
+        </li>
+        {% endif %}
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        {% if section.settings.enable_des_tab %}
+        <div role="tabpanel" class="tab-pane active" id="description">
+          <div class="pb-80">
+            {{ product.description }}
+          </div>
+        </div>
+        {% endif %}
+        
+        {% if engo_custom.custom_tab1 %}
+        <div role="tabpanel" class="tab-pane" id="custom_tab1">
+          <div class="pb-80">
+            {{ engo_custom.custom_tab1 }}
+          </div>
+        </div>
+        {% endif %}
+        
+        {% if section.settings.enable_custom_tab %}
+        <div role="tabpanel" class="tab-pane" id="information">
+          {% if section.settings.custom_tab_option == "ct_ops_image" %}
+          	{%if section.settings.ct_option_1 != blank%}
+          		<img src="{{ section.settings.ct_option_1 | img_url: "master" }}"/>
+          	{%else%}
+          		<img src="{{ 'ct_option_1.png' | asset_url }}"/>
+          	{% endif %}
+          {% endif %}
+          {% if section.settings.custom_tab_option == "ct_ops_html" %}
+          {{ section.settings.ct_option_2 }}
+          {% endif %}
+          {% if section.settings.custom_tab_option == "ct_ops_page" %}
+          {{ section.settings.ct_option_3 }}
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if section.settings.enable_review_tab %}
+        <div role="tabpanel" class="tab-pane pb-55" id="reviews">
+          <div class="row mb-55">
+            <div class="col-md-12">
+              <div class="comments comments-rating">
+                <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+              </div>
+              <!-- .comments -->
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

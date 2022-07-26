@@ -1,0 +1,85 @@
+<!-- /templates/page.aboutus.liquid -->
+<div class="page-title page-title--white bg-7" style="background-image: url('{% if settings.background_header_aboutus == blank %}{{ 'background_header_aboutus.png' | asset_url }}{% else %}{{settings.background_header_aboutus |  img_url : "master"}}{% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <h1 class="text-uppercase mb-5">{{ page.title }}</h1>
+      {% include 'breadcrumb' %}
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+<section class="section">
+  <div class="container">
+    <div class="overflow-hidden pb-80 mb-md-30">
+      <img src="{% if settings.img_content_aboutus != blank %}{{settings.img_content_aboutus | img_url: "master"}}{% else %}{{ 'img_content_aboutus.png' | asset_url }}{% endif %}" alt="">
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="h1 text-uppercase">{{settings.about_us_s1_title}}</h2>
+      </div>
+      <div class="col-md-8">
+        <h3 class="text-uppercase mb-35">{{settings.about_us_s1_title_content_1}}</h3>
+        <h2 class="h1 br-slogan mb-35">{{settings.about_us_s1_title_content_2}}</h2>
+        <h3 class="br-slogan-note mb-60 mb-md-30">{{settings.about_us_s1_summary}}</h3>
+        <div class="row mb-70 mb-md-30">
+          <div class="col-md-6">
+            <p>{{settings.about_us_s1_content_1}}</p>
+          </div>
+          <div class="col-md-6">
+            <p>{{settings.about_us_s1_content_2}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- .row -->
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="h1 text-uppercase">{{settings.about_us_s2_title_1}} <br>{{settings.about_us_s2_title_2}}</h2>
+      </div>
+      <div class="col-md-8">
+        <div class="row js-br-team br-slick-white">
+          {% for i in (1..5) %}
+          {% capture _enable %}member_enable_{{i}}{% endcapture %}
+          {% capture _member_img %}br-team-{{i}}.png{% endcapture %}
+          {% capture _member_img_up %}br-team-{{i}}{% endcapture %}
+          {% capture _member_social_content %}about_us_member_{{i}}_social_content{% endcapture %}
+          {% capture _member_name %}about_us_member_{{i}}_name{% endcapture %}
+          {% capture _member_description %}about_us_member_{{i}}_description{% endcapture %}
+
+          {% assign enable = settings[_enable] %}
+          {% if enable %}
+          {% assign member_img = settings[_member_img] %}
+          {% assign member_img_up = settings[_member_img_up] %}
+          {% assign member_social_content = settings[_member_social_content] %}
+          {% assign member_name = settings[_member_name] %}
+          {% assign member_description = settings[_member_description] %}
+
+          <div class="col-md-6">
+            <div class="br-team">
+              <div class="br-team__media">
+                <div class="br-team__thumb">
+                  <a href="#">
+                    {% if member_img_up == blank %}
+                    <img src="{{ _member_img | asset_url }}" alt="">
+                    {% else %}
+                    <img src="{{member_img_up |  img_url : "master"}}" alt="">
+                    {% endif %}
+                  </a>
+                </div>
+                {{member_social_content}}
+              </div>
+              <div class="br-team__info text-center">
+                <h3 class="br-team__name">{{member_name}}</h3>
+                <span>{{member_description}}</span>
+              </div>
+            </div>
+            <!-- .br-team -->
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+<!-- /snippets/header-v3.liquid -->
+<header class="site-header site-header-style engoc-header-s3">
+  {% include 'header-promotion' %}
+  {% include 'header-3-topbar' %}
+  <nav class="awemenu-nav awemenu-fadeup engoc-header-nav-s3">
+    <div class="br-nav-wrapper">
+      <div class="container">
+        <div class="navbar-icons">
+          <div class="dropdown dropdown-animation hidden-lg hidden-md">
+            <a href="#" data-toggle="dropdown" role="button">
+              <i class="fa {{settings.header_icon_search}}" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu dropdown-search">
+              <div class="form-search">
+                {% include 'search-bar-mobile-headers3' %}
+              </div>
+            </div>
+            <!-- .dropdown-search -->
+          </div>
+          <!-- dropdown -->
+          <div {% if settings.enable_rtl %}class="dropdown-left"{% else %}class="dropdown-right"{% endif %}>
+            {% include 'header-minicart' %}
+            <!-- dropdown -->
+            {% include 'header-miniwishlist' %}
+            <!-- dropdown -->
+            {% include 'header-miniaccount' %}
+            <!-- dropdown -->
+          </div>
+        </div>
+        <!-- .navbar-icons -->
+        <div class="form-search pt-5 hidden-xs hidden-sm">
+          {% include 'search-bar' %}
+        </div>
+        <!-- form-search -->
+        <div class="awemenu-logo engoc-h3-maxwidth-logo">
+          {% if settings.svg_logo_header_s3 %}
+          <a href="{{shop.url}}">{{settings.svg_logo_text_header_s3}}</a>
+          {% else %}
+          <a href="{{shop.url}}"><img src="{{ 'logo-br-3.png' | asset_url }}" alt=""></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="awemenu-container">
+        <div class="br-nav">
+          {% include 'menu' %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

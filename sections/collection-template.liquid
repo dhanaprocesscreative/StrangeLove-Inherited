@@ -1,0 +1,579 @@
+<!-- collection-template.liquid -->
+{% comment %}
+For more information on collection tags:
+- http://docs.shopify.com/themes/liquid-variables/collection
+{% endcomment %}
+{% if template contains 'collection.list' %}
+	{%- assign per_page = settings.nb_per_page -%}
+{%elsif template contains 'collection.24' %}
+	{%- assign per_page = 24 -%}
+{% elsif template contains 'collection.48' %}
+	{%- assign per_page = 48 -%}
+{% else %}
+	{%- assign per_page = settings.nb_per_page -%}
+{%endif%}
+
+{% paginate collection.products by per_page %}
+
+{% comment %}
+Use .grid--rev so that the collection tags appear below the products on mobile
+{% endcomment %}
+<div class="page-title page-title--classic  mb-0 bg-12" style="background-image: url('{%if section.settings.bg_header_collection == blank %}{{ 'bg-header-collection.png' | asset_url }}{%else%}{{section.settings.bg_header_collection |  img_url : "master"}}{%endif%}');" data-section-id="{{ section.id }}" data-section-type="collection-template">
+  <div class="container">
+    <div class="page-title__main">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <h1 class="text-uppercase mb-5">{{collection.title}}</h1>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          {% include 'breadcrumb' %}
+        </div>
+      </div>
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+<section>
+  <div class="container">
+    <div class="br-filter-wrapper">
+      <div class="overflow-hidden">
+        {% include 'collection-sorting' %}
+      </div>
+    </div>
+    <!-- br-filter -->
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="grid-uniform {% if section.settings.collection_template == "collection_no_sidebar" %}col-md-12{% else %}col-md-9{% endif %} {% if section.settings.collection_template == "collection_left_sidebar" %}col-md-push-3{% endif %}">
+        {% if template contains 'collection.list' %}
+        	<div{% unless section.settings.collection_template == "collection_right_sidebar" %} class="row"{% endunless %}>
+          {% for product in collection.products %}
+          {% include 'product-item-list' %}
+          {% else %}
+          {% if collection.handle == 'all' and current_tags == '' %}
+
+          {% unless emptyState %}
+          {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+          {% assign emptyState = true %}
+          {% endunless %}
+          {% include 'product-item-empty' %}
+
+          {% else %}
+
+          {% comment %}
+          If collection exists but is empty, display message
+          {% endcomment %}
+          <div class="grid__item">
+            <p>{{ 'collections.general.no_matches' | t }}</p>
+          </div>
+
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="row">
+            {% for product in collection.products %}
+            <div class="{% if section.settings.collection_template == "collection_no_sidebar" %}col-md-3{% else %}col-md-4{% endif %} col-sm-6 col-tn-6">
+              {% include 'product-item' %}
+            </div>
+            {% else %}
+              {% if collection.handle == 'all' and current_tags == '' %}
+
+              {% unless emptyState %}
+              {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+              {% assign emptyState = true %}
+              {% endunless %}
+              {% include 'product-item-empty' %}
+
+              {% else %}
+
+              {% comment %}
+              If collection exists but is empty, display message
+              {% endcomment %}
+              <div class="grid__item">
+                <p>{{ 'collections.general.no_matches' | t }}</p>
+              </div>
+
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if paginate.pages > 1 %}
+        <div class="text-center br-pagination mb-35">
+        <div class="pagination">
+          {% if settings.enable_rtl %}
+          {{ paginate | default_pagination | replace: '&laquo; Previous', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-right"></i>' | replace: 'Next &raquo;', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-left"></i>' }}
+          {% else %}
+          {{ paginate | default_pagination | replace: '&laquo; Previous', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-left"></i>' | replace: 'Next &raquo;', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-right"></i>' }}
+          {% endif %}
+        </div>
+        </div>
+        {% endif %}
+      </div>
+      {% unless section.settings.collection_template == "collection_no_sidebar" %}
+      {% include 'collection-sidebar' %}
+      {% endunless %}
+    </div>
+  </div>
+  
+</section>
+{% endpaginate %}
+
+{% schema %}
+  {
+    "name": "Collection Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Select Template Collection"
+      },
+      {
+        "type": "select",
+        "id": "collection_template",
+        "options": [
+          {
+            "value": "collection_left_sidebar",
+            "label": "Collection Left Sidebar"
+          },
+          {
+            "value": "collection_right_sidebar",
+            "label": "Collection Right Sidebar"
+          },
+          {
+            "value": "collection_no_sidebar",
+            "label": "Collection No Sidebar"
+          }
+        ],
+        "label": "Select Template Collection",
+        "default": "collection_left_sidebar"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_header_collection",
+        "label": "Image Header Background"
+      },
+	  {
+        "type": "header",
+        "content": "Widget Position"
+      },
+      {
+        "type": "paragraph",
+        "content": "Choose your widget and their order."
+      },
+      {
+        "type": "select",
+        "id": "collection_widget_1",
+        "label": "Widget 1",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "collection-widget-categories",
+            "label": "Widget Categories"
+          },
+          {
+            "value": "collection.shopby-color",
+            "label": "Widget Color"
+          },
+          {
+            "value": "collection.shopby-size",
+            "label": "Widget Size Option"
+          },
+          {
+            "value": "collection.shopby-price",
+            "label": "Widget Price Filter"
+          },
+          {
+            "value": "collection.shopby-brand",
+            "label": "Widget Brand"
+          },
+          {
+            "value": "collection-widget-tags",
+            "label": "Widget Tags"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collection_widget_2",
+        "label": "Widget 2",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "collection-widget-categories",
+            "label": "Widget Categories"
+          },
+          {
+            "value": "collection.shopby-color",
+            "label": "Widget Color"
+          },
+          {
+            "value": "collection.shopby-size",
+            "label": "Widget Size Option"
+          },
+          {
+            "value": "collection.shopby-price",
+            "label": "Widget Price Filter"
+          },
+          {
+            "value": "collection.shopby-brand",
+            "label": "Widget Brand"
+          },
+          {
+            "value": "collection-widget-tags",
+            "label": "Widget Tags"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collection_widget_3",
+        "label": "Widget 3",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "collection-widget-categories",
+            "label": "Widget Categories"
+          },
+          {
+            "value": "collection.shopby-color",
+            "label": "Widget Color"
+          },
+          {
+            "value": "collection.shopby-size",
+            "label": "Widget Size Option"
+          },
+          {
+            "value": "collection.shopby-price",
+            "label": "Widget Price Filter"
+          },
+          {
+            "value": "collection.shopby-brand",
+            "label": "Widget Brand"
+          },
+          {
+            "value": "collection-widget-tags",
+            "label": "Widget Tags"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collection_widget_4",
+        "label": "Widget 4",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "collection-widget-categories",
+            "label": "Widget Categories"
+          },
+          {
+            "value": "collection.shopby-color",
+            "label": "Widget Color"
+          },
+          {
+            "value": "collection.shopby-size",
+            "label": "Widget Size Option"
+          },
+          {
+            "value": "collection.shopby-price",
+            "label": "Widget Price Filter"
+          },
+          {
+            "value": "collection.shopby-brand",
+            "label": "Widget Brand"
+          },
+          {
+            "value": "collection-widget-tags",
+            "label": "Widget Tags"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collection_widget_5",
+        "label": "Widget 5",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "collection-widget-categories",
+            "label": "Widget Categories"
+          },
+          {
+            "value": "collection.shopby-color",
+            "label": "Widget Color"
+          },
+          {
+            "value": "collection.shopby-size",
+            "label": "Widget Size Option"
+          },
+          {
+            "value": "collection.shopby-price",
+            "label": "Widget Price Filter"
+          },
+          {
+            "value": "collection.shopby-brand",
+            "label": "Widget Brand"
+          },
+          {
+            "value": "collection-widget-tags",
+            "label": "Widget Tags"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collection_widget_6",
+        "label": "Widget 6",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "collection-widget-categories",
+            "label": "Widget Categories"
+          },
+          {
+            "value": "collection.shopby-color",
+            "label": "Widget Color"
+          },
+          {
+            "value": "collection.shopby-size",
+            "label": "Widget Size Option"
+          },
+          {
+            "value": "collection.shopby-price",
+            "label": "Widget Price Filter"
+          },
+          {
+            "value": "collection.shopby-brand",
+            "label": "Widget Brand"
+          },
+          {
+            "value": "collection-widget-tags",
+            "label": "Widget Tags"
+          }
+        ]
+      },
+	{
+		"type": "header",
+		"content":"Widget config"
+	},
+	{
+        "type": "header",
+        "content": "Widget Categories"
+      },
+      {
+        "type": "text",
+        "id": "widget_cate_title",
+        "label": "Title Widget",
+        "info": "i.e \"Categories\".",
+        "default": "Categories"
+      },
+      {
+        "type": "header",
+        "content": "Widget Filter by Color"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_tags_1_title",
+        "label": "Title Widget",
+        "info": "i.e \"Color\".",
+        "default": "Color"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_1",
+        "label": "Shop by color text 1",
+        "default": "Red",
+        "info": "i.e \"red\"."
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_1",
+        "label": "Shop by color 1",
+        "default": "#f50000"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_2",
+        "label": "Shop by color text 2",
+        "default": "blue"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_2",
+        "label": "Shop by color  2",
+        "default": "#005ff5"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_3",
+        "label": "Shop by color text 3",
+        "default": "white"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_3",
+        "label": "Shop by color  3",
+        "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_4",
+        "label": "Shop by color text 4",
+        "default": "pink"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_4",
+        "label": "Shop by color 4",
+        "default": "#ff019e"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_5",
+        "label": "Shop by color text 5",
+        "default": "pink"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_5",
+        "label": "Shop by color 5",
+        "default": "#ff019e"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_6",
+        "label": "Shop by color text 6",
+        "default": "pink"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_6",
+        "label": "Shop by color 6",
+        "default": "#ff019e"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_7",
+        "label": "Shop by color text 7",
+        "default": "pink"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_7",
+        "label": "Shop by color 7",
+        "default": "#ff019e"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_8",
+        "label": "Shop by color text 8",
+        "default": "pink"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_8",
+        "label": "Shop by color 8",
+        "default": "#ff019e"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_9",
+        "label": "Shop by color text 9",
+        "default": "pink"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_9",
+        "label": "Shop by color 9",
+        "default": "#ff019e"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_color_text_10",
+        "label": "Shop by color text 10",
+        "default": "pink"
+      },
+      {
+        "type": "color",
+        "id": "shop_by_color_10",
+        "label": "Shop by color 10",
+        "default": "#ff019e"
+      },
+      {
+        "type": "header",
+        "content": "Widget Filter by Price"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_tags_2_title",
+        "label": "Title Widget",
+        "info": "i.e \"Price Filter\".",
+        "default": "Price Filter"
+      },
+      {
+        "type": "textarea",
+        "id": "shop_by_tags_2_list_tags",
+        "label": "Shop by tags 2 list"
+      },
+      {
+        "type": "header",
+        "content": "Widget Filter by Size"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_tags_3_title",
+        "label": "Shop by tags 3 title",
+        "info": "i.e \"Product Type\".",
+        "default": "Size Option"
+      },
+      {
+        "type": "textarea",
+        "id": "shop_by_tags_3_list_tags",
+        "label": "Shop by tags 3 list",
+        "info": "Separate by a comma, i.e \"M, L ,XL ..\"."
+      },
+      {
+        "type": "header",
+        "content": "Widget Filter by Brand"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_tags_4_title",
+        "label": "Widget Title",
+        "info": "i.e \"Brand\".",
+        "default": "Brand"
+      },
+      {
+        "type": "header",
+        "content": "Widget Tags"
+      },
+      {
+        "type": "text",
+        "id": "shop_by_tags_5_title",
+        "label": "Widget Title",
+        "info": "i.e \"Popular Tags\".",
+        "default": "Popular Tags"
+      }
+    ]
+  }
+{% endschema %}

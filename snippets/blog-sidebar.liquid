@@ -1,0 +1,98 @@
+<!-- /snippets/blog-sidebar.liquid -->
+<aside id="secondary" class="sidebar widget-area pb-40">
+  {% if section.settings.enable_widget_categories %}
+  <section class="widget widget_categories">
+    <h2 class="widget-title">{{section.settings.widget_categories_title}}</h2>
+    <!-- widget-title -->
+    <ul>
+      {% for collection in collections %}
+      <li><a href="{{ collection.url }}">{{ collection.title }}<span>({{collection.products_count}})</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  <!-- widget -->
+  {% if section.settings.enable_widget_recent_post %}
+  <section class="widget widget_recent_post">
+    <h2 class="widget-title">{{section.settings.widget_recent_post_title}}</h2>
+    <!-- widget-title -->
+    <ul>      
+      {% for article in blogs[section.settings.widget_recent_post_select].articles limit: section.settings.widget_recent_post_limit %}
+      <li><a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  <!-- widget -->
+  {% if section.settings.enable_widget_latest_tweets %}
+  <section class="widget widget_latest_tweets">
+    <h2 class="widget-title">{{section.settings.widget_latest_tweets_title}}</h2>
+    <!-- widget-title -->
+    <div class="widget-list">
+      {{section.settings.widget_latest_tweets_embed}}
+    </div>
+    <!-- widget-list -->
+  </section>
+  {% endif %}
+  <!-- widget -->
+  {% if section.settings.enable_widget_gallery_instagram %}
+
+  {% assign instafeed_img = '{{image}}' %}
+  {% assign instafeed_link = '{{link}}' %}
+  <script>
+    jQuery(document).ready(function($) {
+
+      var feed = new Instafeed({
+        get: 'user',
+        userId: '{{section.settings.gallery_instagram_userid}}',
+        accessToken: '{{section.settings.gallery_instagram_access_token}}',
+        template: ' <a href="{{instafeed_link}}"><img src="{{instafeed_img}}" alt=""></a>',
+        target: 'instagram-sidebar',
+        resolution: 'standard_resolution',
+        limit: '{{section.settings.gallery_instagram_limit_number}}'
+      });
+      feed.run();
+
+    });
+  </script>
+  
+  <section class="widget">
+    <h2 class="widget-title">{{section.settings.widget_gallery_instagram_title}}</h2>
+    <!-- widget-title -->
+    <div id="instagram-sidebar" class="instagram-pics mb-25">
+
+    </div>
+    <!-- instagram-pics -->
+  </section>
+  {% endif %}
+  <!-- widget -->
+  {% if section.settings.enable_widget_tags %}
+  <section class="widget">
+    <h2 class="widget-title">{{section.settings.widget_tags_title}}</h2>
+    <!-- widget-title -->
+    <div class="tagcloud">
+      {% if blog.all_tags.size > 0 %}
+      {% for tag in blog.all_tags %}
+      {% if current_tags contains tag %}
+      {{ tag }}
+      {% else %}
+      {{ tag | link_to_tag: tag }}
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+    </div>
+    <!-- tagcloud -->
+  </section>
+  {% endif %}
+  <!-- widget -->
+  {% if section.settings.enable_widget_banner %}
+  <section>
+    <h2 class="widget-title sr-only">banner</h2>
+    <!-- widget-title -->
+    <a href="{{section.settings.widget_banner_url}}">
+    <img src="{%if section.settings.banner_post != blank %}{{ section.settings.banner_post | img_url : "master" }}{% else %}{{ 'banner-post.png' | asset_url }}{% endif %}" alt="">
+    </a>
+  </section>
+  {% endif %}
+</aside>
+<!-- #secondary -->

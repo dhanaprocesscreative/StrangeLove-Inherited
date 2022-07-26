@@ -1,0 +1,14 @@
+<section class="widget widget_categories">
+  <h2 class="widget-title">{{section.settings.widget_cate_title}}</h2>
+  <!-- widget-title -->
+  <ul>
+    {% for collection in collections %}
+    <li>
+      <a href="{{ collection.url }}">
+        {{ collection.title }}
+        <span>({{collection.products_count}})</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

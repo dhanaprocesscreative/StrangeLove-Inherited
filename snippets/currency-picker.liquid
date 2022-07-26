@@ -1,0 +1,10 @@
+
+<div class="dropdown text-uppercase">
+  <a data-target="#" href="#" data-toggle="dropdown" role="button" class="selected-currency">Usd</a><i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px; margin-right: 5px;"></i>
+  <ul class="dropdown-menu" id="currencies">
+    {% assign supported = settings.supported_currencies | split: ' ' %}
+    {% for c in supported %}
+    <li><a data-currency="{{c}}">{{c}}</a></li>
+    {% endfor %}
+  </ul>
+</div>

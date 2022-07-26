@@ -1,0 +1,34 @@
+<!-- header-miniaccount.liquid -->
+<div class="dropdown dropdown-animation">
+  <a href="/account/register" data-toggle="dropdown" role="button">
+    <i class="fa {{section.settings.header_icon_account}}" aria-hidden="true"></i>
+  </a>
+  {% if shop.customer_accounts_enabled %}
+  {% if customer %}
+  <div class="dropdown-menu dropdown-account">
+    <span>{{ 'layout.customer.hello' | t}}</span>
+    {% if customer.first_name != blank %}
+    {% capture first_name %}{{ customer.first_name }}{% endcapture %}
+    {% capture last_name %}{{ customer.last_name }}{% endcapture %}
+    <h5 class="text-uppercase mb-20">{{ first_name }} {{ last_name }} </h5>
+    {% endif %}
+    <div class="avatar mb-25">
+      <a href="/account"><img src="{{ 'avt-account.png' | asset_url }}" alt=""></a>
+    </div>
+    <a href="/account" class="account-link">{{ 'layout.customer.account' | t}}</a>
+    <br>
+    <a href="/account/logout" class="account-link">{{ 'layout.customer.log_out' | t}}</a>
+  </div>
+
+  {% else %}
+  <div class="dropdown-menu dropdown-account">
+    {% if shop.customer_accounts_optional %}  
+    <a href="/account/register" class="account-link br-product__name">{{ 'layout.customer.create_account' | t}}</a>
+    <br>
+    {% endif %}
+    <a href="/account/login" class="account-link br-product__name">{{ 'layout.customer.log_in' | t }}</a>
+  </div>
+  {% endif %}
+  {% endif %}
+  <!-- .dropdown-account -->
+</div>

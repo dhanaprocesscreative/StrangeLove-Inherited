@@ -1,0 +1,82 @@
+<!-- /snippets/header-v2.liquid -->
+<header class="site-header">
+  {% include 'header-promotion' %}
+  <!-- .br-promotion -->
+  <div class="br-board br-board--white hidden-xs engoc-topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4">
+          <span class="small">{{settings.header_2_topbar_left_content}}</span>
+        </div>
+        <div class="col-md-6 col-sm-4">
+          <div class="text-center">
+            {% if settings.svg_logo_header_s2 %}
+            <a href="{{shop.url}}" class="br-logo engoc-h2-maxwidth-logo">
+              {{settings.svg_logo_text_header_s2}}
+            </a>
+            {% else %}
+            <a href="{{shop.url}}" class="br-logo engoc-h2-maxwidth-logo">
+              <img src="{{ 'logo-br-2.png' | asset_url }}" alt="">
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-4">
+          <div class="br-dropdown">
+            {% if settings.language_enable %}
+            {% assign language_menu = settings.multi_language_menu %}
+            <div class="dropdown text-uppercase">
+              <a data-target="#" href="#" data-toggle="dropdown" role="button">{{settings.language_default_name}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu">
+                {% for link in linklists[language_menu].links %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% include 'currency-picker' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .br-board -->
+  <nav class="awemenu-nav awemenu-fadeup awemenu-nav--white engoc-header-nav-s2">
+    <div class="container">
+      <div class="awemenu-container">
+        <div class="navbar-icons">
+          <div class="dropdown dropdown-animation">
+            <a href="#" data-toggle="dropdown" role="button">
+              <i class="fa {{settings.header_icon_search}}" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu dropdown-search">
+              <div class="form-search">
+                {% include 'search-bar' %}
+              </div>
+            </div>
+            <!-- .dropdown-search -->
+          </div>
+          <!-- dropdown -->
+          <div {% if settings.enable_rtl %}class="dropdown-left"{% else %}class="dropdown-right"{% endif %}>
+            {% include 'header-minicart' %}
+            <!-- dropdown -->
+            {% include 'header-miniwishlist' %}
+            <!-- dropdown -->
+            {% include 'header-miniaccount' %}
+            <!-- dropdown -->
+          </div>
+        </div>
+        <!-- .navbar-icons -->
+        <div class="awemenu-logo engoc-h2-maxwidth-logo">
+          {% if settings.svg_logo_header_s2 %}
+          <a href="{{shop.url}}">{{settings.svg_logo_text_header_s2}}</a>
+          {% else %}
+          <a href="{{shop.url}}"><img src="{{ 'logo-br-2.png' | asset_url }}" alt=""></a>
+          {% endif %}
+        </div>
+        {% include 'menu' %}
+      </div>
+      <!-- .awemenu-container -->
+    </div>
+  </nav>
+</header>

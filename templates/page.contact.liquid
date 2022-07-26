@@ -1,0 +1,222 @@
+<!-- /templates/page.contact.liquid -->
+{% comment %}
+
+This page template is a requirement if you are submitting your theme to the Shopify Theme Store.
+Be sure to select page.contact as the template from the admin page to have this template take effect.
+
+For information on adding more fields, visit:
+- http://docs.shopify.com/support/configuration/store-customization/adding-fields-to-the-liquid-contact-form
+
+{% endcomment %}
+
+<div class="page-title page-title--white bg-9" style="background-image: url('{% if settings.background_header_contact == blank %}{{ 'background_header_contact.png' | asset_url }}{% else %}{{settings.background_header_contact |  img_url : "master"}}{% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <h1 class="text-uppercase mb-5">{{ page.title }}</h1>
+      {% include 'breadcrumb' %}
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+<section class="section">
+  <div class="container">
+    {% if settings.enable_contact_s1 %}
+    <div class="pb-80 br-bb">
+      
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <blockquote class="blockquote-style mb-40">
+            <p class="mb-20">{{settings.contact_s1_quote_1}} <br> {{settings.contact_s1_quote_2}}</p>
+            <small>{{settings.contact_s1_author}}</small>
+          </blockquote>
+        </div>
+      </div>
+      <div class="row mb-50">
+        <div class="col-md-4">
+          <p class="dark">{{settings.contact_s1_content_1}}</p>
+        </div>
+        <div class="col-md-4">
+          <p class="dark">{{settings.contact_s1_content_2}}</p>
+        </div>
+        <div class="col-md-4">
+          <p class="dark">{{settings.contact_s1_content_3}}</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="{{settings.contact_s1_btn_url}}" class="btn btn-default w-160">{{settings.contact_s1_btn_name}}</a>
+      </div>
+    </div>
+    {% endif %}
+    {% if settings.enable_contact_s2 %}
+    <div class="pt-80 pb-70 br-bb">
+      <div class="row">
+        {% if settings.enable_s2_left_section %}
+        
+        <div class="col-md-4">
+          <div class="br-contact-info">
+            <div class="mb-40 pt-10">
+              <select>
+                <option>{{settings.contact_s2_store_name}}</option>
+              </select>
+            </div>
+            <div class="br-contact-info-group mb-20">
+              <h6 class="mb-5">{{settings.contact_s2_address_name}}</h6>
+              <p class="fz-16 dark">{{settings.contact_s2_address_info}}</p><br>
+            </div>
+            <!-- .br-contact-info-group -->
+            <div class="br-contact-info-group mb-20">
+              <h6 class="text-uppercase mb-5">{{settings.contact_s2_phone_name}}</h6>
+              <p class="fz-16 dark">{{settings.contact_s2_phone_info}}</p><br>
+            </div>
+            <!-- .br-contact-info-group -->
+            <div class="br-contact-info-group mb-20">
+              <h6 class="text-uppercase mb-5">{{settings.contact_s2_fax_name}}</h6>
+              <p class="fz-16 dark">{{settings.contact_s2_fax_info}}</p>
+            </div>
+            <!-- .br-contact-info-group -->
+            <div class="br-contact-info-group mb-20">
+              <h6 class="text-uppercase mb-5">{{settings.contact_s2_email_name}}</h6>
+              <a href="{{settings.contact_s2_email_info}}" class="fz-16 email">{{settings.contact_s2_email_info}}</a><br>
+            </div>
+            <!-- .br-contact-info-group -->
+            <div class="br-contact-info-group mb-20">
+              <h6 class="text-uppercase mb-5">{{settings.contact_s2_social_name}}</h6>
+              {{settings.contact_s2_social_content}}
+            </div>
+            <!-- .br-contact-info-group -->
+          </div>
+          <!-- .br-contact-info -->
+        </div>
+        {% endif %}
+        {% if settings.enable_s2_right_section %}
+        <div class="col-md-6">
+          <h2 class="h1 text-uppercase mb-20">{{settings.contact_s2_title_right}}</h2>
+          {% comment %}
+          Contact form starts here
+          {% endcomment %}
+          {% form 'contact' %}
+
+          {% comment %}
+          Successful message
+          {% endcomment %}
+          {% if form.posted_successfully? %}
+          <p class="note form-success">
+            {{ 'contact.form.post_success' | t }}
+          </p>
+          {% endif %}
+
+          {{ form.errors | default_errors }}
+
+          {% assign name_attr = 'contact.form.name' | t | handle %}
+          <div class="form-contact">
+            <div class="row">
+              <div class="col-md-6">
+                <p>
+                  <label class="sr-only">{{ 'contact.form.name' | t }}</label>
+                  <input id="author" name="contact[{{ name_attr }}]" type="text" placeholder="{{ 'contact.form.name' | t }}" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  <label class="sr-only">{{ 'contact.form.email' | t }}</label>
+                  <input name="contact[email]" type="email" placeholder="{{ 'contact.form.email' | t }}" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+                </p>
+              </div>
+            </div>
+            <p>
+              {% assign name_attr = 'contact.form.phone' | t | handle %}
+              <label class="sr-only">{{ 'contact.form.phone' | t }}</label>
+              <input name="contact[{{ name_attr }}]" type="text" placeholder="{{ 'contact.form.phone' | t }}">
+            </p>
+            <p>
+              {% assign name_attr = 'contact.form.suburb' | t | handle %}
+              <label class="sr-only">{{ 'contact.form.suburb' | t }}</label>
+              <input name="contact[{{ name_attr }}]" type="text" placeholder="{{ 'contact.form.suburb' | t }}">
+            </p>
+            <p>
+              {% assign name_attr = 'contact.form.state' | t | handle %}
+              <label class="sr-only">{{ 'contact.form.state' | t }}</label>
+              <input name="contact[{{ name_attr }}]" type="text" placeholder="{{ 'contact.form.state' | t }}">
+            </p>
+            <p>
+              {% assign name_attr = 'contact.form.subject' | t | handle %}
+              <label class="sr-only">{{ 'contact.form.subject' | t }}</label>
+              <input name="contact[{{ name_attr }}]" type="text" placeholder="{{ 'contact.form.subject' | t }}">
+            </p>
+            <p class="mb-30">
+              <label class="sr-only">{{ 'contact.form.message' | t }}</label>
+              <textarea name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+            </p>
+            <p>
+              <input name="getittouch" type="submit" value="{{ 'contact.form.send' | t }}" class="submit btn-primary">
+            </p>
+          </div>
+          {% endform %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% if settings.enable_contact_s3 %}
+    <div class=" opening-hours pt-80">
+      <div class="row">
+        {% if settings.enable_contact_s3_opening_hours %}
+        <div class="col-md-2">
+          <h2 class="h1 text-uppercase">{{settings.contact_s3_title}}</h2>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-hover table-opening">
+            <thead>
+              <tr>
+                <th><span class="h5 text-uppercase mb-0">{{settings.contact_s3_title_day}}</span></th>
+                <th><span class="h5 text-uppercase mb-0">{{settings.contact_s3_title_hours}}</span></th>
+              </tr>
+            </thead>
+            <tbody class="fz-16">
+              <tr>
+                <td>{{settings.contact_s3_monday_name}}</td>
+                <td class="dark">{{settings.contact_s3_monday_hour}}</td>
+              </tr>
+              <tr>
+                <td>{{settings.contact_s3_tuesday_name}}</td>
+                <td class="dark">{{settings.contact_s3_tuesday_hour}}</td>
+              </tr>
+              <tr>
+                <td>{{settings.contact_s3_wednesday_name}}</td>
+                <td class="dark">{{settings.contact_s3_wednesday_hour}}</td>
+              </tr>
+              <tr>
+                <td>{{settings.contact_s3_thursday_name}}</td>
+                <td class="dark">{{settings.contact_s3_thursday_hour}}</td>
+              </tr>
+              <tr>
+                <td>{{settings.contact_s3_friday_name}}</td>
+                <td class="dark">{{settings.contact_s3_friday_hour}}</td>
+              </tr>
+              <tr>
+                <td>{{settings.contact_s3_saturday_name}}</td>
+                <td class="dark">{{settings.contact_s3_saturday_hour}}</td>
+              </tr>
+              <tr>
+                <td>{{settings.contact_s3_sunday_name}}</td>
+                <td class="dark">{{settings.contact_s3_sunday_hour}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+        {% if settings.enable_contact_s3_map %}
+        <div class="col-md-6">
+          <div id="contact-map" data-init="gmap" data-lat="{{settings.latitude_gmap}}" data-lng="{{settings.longitude_gmap}}" data-zoom="14" data-style="gray">
+            <div data-map="marker" data-lat="{{settings.latitude_gmap}}" data-lng="{{settings.longitude_gmap}}" data-icon="{{ 'logo-contact.png' | asset_url }}">{{settings.name_store_gmap}}</div>
+          </div>
+          <script>jQuery(function($) { plaseSetGmap('#contact-map'); });</script>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    <!-- .opening-hours -->
+  </div>
+</section>

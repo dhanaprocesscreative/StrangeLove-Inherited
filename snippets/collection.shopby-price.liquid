@@ -1,0 +1,14 @@
+<section class="widget widget_categories widget-container widget_product_categories filter-block filter-custom filter-tag">
+  {% assign tags = section.settings.shop_by_tags_2_list_tags | split: ',' %}
+  <h2 class="widget-title">{{ section.settings.shop_by_tags_2_title }} <a href="javascript:void(0)" class="clear" style="display:none">{{ 'collections.sidebar.clear_all' | t }}</a></h2>
+  <ul>
+    {% for t in tags %}
+    {% assign tag = t | strip %}
+    {% assign tag_value = tag | handleize %}
+    <li class="li-price">
+      <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+      <a href="javascript:void(0)" title="{{tag}}" class="{% if current_tags contains tag %}active{% endif %}">{{tag}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,63 @@
+<!-- /snippets/product-detail-socialshare.liquid -->
+{% if section.settings.enable_socials_share %}
+
+{% if template contains 'article' or template contains 'blog' %}
+{% capture permalinkURL %}{{ shop.url }}{{ article.url }}{% endcapture %}
+{% capture shareTitle %}{{ article.title | url_param_escape }}{% endcapture %}
+{% elsif template contains 'product' %}
+{% capture permalinkURL %}{{ shop.url }}{{ product.url }}{% endcapture %}
+{% capture shareTitle %}{{ product.title | url_param_escape }}{% endcapture %}
+{% elsif template == 'password' %}
+{% capture permalinkURL %}{{ shop.url }}{% endcapture %}
+{% capture shareTitle %}{% unless shop.description == blank %}{{ shop.description | url_param_escape }}{% else %}{{ shop.name | url_param_escape }}{% endunless %}{% endcapture %}
+{% endif %}
+
+{% comment %}
+Share button styles are:
+* is-clean
+* normal
+{% endcomment %}
+
+{% assign shareButtonStyle = 'is-clean' %}
+
+<div class="br-site-social pt-10 pb-10">
+  <div class="container">
+    <ul class="nav-social">
+      {% if section.settings.share_google_enable %}
+      <li>
+        <a class="fz-18" href="//plus.google.com/share?url={{ permalinkURL }}" target="_blank">
+          <i class="fa {{section.settings.share_google_icon}}"></i>
+          <span>{{section.settings.share_google_name}}</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if section.settings.share_facebook_enable %} 
+      <li>
+        <a class="fz-18" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" target="_blank">
+          <i class="fa {{section.settings.share_facebook_icon}}"></i>
+          <span>{{section.settings.share_facebook_name}}</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if section.settings.share_pinterest_enable %}
+      <li>
+        {% if product.featured_image or article.image %}
+        <a class="fz-18" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=http:{% if template contains 'product' %}{{ product | img_url: '1024x1024' }}{% else %}{{ article | img_url: '1024x1024' }}{% endif %}&amp;description={{ shareTitle }}" target="_blank">
+          <i class="fa {{section.settings.share_pinterest_icon}}"></i>
+          <span>{{section.settings.share_pinterest_name}}</span>
+        </a>
+        {% endif %}
+      </li>
+      {% endif %}
+      {% if section.settings.share_twitter_enable %}
+      <li>
+        <a class="fz-18" href="//twitter.com/share?text={{ shareTitle }}&amp;url={{ permalinkURL }}" target="_blank">
+          <i class="fa {{section.settings.share_twitter_icon}}"></i>
+          <span>{{section.settings.share_twitter_name}}</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+{% endif %}

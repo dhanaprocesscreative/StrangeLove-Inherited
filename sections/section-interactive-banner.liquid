@@ -1,0 +1,93 @@
+<!-- section-interactive-banner.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-interactive-banner" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <section class="section-banner pt-0 pb-80">
+    <div class="container">
+      <h1 class="sr-only"> banner </h1>
+      <div class="row">
+        {% if section.blocks.size > 0 %}
+        {%- assign i = 1 -%}
+        {% for block in section.blocks %}
+        <div class="col-md-6 mb-md-30">
+          <div class="engoc_hover_banner">
+            {% if block.settings.banner-small == blank %}
+            {% capture _img_url %}banner-small-{{i}}.png{% endcapture %}
+            <a href="{{block.settings.ib_url}}"><img src="{{ _img_url | asset_url}}" alt=""></a>
+            {% else %}
+            <a href="{{block.settings.ib_url}}"><img src="{{ block.settings.banner-small | img_url:'master' }}" alt=""></a>
+            {% endif %}
+
+          </div>
+        </div>
+        {%- assign i = i | plus : 1 -%}
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Interactive Banner",
+  "class": "index-section",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Settings"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner-small",
+          "label": "Banner Image"
+        },
+        {
+          "type": "text",
+          "id": "ib_url",
+          "label": "Banner URL",
+          "default": "\/collections\/all"
+        },
+        {
+          "type": "header",
+          "content": "Section Space"
+        },
+        {
+          "type": "text",
+          "id": "margin_top",
+          "label": "Margin Top",
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "text",
+          "id": "margin_bottom",
+          "label": "Margin Bottom",
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Interactive Banner",
+      "category": "Image",
+      "settings": {
+        
+      },
+      "blocks": [
+        {
+          "type": "banner"
+        },
+        {
+          "type": "banner"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

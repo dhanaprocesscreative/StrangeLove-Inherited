@@ -1,0 +1,388 @@
+<!-- section-brand-and-testimonial.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-brand-and-testimonial" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <section class="pb-80 engoc_no_rtl">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-md-30">
+          <div class="br-background-color">
+            <h2 class="br-title text-center">{{section.settings.sbt_left_title}}</h2>
+            <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="js-brand">
+              {% for i in (1..8) %}
+
+              {% capture _enable %}sbt_left_{{ i }}_enable{% endcapture %}
+              {% capture _brand_background %}bg-brand-{{ i }}{% endcapture %}
+              {% capture _brand_logo %}brand-{{ i }}{% endcapture %}
+              {% capture _brand_name %}sbt_left_{{ i }}_title{% endcapture %}
+
+              {% assign enable = section.settings[_enable] %}
+              {% if enable %}
+              {% assign brand_background = section.settings[_brand_background] %}
+              {% assign brand_logo = section.settings[_brand_logo] %}
+              {% assign brand_name = section.settings[_brand_name] %}
+
+              <div class="br-brand text-center">
+                {% if brand_background == blank and brand_logo == blank %}
+                {% capture _img_bg %}bg-brand-{{ i }}.png{% endcapture %}
+                {% capture _img_logo %}brand-{{ i }}.png{% endcapture %}
+                <div class="br-brand__thumb" style="background-image: url('{{ _img_bg | asset_url}}');">
+                  <img src="{{ _img_logo | asset_url}}" alt="">
+                </div>
+                {% else %}
+                <div class="br-brand__thumb" style="background-image: url('{{ brand_background | img_url:'master' }}');">
+                  {{ brand_logo | img_url:'master' | img_tag }}
+                </div>
+                {% endif %}
+                <div class="br-brand__main">
+                  <h6 class="br-brand__name">{{brand_name}}</h6>
+                </div>
+              </div>
+              <!-- End .bs-brand -->
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-md-30">
+          <div class="br-background-color">
+            <h2 class="br-title text-center">{{section.settings.sbt_right_title}}</h2>
+            <!-- add class .br-slick-black to be style black arrow and background: transparent; -->
+            <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="js-testimonial">
+              {% for i in (1..3) %}
+
+              {% capture _enable_customer %}sbt_right_{{ i }}_enable{% endcapture %}
+              {% capture _customer_img %}avt-{{ i }}{% endcapture %}
+              {% capture _customer_content %}sbt_right_{{ i }}_content{% endcapture %}
+              {% capture _customer_name %}sbt_right_{{ i }}_name{% endcapture %}
+
+              {% assign enable_customer = section.settings[_enable_customer] %}
+              {% if enable_customer %}
+              {% assign customer_img = section.settings[_customer_img] %}
+              {% assign customer_content = section.settings[_customer_content] %}
+              {% assign customer_name = section.settings[_customer_name] %}
+
+              <div class="br-testimonial">
+                <div class="br-testimonial__avatar">
+                  {% if customer_img == blank %}
+                  {% capture _img_url %}avt-{{ i }}.png{% endcapture %}
+                  <img src="{{ _img_url | asset_url}}" alt="">
+                  {% else %}
+                  {{ customer_img | img_url:'master' | img_tag }}
+                  {% endif %}
+                </div>
+                <!-- End .br-testimonial__avatar -->
+                <div class="br-testimonial__main">
+                  <div class="br-testimonial__say">
+                    <p>{{customer_content}}</p>
+                  </div>
+                  <!-- End .br-testimonial__say -->
+                  <h5 class="br-testimonial__name">{{customer_name}}</h5>
+                </div>
+                <!-- End .br-testimonial__main -->
+              </div>
+              <!-- End .br-testimonial -->
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Brand & Testimonial",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Left: Brand"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_title",
+        "label": "Title",
+        "default": "brand’s"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_1_enable",
+        "label": "Enable Brand 1",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-1",
+        "label": "Brand 1 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-1",
+        "label": "Brand 1 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_1_title",
+        "label": "Brand 1 Name",
+        "default": "Brilliant"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_2_enable",
+        "label": "Enable Brand 2",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-2",
+        "label": "Brand 2 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-2",
+        "label": "Brand 2 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_2_title",
+        "label": "Brand 2 Name",
+        "default": "Retro Diamon"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_3_enable",
+        "label": "Enable Brand 3",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-3",
+        "label": "Brand 3 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-3",
+        "label": "Brand 3 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_3_title",
+        "label": "Brand 3 Name",
+        "default": "Aduzer"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_4_enable",
+        "label": "Enable Brand 4",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-4",
+        "label": "Brand 4 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-4",
+        "label": "Brand 4 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_4_title",
+        "label": "Brand 4 Name",
+        "default": "Penny Fashion"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_5_enable",
+        "label": "Enable Brand 5",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-5",
+        "label": "Brand 5 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-5",
+        "label": "Brand 5 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_5_title",
+        "label": "Brand 5 Name",
+        "default": "Voyager"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_6_enable",
+        "label": "Enable Brand 6",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-6",
+        "label": "Brand 6 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-6",
+        "label": "Brand 6 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_6_title",
+        "label": "Brand 6 Name",
+        "default": "Angelline"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_7_enable",
+        "label": "Enable Brand 7",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-7",
+        "label": "Brand 7 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-7",
+        "label": "Brand 7 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_7_title",
+        "label": "Brand 7 Name",
+        "default": "Brilliant"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_left_8_enable",
+        "label": "Enable Brand 8",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-brand-8",
+        "label": "Brand 8 Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-8",
+        "label": "Brand 8 Logo"
+      },
+      {
+        "type": "text",
+        "id": "sbt_left_8_title",
+        "label": "Brand 8 Name",
+        "default": "Voyager"
+      },
+      {
+        "type": "header",
+        "content": "Section Right: Testimonial"
+      },
+      {
+        "type": "text",
+        "id": "sbt_right_title",
+        "label": "Title",
+        "default": "customer say"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_right_1_enable",
+        "label": "Enable Customer 1",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "avt-1",
+        "label": "Customer 1 Image"
+      },
+      {
+        "type": "textarea",
+        "id": "sbt_right_1_content",
+        "label": "Customer 1 Content",
+        "default": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or andomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum"
+      },
+      {
+        "type": "text",
+        "id": "sbt_right_1_name",
+        "label": "Customer 1 Name",
+        "default": "Raymond Cruz"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_right_2_enable",
+        "label": "Enable Customer 2",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "avt-2",
+        "label": "Customer 2 Image"
+      },
+      {
+        "type": "textarea",
+        "id": "sbt_right_2_content",
+        "label": "Customer 2 Content",
+        "default": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+      },
+      {
+        "type": "text",
+        "id": "sbt_right_2_name",
+        "label": "Customer 2 Name",
+        "default": "HGA"
+      },
+      {
+        "type": "checkbox",
+        "id": "sbt_right_3_enable",
+        "label": "Enable Customer 3",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "avt-3",
+        "label": "Customer 3 Image"
+      },
+      {
+        "type": "textarea",
+        "id": "sbt_right_3_content",
+        "label": "Customer 3 Content",
+        "default": "But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted"
+      },
+      {
+        "type": "text",
+        "id": "sbt_right_3_name",
+        "label": "Customer 3 Name",
+        "default": "Alice Cunningham"
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand & Testimonial",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

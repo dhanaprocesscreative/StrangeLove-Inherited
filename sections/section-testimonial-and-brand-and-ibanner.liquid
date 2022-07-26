@@ -1,0 +1,381 @@
+<!-- section-testimonial-and-brand-and-interactive-banner.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-testimonial-and-brand-and-interactive-banner" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <section class="section pt-0 engoc_no_rtl">
+    <div class="br-card-wrapper-nojs br-card--fullwidth" data-col="4" data-gap="0">
+      {% if section.settings.s_tb_ib_enable_two %}
+      <div class="br-card inner-title br-card--quad-w2 br-background-overlay br-slick-animation br-slick-white br-background bg-customersay" {% if section.settings.bg-customersay == blank %}{% capture _img_url %}bg-customersay.png{% endcapture %} style="background-image: url('{{ _img_url | asset_url}}');"{% else %} style="background-image: url('{{ section.settings.bg-customersay | img_url:'master' }}');"{% endif %}>
+        <div class="br-card__main ">
+          <h2 class="br-title br-title--white text-center">{{section.settings.s_tb_ib_enable_two_title}}</h2>
+          {% if section.settings.s_tb_ib_enable_testimonial %}
+          <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="js-testimonial-card br-slick-white">
+            {% for i in (1..3) %}
+
+            {% capture _enable_customer %}s_tb_ib_enable_testimonial_{{ i }}{% endcapture %}
+            {% capture _customer_img %}customer-{{ i }}{% endcapture %}
+            {% capture _customer_content %}s_tb_ib_enable_testimonial_{{ i }}_content{% endcapture %}
+            {% capture _customer_name %}s_tb_ib_enable_testimonial_{{ i }}_name{% endcapture %}
+
+            {% assign enable_customer = section.settings[_enable_customer] %}
+            {% if enable_customer %}
+            {% assign customer_img = section.settings[_customer_img] %}
+            {% assign customer_content = section.settings[_customer_content] %}
+            {% assign customer_name = section.settings[_customer_name] %}
+            <div class="br-testimonial br-testimonial--white mb-15">
+              <div class="br-testimonial__avatar">
+                {% if customer_img == blank %}
+                {% capture _img_url %}customer-{{ i }}.png{% endcapture %}
+                <img src="{{ _img_url | asset_url}}" alt="">
+                {% else %}
+                {{ customer_img | img_url:'master' | img_tag }}
+                {% endif %}
+              </div>
+              <!-- End .br-testimonial__avatar -->
+              <div class="br-testimonial__main">
+                <div class="br-testimonial__say">
+                  <p>{{customer_content}}</p>
+                </div>
+                <!-- End .br-testimonial__say -->
+                <h5 class="br-testimonial__name">{{customer_name}}</h5>
+              </div>
+              <!-- End .br-testimonial__main -->
+            </div>
+            <!-- End .br-testimonial -->
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if section.settings.s_tb_ib_enable_brand %}
+          <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="js-brand-horizontal-2 brand-horizontal br-slick-animation">
+            {% for i in (1..8) %}
+
+            {% capture _enable %}s_tb_ib_enable_brand_{{ i }}{% endcapture %}
+            {% capture _brand_logo %}brand-x{{ i }}{% endcapture %}
+
+            {% assign enable = section.settings[_enable] %}
+            {% if enable %}
+            {% assign brand_logo = section.settings[_brand_logo] %}
+            <div class="br-brand br-brand--style">
+              <div class="br-brand__thumb">
+                {% if brand_logo == blank %}
+                {% capture _img_url %}brand-x{{ i }}.png{% endcapture %}
+                <img src="{{ _img_url | asset_url}}" alt="">
+                {% else %}
+                {{ brand_logo | img_url:'master' | img_tag }}
+                {% endif %}
+              </div>
+            </div>
+            <!-- End .bs-brand -->
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+      <!-- .br-card -->
+      {% if section.settings.s_tb_ib_enable_banner %}
+      {% if section.settings.s_tb_ib_enable_banner_1 %}
+      <a href="{{section.settings.s_tb_ib_banner_1_URL}}">
+        <div class="br-card js-imgtobg">
+          {% if section.settings.banner-promote == blank %}
+          {% capture _img_url %}banner-promote.png{% endcapture %}
+          <img src="{{ _img_url | asset_url}}" alt="">
+          {% else %}
+          <img src="{{ section.settings.banner-promote | img_url:'master' }}" alt="">
+          {% endif %}
+        </div>
+      </a>
+      {% endif %}
+      <!-- .br-card -->
+      {% if section.settings.s_tb_ib_enable_banner_2 %}
+      <a href="{{section.settings.s_tb_ib_banner_2_URL}}">
+        <div class="br-card js-imgtobg">
+          {% if section.settings.banner-promote-2 == blank %}
+          {% capture _img_url %}banner-promote-2.png{% endcapture %}
+          <img src="{{ _img_url | asset_url}}" alt="">
+          {% else %}
+          <img src="{{ section.settings.banner-promote-2 | img_url:'master' }}" alt="">
+          {% endif %}
+        </div>
+      </a>
+      {% endif %}
+      {% endif %}
+      <!-- .br-card -->
+    </div>
+    <!-- .br-card-wrapper -->
+  </section>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Testimonial-Brand-iBanner",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Testimonial & Brand"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_two",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-customersay",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id": "s_tb_ib_enable_two_title",
+        "label": "Title",
+        "default": "Customer Say"
+      },
+      {
+        "type": "header",
+        "content": "Testimonial"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_testimonial",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_testimonial_1",
+        "label": "Enable Customer 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "customer-1",
+        "label": "Customer 1 Image"
+      },
+      {
+        "type": "textarea",
+        "id": "s_tb_ib_enable_testimonial_1_content",
+        "label": "Customer 1 Content",
+        "default": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or andomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum"
+      },
+      {
+        "type": "text",
+        "id": "s_tb_ib_enable_testimonial_1_name",
+        "label": "Customer 1 Name",
+        "default": "Raymond Cruz"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_testimonial_2",
+        "label": "Enable Customer 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "customer-2",
+        "label": "Customer 2 Image"
+      },
+      {
+        "type": "textarea",
+        "id": "s_tb_ib_enable_testimonial_2_content",
+        "label": "Customer 2 Content",
+        "default": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+      },
+      {
+        "type": "text",
+        "id": "s_tb_ib_enable_testimonial_2_name",
+        "label": "Customer 2 Name",
+        "default": "HGA"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_testimonial_3",
+        "label": "Enable Customer 3?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "customer-3",
+        "label": "Customer 3 Image"
+      },
+      {
+        "type": "textarea",
+        "id": "s_tb_ib_enable_testimonial_3_content",
+        "label": "Customer 3 Content",
+        "default": "But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted"
+      },
+      {
+        "type": "text",
+        "id": "s_tb_ib_enable_testimonial_3_name",
+        "label": "Customer 3 Name",
+        "default": "Alice Cunningham"
+      },
+      {
+        "type": "header",
+        "content": "Brand"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand",
+        "label": "Enable Brand?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_1",
+        "label": "Enable Brand 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x1",
+        "label": "Brand 1 Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_2",
+        "label": "Enable Brand 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x2",
+        "label": "Brand 2 Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_3",
+        "label": "Enable Brand 3?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x3",
+        "label": "Brand 3 Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_4",
+        "label": "Enable Brand 4?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x4",
+        "label": "Brand 4 Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_5",
+        "label": "Enable Brand 5?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x5",
+        "label": "Brand 5 Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_6",
+        "label": "Enable Brand 6?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x6",
+        "label": "Brand 6 Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_7",
+        "label": "Enable Brand 7?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x7",
+        "label": "Brand 7 Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_brand_8",
+        "label": "Enable Brand 8?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-x8",
+        "label": "Brand 8 Image"
+      },
+      {
+        "type": "header",
+        "content": "Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_banner",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_banner_1",
+        "label": "Enable Banner 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-promote",
+        "label": "Banner 1 Image"
+      },
+      {
+        "type": "text",
+        "id": "s_tb_ib_banner_1_URL",
+        "label": "Banner 1 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "s_tb_ib_enable_banner_2",
+        "label": "Enable Banner 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-promote-2",
+        "label": "Banner 2 Image"
+      },
+      {
+        "type": "text",
+        "id": "s_tb_ib_banner_2_URL",
+        "label": "Banner 2 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonial & Brand & iBanner",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

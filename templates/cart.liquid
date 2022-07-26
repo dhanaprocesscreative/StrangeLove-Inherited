@@ -1,0 +1,121 @@
+<!-- /templates/cart.liquid -->
+{% comment %}
+
+For info on test orders:
+- General http://docs.shopify.com/manual/your-store/orders/test-orders
+- Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
+
+{% endcomment %}
+
+<div class="page-title page-title--white  bg-3" style="background-image: url('{% if settings.bg-header-cart == blank %}{{ 'bg-header-cart.png' | asset_url }}{% else %}{{settings.bg-header-cart |  img_url : "master"}}{% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <h1 class="text-uppercase mb-5">{{ 'cart.general.title' | t }}</h1>
+      {% include 'breadcrumb' %}
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+<section class="section table-cart">
+  <div class="container">
+    {% if cart.item_count > 0 %}
+    <form action="/cart" method="post" novalidate class="cart table-wrap table-cart-form">
+      <div class="table-responsive">
+        <table class="cart-table table--responsive shop_table cart table table-hover table_cart">
+          <tbody>
+            {% for item in cart.items %}
+            <tr class="cart__row table__section cart_item">
+              <td data-label="{{ 'customer.order.product' | t }}"  class="product-thumbnail">
+                <a href="{{ item.url | within: collections.all }}" class="cart__image attachment-shop_thumbnail wp-post-image">
+                  {% comment %}
+                  More image size options at:
+                  - http://docs.shopify.com/themes/filters/product-img-url
+                  {% endcomment %}
+                  <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" class="img-responsive">
+                </a>
+              </td>
+              <td class="product-name">
+                <a href="{{ item.url }}" class="h6">
+                  {{ item.product.title }}
+                </a>
+                {% unless item.variant.title contains 'Default' %}
+                <small class="pro_{{item.product.handle}}">{{ item.variant.title }}</small>
+                {% endunless %}
+                {% if settings.cart_vendor_enable %}
+                <p>{{ item.vendor }}</p>
+                {% endif %}
+
+                {% comment %}
+                Optional, loop through custom product line items if available
+
+                For more info on line item properties, visit:
+                - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
+                {% endcomment %}
+                {% assign property_size = item.properties | size %}
+                {% if property_size > 0 %}
+                {% for p in item.properties %}
+                {% unless p.last == blank %}
+                {{ p.first }}:
+
+                {% comment %}
+                Check if there was an uploaded file associated
+                {% endcomment %}
+                {% if p.last contains '/uploads/' %}
+                <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                {% else %}
+                {{ p.last }}
+                {% endif %}
+                {% endunless %}
+                {% endfor %}
+                {% endif %}
+              </td>
+
+              <td data-label="{{ 'cart.label.price' | t }}"  class="product-price">
+                <span class="h6 amount br-product__price">
+                  {{ item.price | money }}
+                </span>
+              </td>
+
+              <td data-label="{{ 'cart.label.quantity' | t }}"  class="product-quantity engoc-cart-qty">
+                <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">
+              </td>
+
+
+              <td data-label="{{ 'cart.label.total' | t }}" class="text-right product-subtotal">
+                <span class="h6 amount br-product__price">
+                  {{ item.line_price | money }}
+                </span>
+              </td>
+              <td class="product-remove">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove" title="{{ 'cart.general.remove' | t }}">
+                  <i class="fa fa-times"></i>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% render 'carbonclick-cart' %}
+      <div class="col-md-12 text-center" style="margin-bottom: 20px;">
+        <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+        <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+      </div>
+      <div class="text-center">
+        <h5 class="text-uppercase">{{ 'cart.general.subtotal' | t }}</h5>
+        <h2 class="total-price mb-25">{{ cart.total_price | money }}</h2>
+        <input type="submit" name="update" class="btn btn-lg btn-outline btn-default btn--secondary update-cart" value="{{ 'cart.general.update' | t }}">
+        <input type="submit" name="checkout" class="btn btn-lg btn-default" value="{{ 'cart.general.checkout' | t }}">
+      </div>
+    </form>
+    {% else %}
+    {% comment %}
+    The cart is empty
+    {% endcomment %}
+    <h2>{{ 'cart.general.title' | t }}</h2>
+    <p>{{ 'cart.general.empty' | t }}</p>
+    <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+    {% endif %}
+  </div>
+</section>

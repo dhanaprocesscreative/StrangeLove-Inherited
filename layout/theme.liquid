@@ -1,0 +1,328 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  
+
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}" />
+  {% endif %}
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.m_primary_color }}">
+  <link rel="icon" href="{{'favicon.png'| asset_url}}" type="image/png" sizes="16x16">
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MD7Q73P');</script>
+<!-- End Google Tag Manager -->
+  <!-- font -->
+  {% include 'engo_head_fonts' %}
+  {{ 'Code-Pro-Bold.css'  | asset_url | stylesheet_tag }}
+  {{'Gilroy-ExtraBold.css' | asset_url | stylesheet_tag }}
+  
+  <!-- CSS ================================================== -->
+  {%if settings.enable_preloader%}
+  {{ 'jpreloader.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+
+  {% if settings.po_style == "po_swatchs" %}
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+  {% if settings.po_style == "po_dropdown" %}
+  {{ 'timber_2.scss.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+  
+  
+  {{ 'style.scss.css' | asset_url | stylesheet_tag }}
+  
+  {{ 'font-awesome.css' | asset_url | stylesheet_tag }}
+  {{ 'slick.css' | asset_url | stylesheet_tag }}
+  {{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
+  {{ 'select2.css' | asset_url | stylesheet_tag }}
+  {{ 'awemenu.css' | asset_url | stylesheet_tag }}
+  
+  {% if settings.enable_rtl %}
+  {{ 'engoc_rtl.scss.css' | asset_url | stylesheet_tag }}
+  {% else %}
+  {{ 'main.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+  
+  {{ 'engo-customize.scss.css' | asset_url | stylesheet_tag }}
+
+  {{ 'umbg.css' | asset_url | stylesheet_tag }}
+  
+  {{ 'revolution.settings.css' | asset_url | stylesheet_tag }}
+  {{ 'revolution.navigation.css' | asset_url | stylesheet_tag }}
+  
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+  {% include 'oldIE-js' %}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+  {{ 'jpreloader.js' | asset_url | script_tag }}
+  {{ 'slick.min.js' | asset_url | script_tag }}
+  {{ 'jquery.umbg.js' | asset_url | script_tag }}
+
+<script>
+  window.ajax_cart = true;
+  window.money_format = '{{shop.money_with_currency_format}}';
+  window.shop_currency = '{{ shop.currency }}';
+  window.show_multiple_currencies = true;
+  window.loading_url = "{{ 'loader.gif' | asset_url}}";
+  window.use_color_swatch = true;
+  window.product_image_resize = true;
+  window.enable_sidebar_multiple_choice = true;
+
+  window.file_url = "{{''|file_url}}";
+  window.asset_url = "{{''|asset_url}}";
+  window.images_size = {
+    is_crop: true,
+    ratio_width : 1,
+    ratio_height : 1,
+  };
+  window.inventory_text = {
+    in_stock: "{{ 'products.product.in_stock' | t }}",
+    many_in_stock: "{{ 'products.product.many_in_stock' | t }}",
+    out_of_stock: "{{ 'products.product.out_of_stock' | t }}",
+    add_to_cart: "{{ 'products.product.add_to_cart' | t }}",
+    sold_out: "{{ 'products.product.sold_out' | t }}",
+    unavailable: "{{ 'products.product.unavailable' | t }}"
+  };
+
+  window.sidebar_toggle = {
+    show_sidebar_toggle: "{{ 'general.sidebar_toggle.show_sidebar_toggle' | t }}",
+    hide_sidebar_toggle: "{{ 'general.sidebar_toggle.hide_sidebar_toggle' | t }}"
+  };
+
+</script>
+
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+  
+{% include 'social-meta-tags' %}
+
+  <script src="https://use.typekit.net/gvg1ipf.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+  
+<meta name="google-site-verification" content="M7F95FnFL4Em9l5_8tK3JRLEXJyVICrmdgv5zmyJ8qY" /> 
+<!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
+<script type="application/ld+json">
+		{
+		  "@context" : "http://schema.org",
+		  "@type" : "LocalBusiness",
+		  "name" : "StrangeLove",
+		  "description": "StrangeLove provides high-quality high quality premium mixers in a range of sophisticated flavours, tonic waters, and organic soft drinks.",
+		  "image" : "https://cdn.shopify.com/s/files/1/1668/6293/t/6/assets/logo-white-br.png?10476280673325751329",
+		  "telephone" : "0431050114",
+		  "email" : "info@strangelove.com.au",
+		  "url" : "https://strangelove.com.au/",
+  		  "sameAs" : [ "https://www.facebook.com/lovestrangelove",
+    			"https://www.instagram.com/lovestrangelove/"]
+		}
+		</script>  
+</head>
+{% comment %}
+  Add the page template as a class for easy page or template specific styling.
+{% endcomment %}
+<body{% if settings.enable_rtl %} class="engoc_rtl"{% endif %}>
+  
+ <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD7Q73P"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  {%if settings.enable_preloader%}
+  <div id="awe-page-loading">
+    <div class="awe-loading-wrapper">
+      <div class="awe-loading-icon">
+        <span class="icon">
+          <img src="{{'loading.gif'| asset_url}}" alt=""/>
+        </span> 
+        {%if settings.enable_loading_bar%}
+        <span class="icon icon-logo"></span>
+        {%endif%}      
+      </div>    
+    </div>
+  </div>
+  {%endif%}
+  {%if settings.enable_preloader%}
+  <script type="text/javascript">
+    //calling jPreLoader
+    $('body').jpreLoader({
+      splashID: "#awe-page-loading",
+      loaderVPos: '50%',
+      autoClose: true,    
+      splashFunction: function() {  
+        //passing Splash Screen script to jPreLoader
+        $('#awe-page-loading').children('section').not('.selected').hide();
+        $('#awe-page-loading').hide().fadeIn(900);
+        $('#awe-page-loading img').show();
+      }
+
+    });
+
+    $(document).ready( function() {
+      $('#awe-page-loading').fadeOut(2000);
+    });
+  </script>
+  {%endif%}
+  
+  <a class="skip-link sr-only" href="#main">Skip to content</a>
+  {% section 'header' %} 
+  <!-- end header -->
+  <main class="site-main{% if template contains 'index' %} site-homepage{% endif %}">
+     {{ content_for_layout }}
+    {% include 'product-recently' %}
+  </main>
+  <!-- begin site-footer -->
+  {% section 'footer' %} 
+  <!-- //site-footer -->
+  
+  
+  {{ 'fastclick.min.js' | asset_url | script_tag }}
+  {% include 'currencies' %}
+  {{ 'timber.js' | asset_url | script_tag }}
+  {{ 'jquery-ui.min.js' | asset_url | script_tag }}
+  {{ 'bootstrap.min.js' | asset_url | script_tag }}
+
+  {% comment %}
+    Template-specific js
+  {% endcomment %}
+  <script>
+    {% if resetPassword %}
+      $(function() {
+        timber.resetPasswordSuccess();
+      });
+    {% endif %}
+  </script>
+
+  <script>
+  jQuery(function() {
+    jQuery('.swatch :radio').change(function() {
+      var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+      var optionValue = jQuery(this).val();
+      jQuery(this)
+        .closest('form')
+        .find('.single-option-selector')
+        .eq(optionIndex)
+        .val(optionValue)
+        .trigger('change');
+    });
+  });
+  </script>
+  
+  {% if settings.ajax_cart_method == "drawer" %}
+    {{ 'handlebars.min.js' | asset_url | script_tag }}
+    {% include 'ajax-cart-template' %}
+    {{ 'ajax-cart.js' | asset_url | script_tag }}
+    <script>
+      var ajaxCartConfig = {
+          cartContainer: '#CartContainer',
+          addToCartSelector: '.enj-add-to-cart-btn',
+          cartCountSelector: '#CartCount',
+          cartCostSelector: '#CartCost',
+          moneyFormat: {{ shop.money_format | json }}
+        };
+      jQuery(function($) {
+        ajaxCart.init(ajaxCartConfig);
+      });
+
+      jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+        // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+        /*   timber.RightDrawer.open(); */
+      });
+    </script>
+  {% endif %}
+  
+  {% if template contains 'contact' %}
+  {% capture gmap_key %}gmap_key{% endcapture %}
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{settings[gmap_key]}}&sensor=false"></script>
+  {{ 'gmaps.min.js' | asset_url | script_tag }}
+  {% endif %}
+  
+  {{ 'engo-plugins.js' | asset_url | script_tag }}
+  {{ 'quickview.js' | asset_url | script_tag }}
+  {{ 'wish-list.js' | asset_url | script_tag }}
+  {{ 'collection.js' | asset_url | script_tag }}
+  
+  {{ 'jquery-ui.min.js' | asset_url | script_tag }}
+  {{ 'awemenu.min.js' | asset_url | script_tag }}
+  {{ 'jquery.fittext.js' | asset_url | script_tag }}
+  {{ 'masonry.pkgd.min.js' | asset_url | script_tag }}
+  {{ 'imagesloaded.pkgd.min.js' | asset_url | script_tag }}
+  {{ 'isotope.pkgd.min.js' | asset_url | script_tag }}
+  {{ 'jquery.countdown.min.js' | asset_url | script_tag }}
+  {{ 'jquery.hoverdir.js' | asset_url | script_tag }}
+  
+  {{ 'select2.min.js' | asset_url | script_tag }}
+  
+  {{ 'jquery.magnific-popup.min.js' | asset_url | script_tag }}
+  {{ 'main.js' | asset_url | script_tag }}
+  {{ 'engo-scripts.js' | asset_url | script_tag }}
+  {{ 'engo-autocomplate.js' | asset_url | script_tag }}
+
+  {% if settings.section_ins_enable or settings.enable_widget_gallery_instagram %}
+  {{ 'instafeed.min.js' | asset_url | script_tag }} 
+  {% endif %}
+  
+  {{ 'jquery.themepunch.tools.min.js' | asset_url | script_tag }}
+  {{ 'jquery.themepunch.revolution.min.js' | asset_url | script_tag }}
+  {% include 'revolution' %}
+  
+  
+  {% include 'product-quick-view' %}
+  {% include 'template-popup' %}
+  {% if settings.show_popup_newletter and template contains 'index' %}
+  {% include 'popup-newletter' %}
+  {% endif %}
+  {% include 'template-popup-ajax-addtocart' %}
+  
+{% if settings.enabled_products_recently == true %}
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      {% if template contains 'index' or template contains 'collection' or template contains 'product'%}
+        engoAutoComplate.initProductsRecently();
+      {% else %}
+          $(".engoj-recently-products-container").remove(); 
+      {% endif %}
+    });
+  </script>
+  {% else %}
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+          $(".engoj-recently-products-container").remove(); 
+    });
+  </script>
+  {% endif %}
+  
+{{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}
+{{'tiny-img-link-preloader.js' | asset_url | script_tag }}
+</body>
+</html>
+<style>
+  .pro_cc-carbon-offset {
+    display: none;
+}
+  [data-climate-friendly-type="mini"] .cc-logo-inline {
+    height: 16px !important;
+}
+</style>

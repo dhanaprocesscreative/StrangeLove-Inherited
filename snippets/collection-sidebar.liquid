@@ -1,0 +1,21 @@
+<!-- /snippets/collection-sidebar.liquid -->
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+{% assign sold_out = false %}
+{% endif %}
+
+<div class="col-md-3 {% if section.settings.collection_template == "collection_left_sidebar" %}col-md-pull-9{% endif %}">
+  <aside class="sidebar widget-area collection-sidebar pb-40">
+    {% for i in (1..6) %}
+    {% capture collection_widget %}collection_widget_{{i}}{% endcapture %}
+    {% if section.settings[collection_widget] != blank %}
+    {% include section.settings[collection_widget] %}
+    {% endif %}
+    {% endfor %}
+  </aside>
+</div>

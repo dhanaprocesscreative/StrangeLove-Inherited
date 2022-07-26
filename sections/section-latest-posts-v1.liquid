@@ -1,0 +1,121 @@
+<!-- section-latest-posts-v1.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-latest-posts-v1" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+{% assign posts_limit = section.settings.lp_v1_limit %}
+
+<section class="pb-80 engoc_no_rtl">
+  <div class="container">
+    <div class="br-background-color-half">
+      <h2 class="br-title text-center">{{section.settings.lp_v1_title}}</h2>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="row js-br-new">
+            {% for article in blogs.news.articles limit: posts_limit %}
+            <div class="col-md-6">
+              <article class="post post--standard">
+                <header class="entry-header">
+                  <div class="entry-media entry-media-thumbnail">
+                    <a href="{{ article.url }}">
+                      <img src="{{ article.image.src | img_url: 'original' }}" alt="{{ article.title }}">
+                    </a>
+                    <!-- br-img -->
+                  </div>
+                  <!-- .entry-media -->
+                </header>
+                <!-- entry-header -->
+                <div class="entry-container">
+                  {% if section.settings.show_date %}
+                  <div class="post-time">{{article.published_at | date: "%b %d.%Y" }}</div>
+                  {% endif %}
+                  <!-- post-time -->
+                  <h2 class="entry-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                  <div class="entry-meta">
+                    <ul class="entry-meta-list">
+                      {% if section.settings.show_author %}
+                      <li>{{ 'blogs.article.poster_by' | t }} <a href="{{ article.url }}">{{ article.author }}</a></li>
+                      {% endif %}
+                      {% if section.settings.show_numbercomment %}
+                      <li><a class="link-comment" href="{{ article.url }}#comments">{{article.comments_count}} {{ 'blogs.comments.comment' | t }}</a></li>
+                      {% endif %}
+                    </ul>
+                    <!-- .entry-meta-list -->
+                  </div>
+                  <!-- entry-meta -->
+                </div>
+                <!-- entry-container -->
+              </article>
+              <!-- post -->
+            </div>
+			{% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Latest Posts v1",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "text",
+        "id": "lp_v1_title",
+        "label": "Title",
+        "default": "Brilliant new’s"
+      },
+      {
+        "type": "text",
+        "id": "lp_v1_limit",
+        "label": "Limit",
+        "default": "4"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_date",
+        "label": "Show date?",
+		"default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_author",
+        "label": "Show author?",
+		"default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_numbercomment",
+        "label": "Show number comment?",
+		"default": true
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Latest Posts v1",
+        "category": "Blog"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,261 @@
+<!-- section-instagram.liquid -->
+<style>
+.engoc_ins_title a {color: {{section.settings.section_ins_content_1_color}};}
+.engoc_ins_title:hover a {color: {{settings.m_primary_color}};}
+.engoc_ins_title i {margin-right: 10px;color: {{section.settings.section_ins_content_1_color}};}
+.engoc_ins_title:hover i {color: {{settings.m_primary_color}};}
+</style>
+
+<div data-section-id="{{ section.id }}" data-section-type="section-instagram" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+{% if section.settings.section_ins_enable %}
+
+{% assign instafeed_img = '{{image}}' %}
+{% assign instafeed_link = '{{link}}' %}
+<script>
+  jQuery(document).ready(function($) {
+
+    var feed = new Instafeed({
+      get: 'user',
+      userId: '{{section.settings.section_ins_userid}}',
+      accessToken: '{{section.settings.section_ins_access_token}}',
+      template: '<div class="br-card br-card--quad engo-insta-item"><div class="br-card__media"><div class="br-card__thumb {% if section.settings.section_ins_style == "section_ins_style_2" %}engoc_hover_ins{% endif %} {% if section.settings.section_ins_enable_overlay_bg %}br-background-overlay{% endif %}"><a href="{{instafeed_link}}" target="_blank">{% if section.settings.section_ins_style == "section_ins_style_2" %}<i class="fa fa-instagram" aria-hidden="true"></i>{% endif %}<img src="{{instafeed_img}}" alt=""></a></div></div></div>',
+      target: 'instagram',
+      resolution: 'standard_resolution',
+      limit: '{{section.settings.section_ins_limit_number}}',
+      after : engo_insc
+    });
+    feed.run();
+
+    function engo_insc() { 
+      {% if section.settings.section_ins_style == "section_ins_style_1" %}
+      var $instagramSlick = $('.js-br-card-instagram-mobile');
+      var detectViewPort = function() {
+        var viewPortWidth = $(window).width();
+        if (viewPortWidth < 768) {
+          if (! $instagramSlick.hasClass('slick-initialized')) {
+            $('.js-br-card-instagram-mobile').slick({
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              dots: true,
+              arrows: false,
+              responsive: [
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1
+                  }
+                }
+              ]
+            });
+          }
+        } else {
+          if ($instagramSlick.hasClass('slick-initialized')) {
+            $('.js-br-card-instagram-mobile').slick('destroy');
+          }
+        }
+      };
+
+      detectViewPort();
+      $(window).resize(function () {
+        detectViewPort();
+      });
+      {% endif %}
+      {% if section.settings.section_ins_style == "section_ins_style_2" %}
+      var $grid = $('.engoc_inswrapper').imagesLoaded( function() {
+        $grid.masonry({
+          itemSelector: '.br-card',
+          percentPosition: true,
+          columnWidth: '.grid-sizer',
+          gutter: 0
+        });
+      });
+      $(".engo-insta-item").each(function(index){
+        var insta_item = $(this);
+        if(index == 0 || index == 7 ) $(insta_item).addClass('br-card--quad-w2 br-card--quad-h2');
+      });
+      {% endif %}
+    }
+
+  });
+</script>
+
+{% if section.settings.section_ins_style == "section_ins_style_1" %}
+<section class="section pt-0 engoc_no_rtl">
+  <div id="instagram" class="br-card-wrapper-nojs br-card-instagram js-br-card-instagram-mobile" data-col="6" data-gap="0">
+    {% if section.settings.section_ins_content_enable %}
+    <div class="br-card-instagram-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-4">
+            <h2 class="text-uppercase engoc_ins_title">  <span><a href="{{section.settings.sic_1_url}}" target="_blank"><i class="fa fa-instagram fz-20" aria-hidden="true"></i>{{section.settings.section_ins_content_1}}</a></span></h2>
+          </div>
+          <div class="col-md-6 col-sm-4 text-center">
+            <span class="uppercase" style="color:{{section.settings.section_ins_content_2_color}};">{{section.settings.section_ins_content_2}}</span>
+          </div>
+          <div class="col-md-3 col-sm-4 text-right">
+            <span class="font-secondary" style="color:{{section.settings.section_ins_content_3_color}};">{{section.settings.section_ins_content_3}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+  <!-- .br-card-wrapper -->
+</section>
+{% endif %}
+{% if section.settings.section_ins_style == "section_ins_style_2" %}
+<section class="pb-80 pt-30 engoc_no_rtl">
+  <div class="container">
+    {% if section.settings.section_ins_content_enable %}
+    <div class="br-card-instagram-content pb-20">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-6">
+          <h2 class="text-uppercase engoc_ins_title">  <span><a href="{{section.settings.sic_1_url}}" target="_blank"><i class="fa fa-instagram fz-20" aria-hidden="true"></i>{{section.settings.section_ins_content_1}}</a></span></h2>
+        </div>
+        <div class="col-md-6 col-sm-4 hidden-xs text-center">
+          <span class="uppercase" style="color:{{section.settings.section_ins_content_2_color}};"><span>{{section.settings.section_ins_content_2}}</span></span>
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-6 text-right">
+          <span class="font-secondary" style="color:{{section.settings.section_ins_content_3_color}};">{{section.settings.section_ins_content_3}}</span>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <!-- .br-card-instagram-content engoc_inswrapper-->
+    <div id="instagram" class="engoc_inswrapper br-card-instagram" data-col="6" data-gap="0">
+      <div class="grid-sizer"></div>
+
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endif %}
+</div>
+
+{% schema %}
+
+  {
+    "name": "Instagram",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "section_ins_enable",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "section_ins_style",
+        "options": [
+          {
+            "value": "section_ins_style_1",
+            "label": "Instagram Gallery Style 1"
+          },
+          {
+            "value": "section_ins_style_2",
+            "label": "Instagram Gallery Style 2"
+          }
+        ],
+        "label": "Select Instagram Style",
+        "info": "[View image with section instagram designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_s_instagram.png?2166063622016335341)",
+        "default": "section_ins_style_1"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_ins_enable_overlay_bg",
+        "label": "Enable Overlay Background?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "section_ins_userid",
+        "label": "User ID Instagram",
+        "default": "3672948962"
+      },
+      {
+        "type": "text",
+        "id": "section_ins_access_token",
+        "label": "Access Token Instagram",
+        "default": "3672948962.0f64772.430edb7f711e4665b59777c54d1ed9ce"
+      },
+      {
+        "type": "text",
+        "id": "section_ins_limit_number",
+        "label": "Limit Image",
+        "default": "12"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_ins_content_enable",
+        "label": "Enable Instagram Content?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "section_ins_content_1",
+        "label": "Content 1",
+        "default": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "sic_1_url",
+        "label": "Content 1 URL Ins",
+        "default": "#"
+      },
+      {
+        "type": "color",
+        "id": "section_ins_content_1_color",
+        "label": "Content 1 Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "section_ins_content_2",
+        "label": "Content 2",
+        "default": "#brilliant"
+      },
+      {
+        "type": "color",
+        "id": "section_ins_content_2_color",
+        "label": "Content 2 Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "section_ins_content_3",
+        "label": "Content 3",
+        "default": "@Brilliant Unique"
+      },
+      {
+        "type": "color",
+        "id": "section_ins_content_3_color",
+        "label": "Content 3 Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Instagram",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,23 @@
+<!-- /snippets/header-promotion.liquid -->
+{% if settings.header_promotion %}
+<div class="br-promotion hidden-xs engoc-promotion" {% if settings.select_header_promotion_style == "header_promotion_style2" or settings.select_header_promotion_style == "header_promotion_style3" %}style="background-image: url('{% if settings.bg_header_promotion == blank %}{{ 'bg_header_promotion.png' | asset_url }}{% else %}{{settings.bg_header_promotion |  img_url : "master"}}{% endif %}');"{% endif %}>
+  <div class="container">
+    <div class="row">
+      <div class="{% if settings.select_header_promotion_style == "header_promotion_style3" %}col-sm-8 col-xs-8{% else %}col-sm-10 col-xs-10{% endif %}">
+        <span class="text-uppercase small">{{settings.header_promotion_content}}</span>
+        {% if settings.header_promotion_btn_url != blank %}
+        <a href="{{settings.header_promotion_btn_url}}" class="btn btn-outline btn-sm">{{settings.header_promotion_btn_name}}</a>
+        {% endif %}
+      </div>
+      <div class="{% if settings.select_header_promotion_style == "header_promotion_style3" %}col-sm-4 col-xs-4{% else %}col-sm-2 col-xs-2{% endif %}">
+        {% if settings.select_header_promotion_style == "header_promotion_style3" %}
+        <ul class="nav-social engo-promotion-countdown{% if settings.enable_rtl %} col-md-pullset-4{% else %} col-md-offset-4{% endif %}" data-countdown="countdown" data-date="{{settings.hp_countdown}}">
+          
+        </ul>
+        {% endif %}
+        <button type="button" class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,456 @@
+<!-- section-collections-and-slider-and-interactive-banner.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-collections-and-slider-and-interactive-banner" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="container engoc_no_rtl">
+    <div class="row no-gutters">
+      {% if section.settings.sc_sib_enable_collection %}
+      {% assign collection_menu = section.settings.sc_sib_collection_menu %}
+      <div class="col-md-3 pb-50">
+        <div class="br-cat-wrapper">
+          {% if section.settings.sc_sib_enable_collection_col_top %}
+          <div class="br-bb">
+            <h3 class="text-uppercase">{{section.settings.sc_sib_collection_title}}</h3>
+            <nav class="br-cat mb-35">
+              {% for link in linklists[collection_menu].links %}
+              <a href="{{ link.url }}">{{ link.title }}<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+              {% endfor %}
+            </nav>
+            <!-- .br-cat -->
+            <h6 class="mb-70">{{section.settings.sc_sib_collection_col_top_info_1}} <span>{{section.settings.sc_sib_collection_col_top_info_2}}</span></h6>
+          </div>
+          {% endif %}
+          {% if section.settings.sc_sib_enable_collection_col_bottom %}
+          {% if section.settings.sc_sib_enable_collection_col_bottom_1 %}
+          <div class="br-bb pt-25 pb-20">
+            <h2 class="text-uppercase mb-0">{{section.settings.sc_sib_collection_col_bottom_1_title}}</h2>
+            <a href="{{section.settings.sc_sib_collection_col_bottom_1_btn_url}}" class="uppercase fz-12">{{section.settings.sc_sib_collection_col_bottom_1_btn_name}}<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          {% endif %}
+          {% if section.settings.sc_sib_enable_collection_col_bottom_2 %}
+          <div class="br-bb pt-25 pb-20">
+            <h2 class="text-uppercase mb-0">{{section.settings.sc_sib_collection_col_bottom_2_title}}</h2>
+            <a href="{{section.settings.sc_sib_collection_col_bottom_2_btn_url}}" class="uppercase fz-12">{{section.settings.sc_sib_collection_col_bottom_2_btn_name}}<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          {% endif %}
+          {% if section.settings.sc_sib_enable_collection_col_bottom_3 %}
+          <div class="br-bb pt-25 pb-20">
+            <h3 class="text-uppercase mb-0">{{section.settings.sc_sib_collection_col_bottom_3_title}}</h3>
+            <a href="{{section.settings.sc_sib_collection_col_bottom_3_btn_url}}" class="uppercase fz-12">{{section.settings.sc_sib_collection_col_bottom_3_btn_name}}<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          {% endif %}
+          {% if section.settings.sc_sib_enable_collection_col_bottom_4 %}
+          <div class="br-bb pt-25 pb-20">
+            <h3 class="text-uppercase mb-0">{{section.settings.sc_sib_collection_col_bottom_4_title}}</h3>
+            <a href="{{section.settings.sc_sib_collection_col_bottom_4_btn_url}}" class="uppercase fz-12">{{section.settings.sc_sib_collection_col_bottom_4_btn_name}}<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+        <!-- .br-cat-wrapper -->
+      </div>
+      {% endif %}
+      <div class="col-md-9 pb-50">
+        <section>
+          <div class="br-card-wrapper-nojs br-card-banner-2 br-card-shopsimple" data-item="3" data-gap="5">
+            <div class="grid-sizer"></div>
+            {% if section.settings.sc_sib_enable_slider %}
+            <div class="br-card br-card--quad-w2 inner-title">
+              <div class="br-card__media">
+                <div {% if settings.enable_rtl %}dir="rtl" {% endif %}class="js-slide-banner-1 br-slick-white br-slick-animation">
+                  {% if section.settings.sc_sib_enable_slider_1 %}
+                  <div class="br-card__thumb">
+                    <a href="{{section.settings.sc_sib_slider_1_btn_url}}">
+
+                      {% if section.settings.banner-shopsimple == blank %}
+                      {% capture _img_url %}banner-shopsimple.png{% endcapture %}
+                      <img src="{{ _img_url | asset_url}}" alt="">
+                      {% else %}
+                      <img src="{{ section.settings.banner-shopsimple | img_url:'master' }}" alt="">
+                      {% endif %}
+                    </a>
+                    <div class="br-card__main-noh">
+                      <div class="slide-banner-content">
+                        <div class="tb-cell">
+                          <span class="font-secondary fz-30 white">{{section.settings.sc_sib_slider_1_content_1}}</span>
+                          <h2 class="white text-uppercase bold mb-25">{{section.settings.sc_sib_slider_1_content_2}}</h2>
+                          <span class="font-third fz-16 white mb-50 mb-md-30">{{section.settings.sc_sib_slider_1_content_3}}</span>
+                          <a href="{{section.settings.sc_sib_slider_1_btn_url}}" class="btn btn-primary">{{section.settings.sc_sib_slider_1_btn_name}}</a>
+                        </div>
+                      </div>
+                      <!-- .slide-banner-content -->
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% if section.settings.sc_sib_enable_slider_2 %}
+                  <div class="br-card__thumb">
+                    <a href="{{section.settings.sc_sib_slider_2_btn_url}}">
+                      {% if section.settings.banner-shopsimple-3 == blank %}
+                      {% capture _img_url %}banner-shopsimple-3.png{% endcapture %}
+                      <img src="{{ _img_url | asset_url}}" alt="">
+                      {% else %}
+                      <img src="{{ section.settings.banner-shopsimple-3 | img_url:'master' }}" alt="">
+                      {% endif %}
+                    </a>
+                    <div class="br-card__main-noh">
+                      <div class="slide-banner-content">
+                        <div class="tb-cell">
+                          <span class="uppercase fz-20 white">{{section.settings.sc_sib_slider_2_content_1}}</span>
+                          <h2 class="white font-secondary">{{section.settings.sc_sib_slider_2_content_2}}</h2>
+                          <span class="uppercase fz-20 white mb-40">{{section.settings.sc_sib_slider_2_content_3}}</span>
+                          <a href="{{section.settings.sc_sib_slider_2_btn_url}}" class="btn btn-primary">{{section.settings.sc_sib_slider_2_btn_name}}</a>
+                        </div>
+                      </div>
+                      <!-- .slide-banner-content -->
+                    </div>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+              <!-- br-card__media -->
+            </div>
+            {% endif %}
+            <!-- br-cart -->
+            {% if section.settings.sc_sib_enable_banner_1 %}
+            <div class="br-card inner-title">
+              <div class="br-card__media">
+                <div class="br-card__thumb engoc_hover_img">
+                  <a href="{{section.settings.sc_sib_banner_1_url}}">
+                    {% if section.settings.banner-small-8 == blank %}
+                    {% capture _img_url %}banner-small-8.png{% endcapture %}
+                    <img src="{{ _img_url | asset_url}}" alt="">
+                    {% else %}
+                    <img src="{{ section.settings.banner-small-8 | img_url:'master' }}" alt="">
+                    {% endif %}
+                  </a>
+                </div>
+              </div>
+              <!-- br-card__media -->
+            </div>
+            {% endif %}
+            <!-- br-cart -->
+            {% if section.settings.sc_sib_enable_banner_2 %}
+            <div class="br-card inner-title">
+              <div class="br-card__media">
+                <div class="br-card__thumb engoc_hover_img">
+                  <a href="{{section.settings.sc_sib_banner_2_url}}">
+                    {% if section.settings.banner-small-9 == blank %}
+                    {% capture _img_url %}banner-small-9.png{% endcapture %}
+                    <img src="{{ _img_url | asset_url}}" alt="">
+                    {% else %}
+                    <img src="{{ section.settings.banner-small-9 | img_url:'master' }}" alt="">
+                    {% endif %}
+                  </a>
+                </div>
+              </div>
+              <!-- br-card__media -->
+            </div>
+            {% endif %}
+            <!-- br-cart -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Collection-Slider-iBanner",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Left: Collection"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_collection",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_collection_col_top",
+        "label": "Enable Column Top?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_title",
+        "label": "Title",
+        "default": "new arrivals"
+      },
+      {
+        "type": "link_list",
+        "id": "sc_sib_collection_menu",
+        "label": "Collection Menu"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_top_info_1",
+        "label": "Content Info 1",
+        "default": "TODAY:"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_top_info_2",
+        "label": "Content Info 2",
+        "default": "JANUARY 4, 2016"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_collection_col_bottom",
+        "label": "Enable Column Bottom?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_collection_col_bottom_1",
+        "label": "Enable Col Bottom 1?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_1_title",
+        "label": "Title",
+        "default": "SHOP FOR MEN"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_1_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_1_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_collection_col_bottom_2",
+        "label": "Enable Col Bottom 2?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_2_title",
+        "label": "Title",
+        "default": "SHOP FOR WOMEN"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_2_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_2_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_collection_col_bottom_3",
+        "label": "Enable Col Bottom 3?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_3_title",
+        "label": "Title",
+        "default": "SHOP FOR BOY"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_3_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_3_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_collection_col_bottom_4",
+        "label": "Enable Col Bottom 4?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_4_title",
+        "label": "Title",
+        "default": "SHOP FOR GIRL"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_4_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_collection_col_bottom_4_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Center: Slider"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_slider",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_slider_1",
+        "label": "Enable Slider 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-shopsimple",
+        "label": "Slider Image"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_1_content_1",
+        "label": "Content 1",
+        "default": "Street Fleece"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_1_content_2",
+        "label": "Content 2",
+        "default": "Dressing STYLE"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_1_content_3",
+        "label": "Content 3",
+        "default": "2 Styles, 2 Colors  -  Price: $45–78"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_1_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_1_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_slider_2",
+        "label": "Enable Slider 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-shopsimple-3",
+        "label": "Slider Image"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_2_content_1",
+        "label": "Content 1",
+        "default": "the result for men"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_2_content_2",
+        "label": "Content 2",
+        "default": "Vibrant Colours"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_2_content_3",
+        "label": "Content 3",
+        "default": "You Won’t Find Anywhere Else"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_2_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_slider_2_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Right: Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_banner_1",
+        "label": "Enable Banner 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-small-8",
+        "label": "Banner 1 Image"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_banner_1_url",
+        "label": "Banner 1 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "sc_sib_enable_banner_2",
+        "label": "Enable Banner 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-small-9",
+        "label": "Banner 2 Image"
+      },
+      {
+        "type": "text",
+        "id": "sc_sib_banner_2_url",
+        "label": "Banner 2 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection & Slider & iBanner",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,53 @@
+<!-- /snippets/header.liquid -->
+{% if settings.select_header_style == "header_style_1" %}
+<header class="site-header">
+  {% include 'header-promotion' %}
+  {% include 'header-1-topbar' %}
+  <nav class="awemenu-nav awemenu-nav--black awemenu-fadeup engoc-header-nav-s1">
+    <div class="container">
+      <div class="awemenu-container">
+        <div class="navbar-icons">
+          <div class="dropdown dropdown-animation">
+            <a href="#" data-toggle="dropdown" role="button">
+              <i class="fa {{settings.header_icon_search}}" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu dropdown-search">
+              <div class="form-search">
+                {% include 'search-bar' %}
+              </div>
+            </div>
+            <!-- .dropdown-search -->
+          </div>
+          <!-- dropdown -->
+          <div {% if settings.enable_rtl %}class="dropdown-left"{% else %}class="dropdown-right"{% endif %}>
+            {% include 'header-minicart' %}
+            <!-- dropdown -->
+            {% include 'header-miniwishlist' %}
+            <!-- dropdown -->
+            {% include 'header-miniaccount' %}
+            <!-- dropdown -->
+          </div>
+        </div>
+        <!-- .navbar-icons -->
+        <div class="awemenu-logo engoc-h1-maxwidth-logo">
+          {% if settings.svg_logo_header_s1 %}
+          <a href="{{shop.url}}">{{settings.svg_logo_text_header_s1}}</a>
+          {% else %}
+          <a href="{{shop.url}}"><img src="{{ 'logo-white-br.png' | asset_url }}" alt="logo"></a>
+          {% endif %}
+        </div>
+        {% include 'menu' %}
+      </div>
+      <!-- .awemenu-container -->
+    </div>
+  </nav>
+</header>
+{% endif %}
+
+{% if settings.select_header_style == "header_style_2" %}
+{% include 'header-v2' %}
+{% endif %}
+
+{% if settings.select_header_style == "header_style_3" %}
+{% include 'header-v3' %}
+{% endif %}

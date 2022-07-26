@@ -1,0 +1,158 @@
+<!-- /snippets/footer.liquid -->
+{% if settings.select_footer_style == "footer-s2" %}
+{% include 'footer-v2' %}
+{% else %}
+<footer class="site-footer {% if settings.select_footer_style == "footer-s1-black" or settings.select_footer_style == "footer-s1-white" %}engoc-footer-s1{% endif %}">
+  {% if settings.ft_s1_top_enable %}
+  <div class="br-site-social">
+    <div class="container">
+      {{settings.ft_s1_top_social_content}}
+    </div>
+  </div>
+  {% endif %}
+  {% if settings.ft_s1_main_enable %}
+  <div class="br-footer-content">
+    <div class="container">
+      <div class="row">
+        {% assign footer_menu_col_2 = settings.footer_s1_menu_col_2 %}
+        {% assign footer_menu_col_3 = settings.footer_s1_menu_col_3 %}
+        {% assign footer_menu_col_4 = settings.footer_s1_menu_col_4 %}
+        {% assign footer_menu_bottom = settings.footer_s1_menu_bottom %}
+
+        {% if settings.ft_s1_main_col_1_enable %}
+        <div class="col-md-2">
+          <div class="br-logo-wrapper">
+            {% if settings.select_footer_style == "footer-s1-black" %}
+              {% if settings.enable_svglogo_s1b %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1b}}px;">{{settings.svglogo_text_s1b}}</a>
+              {% else %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1b}}px;"><img src="{{ 'logo-white.png' | asset_url }}" alt=""></a>
+              {% endif %}
+            {% endif %}
+            {% if settings.select_footer_style == "footer-s1-white" %}
+              {% if settings.enable_svglogo_s1w %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1w}}px;">{{settings.svglogo_text_s1w}}</a>
+              {% else %}
+              <a href="{{shop.url}}" class="br-logo" style="max-width: {{settings.logo_maxwidth_s1w}}px;"><img src="{{ 'logo-black.png' | asset_url }}" alt=""></a>
+              {% endif %}
+            {% endif %}
+            {% if settings.ft_s1_main_col_1_content != blank %}
+            <p>{{settings.ft_s1_main_col_1_content}}</p>
+            {% else %}
+            <p>Copyright &copy; {{ 'now' | date: "%Y" }} by <a href="http://engotheme.com" title="EngoTheme" target="_blank">EngoTheme</a>. All Rights Reserved.
+              <br> <small>{{ powered_by_link }}</small>
+            </p>
+            {% endif %}
+          </div>
+          <!-- br-logo-wrapper -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_2_enable %}
+        <div class="col-md-2 col-sm-4">
+          <section class="widget widget_categories">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_2_title}}</h2>
+            <!-- widget-title -->
+            <ul>
+              {% for link in linklists[footer_menu_col_2].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_3_enable %}
+        <div class="col-md-2 col-sm-4">
+          <section class="widget widget_links">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_3_title}}</h2>
+            <!-- widget-title -->
+            <ul>
+              {% for link in linklists[footer_menu_col_3].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_4_enable %}
+        <div class="col-md-2 col-sm-4">
+          <section class="widget widget_links">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_4_title}}</h2>
+            <!-- widget-title -->
+            <ul>
+              {% for link in linklists[footer_menu_col_4].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_main_col_5_enable %}
+        <div class="col-md-4 col-sm-12">
+          <section class="widget widget-text">
+            <h2 class="widget-title">{{settings.ft_s1_main_col_5_title}}</h2>
+            <!-- widget-title -->
+            <span class="textwidget mb-20">{{settings.ft_s1_main_col_5_des}}</span>
+            {% if settings.newsletter_form_action_ft_s1 != blank %}
+            {% assign form_action = settings.newsletter_form_action_ft_s1 %}
+            {% else %}
+            {% assign form_action = '#' %}
+            {% endif %}
+            <form action="{{ form_action }}" method="post" class="mb-35">
+              <label class="sr-only">Email</label>
+              <input name="email" type="email" placeholder="{{settings.ft_s1_main_col_5_placeholder}}" value="{% if customer %}{{ customer.email }}{% endif %}">
+              <input type="submit" value="{{settings.ft_s1_main_col_5_btn_name}}" class="btn btn-primary">
+            </form>
+            {% if settings.ft_s1_main_col_5_icon_payment_enable %}
+            {{settings.ft_s1_main_col_5_icon_payment_content}}
+            {% endif %}
+            <!-- br-payment -->
+          </section>
+          <!-- widget -->
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% if settings.ft_s1_bottom_enable %}
+  <div class="br-site-info">
+    <div class="container">
+      <div class="row">
+        {% if settings.ft_s1_bottom_left_enable %}
+        <div class="col-md-8 col-sm-8">
+          <div class="br-site-contact">
+            {% for link in linklists[footer_menu_bottom].links %}
+            <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+          <!-- br-site-contact -->
+        </div>
+        {% endif %}
+        {% if settings.ft_s1_bottom_right_enable %}
+        <div class="col-md-4 col-sm-4">
+          <div class="br-dropdown text-uppercase">
+            {% if settings.language_enable %}
+            {% assign language_menu = settings.multi_language_menu %}
+            <div class="dropdown">
+              <a data-target="#" href="#" data-toggle="dropdown" role="button">{{settings.language_default_name}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu">
+                {% for link in linklists[language_menu].links %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% include 'currency-picker' %}
+          </div>
+          <!-- br-dropdown -->
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</footer>
+{% endif %}

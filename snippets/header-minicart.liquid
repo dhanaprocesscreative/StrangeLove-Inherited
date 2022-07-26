@@ -1,0 +1,71 @@
+<!-- /snippets/header-minicart.liquid -->
+<div class="dropdown dropdown-animation">
+  <a href="/cart" data-toggle="dropdown" role="button">
+    <i class="fa {{section.settings.header_icon_cart}}" aria-hidden="true"></i>
+    {% if section.settings.cart_enable_count %}
+    <span id="CartCount" class="count engoc-cart-count">{{ cart.item_count }}</span>
+    {% endif %}
+  </a>
+  <div class="dropdown-menu dropdown-cart">
+    <div class="list-product-mini" id="CartContainer">
+      {% if cart.item_count > 0 %}
+      <ul class="list-style-none engoc_max_height">
+        {% for item in cart.items %}
+        <li>
+          <div class="product-mini">
+            <a href="{{item.url}}" class="product-mini__img">
+              <img src="{{ item.image | product_img_url: 'small' }}" alt="{{ item.title }}">
+              <span>{{ item.quantity }}</span>
+            </a>
+            <!-- .product-mini__img -->
+            <div class="product-mini__body">
+              {% if item.product.handle == 'cc-carbon-offset' %}
+              <h4 class="br-product__name"><a href="{{ item.url }}" tabindex="0">{{ item.product.title }}</a></h4>
+             {% else %}
+              <h4 class="br-product__name"><a href="{{ item.url }}" tabindex="0">{{ item.title }}</a></h4>
+              {% endif %}
+              <span class="br-product__price">{{ item.price | money }}</span>
+            </div>
+            <!-- .product-mini__body -->
+            <div class="product-mini__button">
+              <a href="/cart"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+            <!-- .product-mini__button -->
+          </div>
+          <!-- .product-mini -->
+        </li>
+		{% endfor %}
+      </ul>
+      <div class="total-product overflow-hidden">
+        {% unless template == 'cart' %}
+      {% render 'carbonclick-cart',type:"mini" %}
+      {% endunless %}
+        <h5 class="text-uppercase">
+          <span class="pull-left ">{{ 'minicart.general.total_price' | t }}</span>
+          <span class="pull-right">{{cart.total_price | money}}</span>
+        </h5>
+      </div>
+      <div class="product-mini__action">
+        <a href="/cart" class="btn btn-default">{{ 'minicart.general.view_cart' | t }}</a>
+        <a href="/checkout" class="btn btn-primary">{{ 'minicart.general.checkout' | t }}</a>
+      </div>
+      <!-- .product-mini__action -->
+      {% else %}
+      <div class="text-center">
+        <p>{{ 'minicart.general.empty' | t }}</p>
+      </div>
+      <div class="text-center">
+        <a href="/collections/all" class="btn btn-default">{{ 'minicart.general.shop_now' | t }}</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <!-- .dropdown-cart -->
+</div>
+
+
+<script>document.addEventListener('cc-opencart', function (e) {
+  $('a[href="/cart"][data-toggle="dropdown"]').trigger('click');
+});
+</script>

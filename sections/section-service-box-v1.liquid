@@ -1,0 +1,155 @@
+<!-- section-service-box-v1.liquid -->
+{% if section.settings.bordertop_disable %}
+<style>
+  @media (min-width: 992px) {
+  .br-policy {
+    border-top: none;}
+  }
+</style>
+{% endif %}
+
+<div data-section-id="{{ section.id }}" data-section-type="section-service-box-v1" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+<section class="pt-md-20 pb-md-20 pb-40">
+  <div {% if section.settings.sb_border_style == "border_full_screen" %}class="br-policy"{% endif %}{% if section.settings.sb_border_style == "border_full_width" %}class="container"{% endif %}>
+    <div {% if section.settings.sb_border_style == "border_full_screen" %}class="container"{% endif %}{% if section.settings.sb_border_style == "border_full_width" %}class="br-policy"{% endif %}>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+        <div class="br-policy__item">
+          <div class="br-policy__icon">
+            {% if block.settings.enable_sb_v1_icon_img %}
+            <img src="{{ block.settings.icon-svb| img_url:'master' }}" alt="{{block.settings.sb_v1_title}}">
+            {% else %}
+            <i class="br {{block.settings.sb_v1_icon}}"></i>
+            {% endif %}
+          </div>
+          <!-- End .br-policy__icon -->
+          <div class="br-policy__text">
+            <h5 class="text-uppercase mb-0">{{block.settings.sb_v1_title}}</h5>
+            <span>{{block.settings.sb_v1_content}}</span>
+          </div>
+          <!-- End br-policy__text -->
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "Service Box",
+  "class": "index-section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "select",
+      "id": "sb_border_style",
+      "options": [
+        {
+          "value": "border_full_screen",
+          "label": "Border Full Screen"
+        },
+        {
+          "value": "border_full_width",
+          "label": "Border Full Width"
+        }
+      ],
+      "label": "Select Border Style",
+      "default": "border_full_screen"
+    },
+    {
+        "type": "checkbox",
+        "id": "bordertop_disable",
+        "label": "Disable border top?"
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+  ],
+  "blocks": [
+    {
+      "type": "box",
+      "name": "Box",
+      "settings": [
+        {
+          "type": "text",
+          "id": "sb_v1_title",
+          "label": "Title",
+          "default": "The title here"
+        },
+        {
+          "type": "text",
+          "id": "sb_v1_content",
+          "label": "Content",
+          "default": "The content here"
+        },
+        {
+          "type": "text",
+          "id": "sb_v1_icon",
+          "label": "Icon",
+          "default": "br-car"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_sb_v1_icon_img",
+          "label": "Use Image Icon?",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "icon-svb",
+          "label": "Image Icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service Box",
+      "category": "Content",
+      "settings": {
+        "sb_border_style": "border_full_screen"
+      },
+      "blocks": [
+        {
+          "type": "box",
+          "settings": {
+            "sb_v1_title": "Free shipping",
+            "sb_v1_content": "Free returns & exchanges",
+            "sb_v1_icon": "br-car"
+          }
+        },
+        {
+          "type": "box",
+          "settings": {
+            "sb_v1_title": "15 Days returns",
+            "sb_v1_content": "When order over $25",
+            "sb_v1_icon": "br-money"
+          }
+        },
+        {
+          "type": "box",
+          "settings": {
+            "sb_v1_title": "support 24/7",
+            "sb_v1_content": "When order over $25",
+            "sb_v1_icon": "br-clock"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

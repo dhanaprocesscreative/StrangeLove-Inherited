@@ -1,0 +1,3019 @@
+[
+  {
+    "name": "theme_info",
+    "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/Thumbnail.png?9483970164920699178",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brilliant - Multi Store Responsive Shopify Theme"
+      },
+      {
+        "type": "paragraph",
+        "content": "v1.0.6"
+      },
+      {
+        "type": "paragraph",
+        "content": "See the theme [Landing page and document](http:\/\/landing.engotheme.com\/shopify\/brilliant) for more information about this wonderful theme."
+      },
+      {
+        "type": "paragraph",
+        "content": "If you love this theme, please [Rate 5 stars](https:\/\/themeforest.net\/item\/brilliant-creative-multipurpose-shopify-theme\/reviews\/17955694), which will be a great motivation for us to continue create great themes in the future. [How to rate?](http:\/\/landing.engotheme.com\/library\/how-to-rate.png)"
+      }
+    ]
+  },
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_rtl",
+        "label": "Enable layout RTL (Right to Left)?",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "icon-for-mobile.png",
+        "label": "Site Identity",
+        "info": "The Site Icon is used as a browser and app icon for your site. Icons must be square, and at least 512 pixels wide and tall."
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Favicon",
+        "info": "16 x 16px png"
+      },
+      {
+        "type": "header",
+        "content": "Multi Language"
+      },
+      {
+        "type": "checkbox",
+        "id": "language_enable",
+        "label": "Enable Multi Language?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "language_default_name",
+        "label": "Language Default Name",
+        "default": "ENG"
+      },
+      {
+        "type": "link_list",
+        "id": "multi_language_menu",
+        "label": "Select Menu Language"
+      },
+      {
+        "type": "header",
+        "content": "Multi Currency"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies",
+        "label": "Currencies you wish to support",
+        "default": "INR GBP CAD USD AUD EUR JPY"
+      }
+    ]
+  },
+  {
+    "name": "Comming Soon",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings",
+        "info": "Enable\/Disable in Admin Login > Online Store > Preferences > Storefront password"
+      },
+      {
+        "type": "image_picker",
+        "id": "cms_bg",
+        "label": "Background"
+      },
+      {
+        "type": "image",
+        "id": "cms_logo.png",
+        "label": "Logo Top"
+      },
+      {
+        "type": "text",
+        "id": "cms_title",
+        "label": "Title",
+        "default": "Comming Soon"
+      },
+      {
+        "type": "text",
+        "id": "cms_des",
+        "label": "Description",
+        "default": "Have no fear, we are lauching soon. We just have to do it and cross it"
+      },
+      {
+        "type": "text",
+        "id": "cms_time",
+        "label": "Time countdown",
+        "info": "Format datatime: YYYY-MM-DD-hh-mm-ss",
+        "default": "2016-12-24-14-40-20"
+      },
+      {
+        "type": "text",
+        "id": "cms_label",
+        "label": "Label Input",
+        "default": "This shop will be powered by Shopify"
+      },
+      {
+        "type": "textarea",
+        "id": "cms_content_social",
+        "label": "Content Social"
+      }
+    ]
+  },
+  {
+    "name": "Pre-Loader",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_preloader",
+        "label": "Enable Pre-Loader?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "loading.gif",
+        "label": "Loading icon",
+        "info": "170 x 170px .gif recommended"
+      },
+      {
+        "type": "header",
+        "content": "Loading Bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_loading_bar",
+        "label": "Show loading bar?",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "loading_bar_color",
+        "label": "Loading bar color",
+        "default": "#242626"
+      },
+      {
+        "type": "header",
+        "content": "Loading Background"
+      },
+      {
+        "type": "color",
+        "id": "loading_bg_color",
+        "label": "Background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_preloader_bg",
+        "label": "Use background image?",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "loading_bg_img.png",
+        "label": "Background image"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Use class=\"color\" on a an input tag to bring up the color picker. Only a few colors have been included here as an example."
+      },
+      {
+        "type": "header",
+        "content": "General colors"
+      },
+      {
+        "type": "color",
+        "id": "m_primary_color",
+        "label": "Primary Color",
+        "default": "#7fc9c4"
+      },
+      {
+        "type": "color",
+        "id": "m_pc_hover",
+        "label": "Primary Color hover",
+        "default": "#91d1cc"
+      },
+      {
+        "type": "color",
+        "id": "m_secondary_color",
+        "label": "Secondary Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "m_text_color",
+        "label": "Text Color",
+        "default": "#898989"
+      },
+      {
+        "type": "header",
+        "content": "Header Style 1",
+        "info": "[View image config](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_2.png?7825277618404995757)"
+      },
+      {
+        "type": "color",
+        "id": "header_s1_topbar_bg_color",
+        "label": "Topbar Background Color",
+        "default": "#f9f9f9"
+      },
+      {
+        "type": "color",
+        "id": "header_s1_topbar_text_color",
+        "label": "Topbar Text Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_s1_bg",
+        "label": "Background Nav",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_s1_text",
+        "label": "Text Link Nav",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "border_color_nav_s1",
+        "label": "Border Color",
+        "default": "#3a3a3a"
+      },
+      {
+        "type": "header",
+        "content": "Header Style 2",
+        "info": "[View image config](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_2.png?7825277618404995757)"
+      },
+      {
+        "type": "color",
+        "id": "header_s2_topbar_bg_color",
+        "label": "Topbar Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "header_s2_topbar_text_color",
+        "label": "Topbar Text Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "header_s2_topbar_border_color",
+        "label": "Topbar Border Color",
+        "default": "#e3e3e3"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_s2_bg",
+        "label": "Background Nav",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_s2_text",
+        "label": "Text Link Nav",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_s2_border",
+        "label": "Border Color",
+        "default": "#e3e3e3"
+      },
+      {
+        "type": "header",
+        "content": "Header Style 3",
+        "info": "[View image config](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_2.png?7825277618404995757)"
+      },
+      {
+        "type": "color",
+        "id": "header_s3_topbar_bg_color",
+        "label": "Topbar Background Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "header_s3_topbar_text_color",
+        "label": "Topbar Text Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "topbar2_s3_bg",
+        "label": "Topbar2 Background Color",
+        "default": "#f9f9f9"
+      },
+      {
+        "type": "color",
+        "id": "topbar2_s3_text_color",
+        "label": "Topbar2 Text Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_s3_bg",
+        "label": "Background Nav",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_s3_text",
+        "label": "Text Link Nav",
+        "default": "#242626"
+      },
+      {
+        "type": "header",
+        "content": "SubNav"
+      },
+      {
+        "type": "color",
+        "id": "color_sub_nav_bg",
+        "label": "Background Sub Nav",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_sub_nav_heading_text",
+        "label": "Text Heading Title Sub Nav",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "color_sub_nav_text",
+        "label": "Text Link Sub Nav",
+        "default": "#898989"
+      },
+      {
+        "type": "header",
+        "content": "Footer Style 1 Black",
+        "info": "[View image config](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_2.png?7825277618404995757)"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_bg",
+        "label": "Background Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_text_link",
+        "label": "Text Link Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_text",
+        "label": "Text Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_heading",
+        "label": "Heading Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_social",
+        "label": "Social Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_payment",
+        "label": "Payment Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_border",
+        "label": "Border Color",
+        "default": "#3a3a3a"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_btn",
+        "label": "Button Color",
+        "default": "#7fc9c4"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_btn_text",
+        "label": "Button Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_btn_hover",
+        "label": "Button Hover Color",
+        "default": "#91d1cc"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_black_btn_text_hover",
+        "label": "Button Text Hover Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Footer Style 1 White",
+        "info": "[View image config](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_2.png?7825277618404995757)"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_bg",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_text_link",
+        "label": "Text Link Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_text",
+        "label": "Text Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_heading",
+        "label": "Heading Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_social",
+        "label": "Social Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_payment",
+        "label": "Payment Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_border",
+        "label": "Border Color",
+        "default": "#e3e3e3"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_btn",
+        "label": "Button Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_btn_text",
+        "label": "Button Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_btn_hover",
+        "label": "Button Hover Color",
+        "default": "#7fc9c4"
+      },
+      {
+        "type": "color",
+        "id": "footer_s1_white_btn_text_hover",
+        "label": "Button Text Hover Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Footer Style 2",
+        "info": "[View image config](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_2.png?7825277618404995757)"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_bg",
+        "label": "Background Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_text_link",
+        "label": "Text Link Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_text",
+        "label": "Text Color",
+        "default": "#898989"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_heading",
+        "label": "Heading Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_social",
+        "label": "Social Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_payment",
+        "label": "Payment Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_border",
+        "label": "Border Color",
+        "default": "#3a3a3a"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_btn",
+        "label": "Button Color",
+        "default": "#7fc9c4"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_btn_text",
+        "label": "Button Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_btn_hover",
+        "label": "Button Hover Color",
+        "default": "#91d1cc"
+      },
+      {
+        "type": "color",
+        "id": "footer_s2_btn_text_hover",
+        "label": "Button Text Hover Color",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  {
+    "name": "Fonts",
+    "settings": [
+      {
+        "type": "radio",
+        "id": "font_type",
+        "label": "Select font type:",
+        "options": [
+          {
+            "value": "normal_fonts",
+            "label": "Normal Fonts"
+          },
+          {
+            "value": "google_fonts",
+            "label": "Google Fonts [Where do I find Google Fonts?](http:\/\/www.google.com\/fonts)"
+          }
+        ],
+        "default": "google_fonts"
+      },
+      {
+        "type": "header",
+        "content": "SETTING GOOGLE FONTS"
+      },
+      {
+        "type": "header",
+        "content": "Font 1",
+        "info": "used for Body Text, Tooltip, Popover, Comment content, Product name"
+      },
+      {
+        "type": "text",
+        "id": "fonts_name_1",
+        "label": "Google Fonts Name 1",
+        "default": "Lato"
+      },
+      {
+        "type": "header",
+        "content": "Font 2",
+        "info": "used for Heading, Text link, Blockquote small, Small text, Site info Footer, Widget text, Label product, Price product, Input, Select, Button in Form, Label, Content 1, 3 Section Slider"
+      },
+      {
+        "type": "text",
+        "id": "fonts_name_2",
+        "label": "Google Fonts Name 2",
+        "default": "Montserrat"
+      },
+      {
+        "type": "header",
+        "content": "Font 3",
+        "info": "used for Heading page, Slogan, Blockquote, Entry title, Content 2 Section Slider"
+      },
+      {
+        "type": "text",
+        "id": "fonts_name_3",
+        "label": "Google Fonts Name 3",
+        "default": "Playfair Display"
+      },
+      {
+        "type": "header",
+        "content": "Font 4",
+        "info": "used for Content 4 Section Slider"
+      },
+      {
+        "type": "text",
+        "id": "fonts_name_4",
+        "label": "Google Fonts Name 4",
+        "default": "Hind"
+      }
+    ]
+  },
+  {
+    "name": "Header Style 1",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Design Header Style 1",
+        "info": "[View image with header style 1 design](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_header_1.png?14288847307839253814)"
+      },
+      {
+        "type": "header",
+        "content": "Sticky Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_h1_sticky",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image",
+        "id": "logo-white-br.png",
+        "label": "Logo Image",
+        "info": "153 x 47px .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width1",
+        "label": "Logo Display Width (maximum: 200px)",
+        "default": "200",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "svg_logo_header_s1",
+        "label": "Use svg logo"
+      },
+      {
+        "type": "textarea",
+        "id": "svg_logo_text_header_s1",
+        "label": "Svg logo",
+        "info": "Priority svg logo ,It will display  best for retina display"
+      },
+      {
+        "type": "header",
+        "content": "Header Promotion",
+        "info": "Settings in Header Promotion"
+      },
+      {
+        "type": "header",
+        "content": "Header Topbar",
+        "info": "Setting multi currency & multi language in Customize theme > Settings tab > General"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_header_1_topbar",
+        "label": "Enable Header Topbar?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_1_topbar_left_content",
+        "label": "Topbar Left Content",
+        "default": "Wellcome To My Brilliant Shop"
+      },
+      {
+        "type": "header",
+        "content": "Header Main",
+        "info": "Settings main menu, icon for mobile, favico, multi language, multi currency, icon search, icon cart, icon wistlist, icon account in Header"
+      }
+    ]
+  },
+  {
+    "name": "Header Style 2",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Design Header Style 2",
+        "info": "[View image with header style 2 design](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_header_2.png?18421036757282102416)"
+      },
+      {
+        "type": "header",
+        "content": "Sticky Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_h2_sticky",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image",
+        "id": "logo-br-2.png",
+        "label": "Logo Image",
+        "info": "182 x 58px .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width2",
+        "label": "Logo Display Width (maximum: 200px)",
+        "default": "200",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "svg_logo_header_s2",
+        "label": "Use svg logo"
+      },
+      {
+        "type": "textarea",
+        "id": "svg_logo_text_header_s2",
+        "label": "Svg logo",
+        "info": "Priority svg logo ,It will display  best for retina display"
+      },
+      {
+        "type": "header",
+        "content": "Header Promotion",
+        "info": "Settings in Header Promotion"
+      },
+      {
+        "type": "header",
+        "content": "Header Topbar",
+        "info": "Setting multi currency & multi language in Customize theme > Settings tab > General"
+      },
+      {
+        "type": "text",
+        "id": "header_2_topbar_left_content",
+        "label": "Topbar Left Content",
+        "default": "Wellcome To My Brilliant Shop"
+      },
+      {
+        "type": "header",
+        "content": "Header Main",
+        "info": "Settings main menu, icon for mobile, favico, multi language, multi currency, icon search, icon cart, icon wistlist, icon account in Header"
+      }
+    ]
+  },
+  {
+    "name": "Header Style 3",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Design Header Style 3",
+        "info": "[View image with header style 3 design](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_header_3.png?17327961514707898586)"
+      },
+      {
+        "type": "header",
+        "content": "Sticky Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_h3_sticky",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image",
+        "id": "logo-br-3.png",
+        "label": "Logo Image",
+        "info": "182 x 58px .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width3",
+        "label": "Logo Display Width (maximum: 200px)",
+        "default": "200",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "svg_logo_header_s3",
+        "label": "Use svg logo"
+      },
+      {
+        "type": "textarea",
+        "id": "svg_logo_text_header_s3",
+        "label": "Svg logo",
+        "info": "Priority svg logo ,It will display  best for retina display"
+      },
+      {
+        "type": "header",
+        "content": "Header Promotion",
+        "info": "Settings in Header Promotion"
+      },
+      {
+        "type": "header",
+        "content": "Header Topbar",
+        "info": "Setting multi currency & multi language in Customize theme > Settings tab > General"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_header_3_topbar",
+        "label": "Enable Header Topbar?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_3_topbar_left_content",
+        "label": "Topbar Left Content",
+        "default": "Wellcome To My Brilliant Shop"
+      },
+      {
+        "type": "header",
+        "content": "Header Topbar 2",
+        "info": "Settings in Header"
+      },
+      {
+        "type": "header",
+        "content": "Header Main",
+        "info": "Settings main menu, icon for mobile, favico, multi language, multi currency, icon search, icon cart, icon wistlist, icon account in Header"
+      }
+    ]
+  },
+  {
+    "name": "Header Promotion",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Promotion Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "header_promotion",
+        "label": "Enable Promotion?",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "select_header_promotion_style",
+        "label": "Select Promotion Style",
+        "options": [
+          {
+            "value": "header_promotion_style1",
+            "label": "Promotion Style 1: Classic"
+          },
+          {
+            "value": "header_promotion_style2",
+            "label": "Promotion Style 2: Bg Image"
+          },
+          {
+            "value": "header_promotion_style3",
+            "label": "Promotion Style 3: Countdown"
+          }
+        ],
+        "default": "header_promotion_style1",
+        "info": "[View image with promotion style designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_s_promotion.png?5361585291492765182)"
+      },
+      {
+        "type": "header",
+        "content": "Promotion Style 1: Classic"
+      },
+      {
+        "type": "text",
+        "id": "header_promotion_content",
+        "label": "Promotion Content",
+        "default": "free shipping on  orders over $125 withing the us"
+      },
+      {
+        "type": "text",
+        "id": "header_promotion_btn_name",
+        "label": "Promotion Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "header_promotion_btn_url",
+        "label": "Promotion Button URL",
+        "info": "if Button URL empty, Button don't show!",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "color",
+        "id": "header_s1_promotion_bg_color",
+        "label": "Header Style 1: Background Color",
+        "default": "#7fc9c4"
+      },
+      {
+        "type": "color",
+        "id": "header_s1_promotion_text_color",
+        "label": "Header Style 1: Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "header_s2_promotion_bg_color",
+        "label": "Header Style 2: Background Color",
+        "default": "#242626"
+      },
+      {
+        "type": "color",
+        "id": "header_s2_promotion_text_color",
+        "label": "Header Style 2: Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "header_s3_promotion_bg_color",
+        "label": "Header Style 3: Background Color",
+        "default": "#7fc9c4"
+      },
+      {
+        "type": "color",
+        "id": "header_s3_promotion_text_color",
+        "label": "Header Style 3: Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Promotion Style 2: Bg Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_header_promotion",
+        "label": "Image Background"
+      },
+      {
+        "type": "header",
+        "content": "Promotion Style 3: Countdown"
+      },
+      {
+        "type": "text",
+        "label": "Deadline Countdown",
+        "id": "hp_countdown",
+        "info": "Format datatime: YYYY-MM-DD-hh-mm-ss",
+        "default": "2016-12-24-14-40-20"
+      }
+    ]
+  },
+  {
+    "name": "Megamenu",
+    "settings": [
+      {
+        "type": "header",
+        "content": "MEGAMENU 1"
+      },
+      {
+        "type": "text",
+        "id": "megamenu_s1_parent",
+        "label": "Parent name of dropdow menu"
+      },
+      {
+        "type": "select",
+        "id": "ms1_select",
+        "label": "Select Style for Megamenu",
+        "options": [
+          {
+            "value": "m_s1",
+            "label": "Style 1"
+          },
+          {
+            "value": "m_s2",
+            "label": "Style 2"
+          },
+          {
+            "value": "m_s3",
+            "label": "Style 3"
+          }
+        ],
+        "default": "m_s1",
+        "info": "[View image with style megamenu designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_all_megamenu.png?3651330641885273282)"
+      },
+      {
+        "type": "textarea",
+        "id": "ms1_first_col",
+        "label": "Content of Fisrt Column (used for Style 1, 2)"
+      },
+      {
+        "type": "text",
+        "id": "ms1_main_col",
+        "label": "Title of Main Column"
+      },
+      {
+        "type": "select",
+        "id": "ms1_lc_select",
+        "label": "Select Content of Last Column (used for Style 1, 2)",
+        "options": [
+          {
+            "value": "m_banner",
+            "label": "Banner"
+          },
+          {
+            "value": "m_product",
+            "label": "Product"
+          }
+        ],
+        "default": "m_banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "ms1_lc_img",
+        "label": "Banner of Last Column"
+      },
+      {
+        "type": "text",
+        "id": "ms1_lc_img_url",
+        "label": "URL Banner",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "product",
+        "id": "ms1_lc_product",
+        "label": "Product of Last Column"
+      },
+      {
+        "type": "header",
+        "content": "MEGAMENU 2"
+      },
+      {
+        "type": "text",
+        "id": "megamenu_s2_parent",
+        "label": "Parent name of dropdow menu"
+      },
+      {
+        "type": "select",
+        "id": "ms2_select",
+        "label": "Select Style for Megamenu",
+        "options": [
+          {
+            "value": "m_s1",
+            "label": "Style 1"
+          },
+          {
+            "value": "m_s2",
+            "label": "Style 2"
+          },
+          {
+            "value": "m_s3",
+            "label": "Style 3"
+          }
+        ],
+        "default": "m_s1",
+        "info": "[View image with style megamenu designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_all_megamenu.png?3651330641885273282)"
+      },
+      {
+        "type": "textarea",
+        "id": "ms2_first_col",
+        "label": "Content of Fisrt Column (used for Style 1, 2)"
+      },
+      {
+        "type": "text",
+        "id": "ms2_main_col",
+        "label": "Title of Main Column"
+      },
+      {
+        "type": "select",
+        "id": "ms2_lc_select",
+        "label": "Select Content of Last Column (used for Style 1, 2)",
+        "options": [
+          {
+            "value": "m_banner",
+            "label": "Banner"
+          },
+          {
+            "value": "m_product",
+            "label": "Product"
+          }
+        ],
+        "default": "m_banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "ms2_lc_img",
+        "label": "Banner of Last Column"
+      },
+      {
+        "type": "text",
+        "id": "ms2_lc_img_url",
+        "label": "URL Banner",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "product",
+        "id": "ms2_lc_product",
+        "label": "Product of Last Column"
+      },
+      {
+        "type": "header",
+        "content": "MEGAMENU 3"
+      },
+      {
+        "type": "text",
+        "id": "megamenu_s3_parent",
+        "label": "Parent name of dropdow menu"
+      },
+      {
+        "type": "select",
+        "id": "ms3_select",
+        "label": "Select Style for Megamenu",
+        "options": [
+          {
+            "value": "m_s1",
+            "label": "Style 1"
+          },
+          {
+            "value": "m_s2",
+            "label": "Style 2"
+          },
+          {
+            "value": "m_s3",
+            "label": "Style 3"
+          }
+        ],
+        "default": "m_s1",
+        "info": "[View image with style megamenu designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_all_megamenu.png?3651330641885273282)"
+      },
+      {
+        "type": "textarea",
+        "id": "ms3_first_col",
+        "label": "Content of Fisrt Column (used for Style 1, 2)"
+      },
+      {
+        "type": "text",
+        "id": "ms3_main_col",
+        "label": "Title of Main Column"
+      },
+      {
+        "type": "select",
+        "id": "ms3_lc_select",
+        "label": "Select Content of Last Column (used for Style 1, 2)",
+        "options": [
+          {
+            "value": "m_banner",
+            "label": "Banner"
+          },
+          {
+            "value": "m_product",
+            "label": "Product"
+          }
+        ],
+        "default": "m_banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "ms3_lc_img",
+        "label": "Banner of Last Column"
+      },
+      {
+        "type": "text",
+        "id": "ms3_lc_img_url",
+        "label": "URL Banner",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "product",
+        "id": "ms3_lc_product",
+        "label": "Product of Last Column"
+      },
+      {
+        "type": "header",
+        "content": "MEGAMENU 4"
+      },
+      {
+        "type": "text",
+        "id": "megamenu_s4_parent",
+        "label": "Parent name of dropdow menu"
+      },
+      {
+        "type": "select",
+        "id": "ms4_select",
+        "label": "Select Style for Megamenu",
+        "options": [
+          {
+            "value": "m_s1",
+            "label": "Style 1"
+          },
+          {
+            "value": "m_s2",
+            "label": "Style 2"
+          },
+          {
+            "value": "m_s3",
+            "label": "Style 3"
+          }
+        ],
+        "default": "m_s1",
+        "info": "[View image with style megamenu designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_all_megamenu.png?3651330641885273282)"
+      },
+      {
+        "type": "textarea",
+        "id": "ms4_first_col",
+        "label": "Content of Fisrt Column (used for Style 1, 2)"
+      },
+      {
+        "type": "text",
+        "id": "ms4_main_col",
+        "label": "Title of Main Column"
+      },
+      {
+        "type": "select",
+        "id": "ms4_lc_select",
+        "label": "Select Content of Last Column (used for Style 1, 2)",
+        "options": [
+          {
+            "value": "m_banner",
+            "label": "Banner"
+          },
+          {
+            "value": "m_product",
+            "label": "Product"
+          }
+        ],
+        "default": "m_banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "ms4_lc_img",
+        "label": "Banner of Last Column"
+      },
+      {
+        "type": "text",
+        "id": "ms4_lc_img_url",
+        "label": "URL Banner",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "product",
+        "id": "ms4_lc_product",
+        "label": "Product of Last Column"
+      },
+      {
+        "type": "header",
+        "content": "MEGAMENU 5"
+      },
+      {
+        "type": "text",
+        "id": "megamenu_s5_parent",
+        "label": "Parent name of dropdow menu"
+      },
+      {
+        "type": "select",
+        "id": "ms5_select",
+        "label": "Select Style for Megamenu",
+        "options": [
+          {
+            "value": "m_s1",
+            "label": "Style 1"
+          },
+          {
+            "value": "m_s2",
+            "label": "Style 2"
+          },
+          {
+            "value": "m_s3",
+            "label": "Style 3"
+          }
+        ],
+        "default": "m_s1",
+        "info": "[View image with style megamenu designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_all_megamenu.png?3651330641885273282)"
+      },
+      {
+        "type": "textarea",
+        "id": "ms5_first_col",
+        "label": "Content of Fisrt Column (used for Style 1, 2)"
+      },
+      {
+        "type": "text",
+        "id": "ms5_main_col",
+        "label": "Title of Main Column"
+      },
+      {
+        "type": "select",
+        "id": "ms5_lc_select",
+        "label": "Select Content of Last Column (used for Style 1, 2)",
+        "options": [
+          {
+            "value": "m_banner",
+            "label": "Banner"
+          },
+          {
+            "value": "m_product",
+            "label": "Product"
+          }
+        ],
+        "default": "m_banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "ms5_lc_img",
+        "label": "Banner of Last Column"
+      },
+      {
+        "type": "text",
+        "id": "ms5_lc_img_url",
+        "label": "URL Banner",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "product",
+        "id": "ms5_lc_product",
+        "label": "Product of Last Column"
+      },
+      {
+        "type": "header",
+        "content": "MEGAMENU 6"
+      },
+      {
+        "type": "text",
+        "id": "megamenu_s6_parent",
+        "label": "Parent name of dropdow menu"
+      },
+      {
+        "type": "select",
+        "id": "ms6_select",
+        "label": "Select Style for Megamenu",
+        "options": [
+          {
+            "value": "m_s1",
+            "label": "Style 1"
+          },
+          {
+            "value": "m_s2",
+            "label": "Style 2"
+          },
+          {
+            "value": "m_s3",
+            "label": "Style 3"
+          }
+        ],
+        "default": "m_s1",
+        "info": "[View image with style megamenu designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_all_megamenu.png?3651330641885273282)"
+      },
+      {
+        "type": "textarea",
+        "id": "ms6_first_col",
+        "label": "Content of Fisrt Column (used for Style 1, 2)"
+      },
+      {
+        "type": "text",
+        "id": "ms6_main_col",
+        "label": "Title of Main Column"
+      },
+      {
+        "type": "select",
+        "id": "ms6_lc_select",
+        "label": "Select Content of Last Column (used for Style 1, 2)",
+        "options": [
+          {
+            "value": "m_banner",
+            "label": "Banner"
+          },
+          {
+            "value": "m_product",
+            "label": "Product"
+          }
+        ],
+        "default": "m_banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "ms6_lc_img",
+        "label": "Banner of Last Column"
+      },
+      {
+        "type": "text",
+        "id": "ms6_lc_img_url",
+        "label": "URL Banner",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "product",
+        "id": "ms6_lc_product",
+        "label": "Product of Last Column"
+      }
+    ]
+  },
+  {
+    "name": "Footer Style 1",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Design Footer Style 1",
+        "info": "[View image with footer style 1 design](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer__s1.png?15968833351645087065)"
+      },
+      {
+        "type": "header",
+        "content": "Footer Top"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_top_enable",
+        "label": "Enable Footer Top Social?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "ft_s1_top_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "header",
+        "content": "Footer Main"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_main_enable",
+        "label": "Enable Footer Main?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_main_col_1_enable",
+        "label": "Enable Column 1?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "ft_s1_main_col_1_content",
+        "label": "Column 1 Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_main_col_2_enable",
+        "label": "Enable Column 2?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s1_main_col_2_title",
+        "label": "Column 2 Title",
+        "default": "Categories"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_s1_menu_col_2",
+        "label": "Column 2 Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_main_col_3_enable",
+        "label": "Enable Column 3?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s1_main_col_3_title",
+        "label": "Column 3 Title",
+        "default": "Infomation"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_s1_menu_col_3",
+        "label": "Column 3 Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_main_col_4_enable",
+        "label": "Enable Column 4?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s1_main_col_4_title",
+        "label": "Column 4 Title",
+        "default": "Service"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_s1_menu_col_4",
+        "label": "Column 4 Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_main_col_5_enable",
+        "label": "Enable Column 5?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s1_main_col_5_title",
+        "label": "Column 5 Title",
+        "default": "JOIN OUR LIST OFFER"
+      },
+      {
+        "type": "text",
+        "id": "ft_s1_main_col_5_des",
+        "label": "Column 5 Description",
+        "default": "And receive 10% off your next order."
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action_ft_s1",
+        "label": "Klaviyo form action URL",
+        "info": "[Where do I find my Klaviyo form action URL?](https:\/\/prnt.sc\/nq3b6q)"
+      },
+      {
+        "type": "text",
+        "id": "ft_s1_main_col_5_placeholder",
+        "label": "Column 5 Text Placeholder",
+        "default": "Enter email address"
+      },
+      {
+        "type": "text",
+        "id": "ft_s1_main_col_5_btn_name",
+        "label": "Column 5 Button Name",
+        "default": "JOIN"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_main_col_5_icon_payment_enable",
+        "label": "Enable List Payment?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "ft_s1_main_col_5_icon_payment_content",
+        "label": "List Payment Content"
+      },
+      {
+        "type": "header",
+        "content": "Footer Bottom"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_bottom_enable",
+        "label": "Enable Footer Bottom?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_bottom_left_enable",
+        "label": "Enable Bottom Left?",
+        "default": true
+      },
+      {
+        "type": "link_list",
+        "id": "footer_s1_menu_bottom",
+        "label": "Bottom Left Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s1_bottom_right_enable",
+        "label": "Enable Bottom Right?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Multi Currency & Multi Language",
+        "info": "Setting multi currency & multi language in Customize theme > Settings tab > General"
+      }
+    ]
+  },
+  {
+    "name": "Footer Style 1 Black",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Design Footer Style 1 Black",
+        "info": "[View image with footer style 1 black design](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_1b.png?2764791729558003660)"
+      },
+      {
+        "type": "image",
+        "id": "logo-white.png",
+        "label": "Column 1 Logo Style Black",
+        "info": "147 x 33px .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_maxwidth_s1b",
+        "label": "Logo Display Width (maximum: 200px)",
+        "default": "200",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_svglogo_s1b",
+        "label": "Use svg logo"
+      },
+      {
+        "type": "textarea",
+        "id": "svglogo_text_s1b",
+        "label": "Svg logo",
+        "info": "Priority svg logo ,It will display  best for retina display"
+      },
+      {
+        "type": "header",
+        "content": "All Settings",
+        "info": "All settings in Footer Style 1"
+      }
+    ]
+  },
+  {
+    "name": "Footer Style 1 White",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Design Footer Style 1 White",
+        "info": "[View image with footer style 1 white design](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_1w.png?716867326472662770)"
+      },
+      {
+        "type": "image",
+        "id": "logo-black.png",
+        "label": "Column 1 Logo Style White",
+        "info": "147 x 33px .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_maxwidth_s1w",
+        "label": "Logo Display Width (maximum: 200px)",
+        "default": "200",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_svglogo_s1w",
+        "label": "Use svg logo"
+      },
+      {
+        "type": "textarea",
+        "id": "svglogo_text_s1w",
+        "label": "Svg logo",
+        "info": "Priority svg logo ,It will display  best for retina display"
+      },
+      {
+        "type": "header",
+        "content": "All Settings",
+        "info": "All settings in Footer Style 1"
+      }
+    ]
+  },
+  {
+    "name": "Footer Style 2",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Design Footer Style 2",
+        "info": "[View image with footer style 2 design](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_footer_2.png?7825277618404995757)"
+      },
+      {
+        "type": "header",
+        "content": "Footer S2 Main"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_1_enable",
+        "label": "Enable Row 1?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_1_col_1_enable",
+        "label": "Enable Row 1 Column 1?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_1_icon",
+        "label": "Icon",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-paper-plane"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_1_title",
+        "label": "Title",
+        "default": "JOIN OUR LIST OFFER"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_1_des",
+        "label": "Description",
+        "default": "And receive 10% off your next order."
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action_ft_s2",
+        "label": "Klaviyo form action URL",
+        "info": "[Where do I find my Klaviyo form action URL?](https:\/\/prnt.sc\/nq3b6q)"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_1_placeholder",
+        "label": "Text Placeholder",
+        "default": "Enter email address"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_1_btn_name",
+        "label": "Button Name",
+        "default": "JOIN"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_1_col_2_enable",
+        "label": "Enable Row 1 Column 2?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "ft_s2_main_row_1_col_2_payment_content",
+        "label": "List Payment Content"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_2_title",
+        "label": "Title",
+        "default": "payment Accept"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_2_des",
+        "label": "Description",
+        "default": "We are accept all payment method"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_1_col_3_enable",
+        "label": "Enable Row 1 Column 3?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "ft_s2_main_row_1_col_3_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_3_title",
+        "label": "Title",
+        "default": "follow us"
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_1_col_3_des",
+        "label": "Description",
+        "default": "Follow Brilliant to stay up-to-date with exclusive news and offers."
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_2_enable",
+        "label": "Enable Main Row 2?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_2_col_1_enable",
+        "label": "Enable Row 2 Column 1?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_2_col_1_title",
+        "label": "Title",
+        "default": "lest us help you"
+      },
+      {
+        "type": "textarea",
+        "id": "ft_s2_main_row_2_col_1_content",
+        "label": "Content Info"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_2_col_2_enable",
+        "label": "Enable Row 2 Column 2?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_2_col_2_title",
+        "label": "Title",
+        "default": "service"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_s2_menu_col_2",
+        "label": "Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_main_row_2_col_3_enable",
+        "label": "Enable Row 2 Column 3?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ft_s2_main_row_2_col_3_title",
+        "label": "Title",
+        "default": "Infomation"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_s2_menu_col_3",
+        "label": "Menu"
+      },
+      {
+        "type": "header",
+        "content": "Footer S2 Bottom"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_bottom_enable",
+        "label": "Enable Footer Bottom?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_bottom_left_enable",
+        "label": "Enable Bottom Left?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "logo-small-white.png",
+        "label": "Logo Image",
+        "info": "75 x 17px .png recommended"
+      },
+      {
+        "type": "text",
+        "id": "logo_maxwidth_s2",
+        "label": "Logo Display Width (maximum: 200px)",
+        "default": "200",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_svglogo_s2",
+        "label": "Use svg logo"
+      },
+      {
+        "type": "textarea",
+        "id": "svglogo_text_s2",
+        "label": "Svg logo",
+        "info": "Priority svg logo ,It will display  best for retina display"
+      },
+      {
+        "type": "textarea",
+        "id": "ft_s2_bottom_left_content",
+        "label": "Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "ft_s2_bottom_right_enable",
+        "label": "Enable Bottom Right?",
+        "default": true
+      },
+      {
+        "type": "link_list",
+        "id": "footer_s2_menu_bottom",
+        "label": "Menu"
+      }
+    ]
+  },
+  {
+    "name": "Popup Newsletter",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_popup_newletter",
+        "label": "Show Popup Newletter",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "Klaviyo form action URL",
+        "info": "[Where do I find my Klaviyo form action URL?](https:\/\/prnt.sc\/nq3b6q)"
+      },
+      {
+        "type": "number",
+        "id": "popup_delay",
+        "label": "Popup delay(seconds)",
+        "default": 300
+      },
+      {
+        "type": "text",
+        "id": "popup_newletter_title",
+        "label": "Popup Newletter Title",
+        "default": "Join Our Mailing List"
+      },
+      {
+        "type": "text",
+        "id": "popup_newletter_des",
+        "label": "Popup Newletter Description",
+        "default": "Pellentesque de fermentum mollis comodous an loremous"
+      },
+      {
+        "type": "text",
+        "id": "popup_newletter_des2",
+        "label": "Popup Newletter Description 2",
+        "default": "SIGN UP FOR EXCLUSIVE UPDATES, NEW ARRIVALS AND INSIDER-ONLY DISCOUNTS"
+      },
+      {
+        "type": "text",
+        "id": "popup_newletter_input_title",
+        "label": "Popup Newletter Input title",
+        "default": "Enter your email address"
+      },
+      {
+        "type": "text",
+        "id": "popup_newletter_button_title",
+        "label": "Popup Newletter Button title",
+        "default": "Subscribe email"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_popup_newletter_social",
+        "label": "Show Social",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "popup_newletter_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "show_popup",
+        "label": "Popup image",
+        "info": "320 x 380px"
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product swatch"
+      },
+      {
+        "type": "radio",
+        "id": "po_style",
+        "label": "Product Options Style?",
+        "options": [
+          {
+            "value": "po_dropdown",
+            "label": "Select Dropdown List"
+          },
+          {
+            "value": "po_swatchs",
+            "label": "Color Swatches"
+          }
+        ],
+        "default": "po_dropdown",
+        "info": "[View image with product option designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_product_option.png?7548039049645998855)"
+      },
+      {
+        "type": "header",
+        "content": "Products recently"
+      },
+      {
+        "type": "checkbox",
+        "id": "enabled_products_recently",
+        "label": "Enable products recently function ?",
+        "info": "A section containing products which customer viewed will appear at the bottom of the website.",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Product Label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_popular_label",
+        "label": "Enable Label Popular?",
+        "info": " you need add the tag \"popular\" for that product",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "popular_label_name",
+        "label": "Popular label Name",
+        "default": "Popular"
+      },
+      {
+        "type": "color",
+        "id": "popular_label_color",
+        "label": "Popular label color",
+        "default": "#529be0"
+      },
+      {
+        "type": "color",
+        "id": "popular_label_text_color",
+        "label": "Popular label text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "popular_label_text_size",
+        "label": "Popular label text size",
+        "default": "10"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_hot_label",
+        "label": "Enable Label Hot?",
+        "info": " you need add the tag \"hot\" for that product",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "hot_label_name",
+        "label": "Hot label Name",
+        "default": "Hot"
+      },
+      {
+        "type": "color",
+        "id": "hot_label_color",
+        "label": "Hot label color",
+        "default": "#e65f5f"
+      },
+      {
+        "type": "color",
+        "id": "hot_label_text_color",
+        "label": "Hot label text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "hot_label_text_size",
+        "label": "Hot label text size",
+        "default": "10"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale_label",
+        "label": "Enable Label Sale?",
+        "info": " you need \"Price < Compare at price\" in product",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale_label_name",
+        "label": "Sale label Name",
+        "default": "Sale"
+      },
+      {
+        "type": "color",
+        "id": "sale_label_color",
+        "label": "Sale label color",
+        "default": "#f1ab5f"
+      },
+      {
+        "type": "color",
+        "id": "sale_label_text_color",
+        "label": "Sale label text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "sale_label_text_size",
+        "label": "Sale label text size",
+        "default": "10"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_new_label",
+        "label": "Enable Label New?",
+        "info": " you need \"Publish date product < New time\". New time setting underneath",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "new_label_name",
+        "label": "New label Name",
+        "default": "New"
+      },
+      {
+        "type": "color",
+        "id": "new_label_color",
+        "label": "New label color",
+        "default": "#8bd485"
+      },
+      {
+        "type": "color",
+        "id": "new_label_text_color",
+        "label": "New label text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "new_label_text_size",
+        "label": "New label text size",
+        "default": "10"
+      },
+      {
+        "type": "text",
+        "id": "product_new_time",
+        "label": "New time(day)",
+        "default": "69"
+      },
+      {
+        "type": "header",
+        "content": "Product Icon Action"
+      },
+      {
+        "type": "text",
+        "id": "product_icon_action_cart",
+        "label": "Icon Cart",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-shopping-bag"
+      },
+      {
+        "type": "text",
+        "id": "product_cart_name",
+        "label": "Name Tooltip Cart",
+        "default": "Add to Cart"
+      },
+      {
+        "type": "text",
+        "id": "product_icon_action_select_option",
+        "label": "Icon Select Option",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-ellipsis-h"
+      },
+      {
+        "type": "text",
+        "id": "product_select_option_name",
+        "label": "Name Tooltip Select Option",
+        "default": "Select Option"
+      },
+      {
+        "type": "text",
+        "id": "product_icon_action_wishlist",
+        "label": "Icon Wishlist",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-heart"
+      },
+      {
+        "type": "text",
+        "id": "product_wistlist_name",
+        "label": "Name Tooltip Wishlist",
+        "default": "Add to Wishlist"
+      },
+      {
+        "type": "text",
+        "id": "product_icon_action_quickview",
+        "label": "Icon Quickview",
+        "info": "[Get icon from here](https:\/\/fortawesome.github.io\/Font-Awesome\/icons\/)",
+        "default": "fa-eye"
+      },
+      {
+        "type": "text",
+        "id": "product_quickview_name",
+        "label": "Name Tooltip Quickview",
+        "default": "Quickview"
+      }
+    ]
+  },
+  {
+    "name": "Account Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_header_account",
+        "label": "Image Header Background"
+      }
+    ]
+  },
+  {
+    "name": "Wishlist Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-header-wishlist",
+        "label": "Image Header Background"
+      }
+    ]
+  },
+  {
+    "name": "404 Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-404",
+        "label": "Image Header Background"
+      }
+    ]
+  },
+  {
+    "name": "Lookbook",
+    "settings": [
+      {
+        "type": "select",
+        "id": "slk_style",
+        "label": "Select Lookbook Style",
+        "options": [
+          {
+            "value": "lk_s1",
+            "label": "Lookbook Style 1"
+          },
+          {
+            "value": "lk_s2",
+            "label": "Lookbook Style 2"
+          }
+        ],
+        "default": "lk_s1",
+        "info": "[View image with lookbook designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1419\/5158\/t\/6\/assets\/demo_lks.jpg?3436706082569227778)"
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_header_lookbook",
+        "label": "Image Header Background"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_lb_page_title",
+        "label": "Enable Lookbook Title?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "lb_page_title",
+        "label": "Lookbook Title",
+        "default": "Brilliant Lookbook Categories"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_lb_page_search",
+        "label": "Enable Search?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Lookbook 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_lb_page_1",
+        "label": "Show Lookbook 1?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "lb_page_1_title",
+        "label": "Lookbook 1 Title",
+        "default": "Seafaring & Sporty"
+      },
+      {
+        "type": "textarea",
+        "id": "lb_page_1_des",
+        "label": "Lookbook 1 Content",
+        "default": "The Spring Summer 2013 collection is based on a road trip through California. Drawing on the influences of surfer culture and the vibrant colours of the streets, the collection nods to a 50s aesthetic with clean tailored lines and more fitted silhouettes."
+      },
+      {
+        "type": "image_picker",
+        "id": "lb1_1",
+        "label": "Lookbook 1 Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "lb1_2",
+        "label": "Lookbook 1 Image 2"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_1_btn",
+        "label": "Lookbook 1 Button Name",
+        "default": "View Collection"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_1_url",
+        "label": "Lookbook 1 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Lookbook 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_lb_page_2",
+        "label": "Show Lookbook 2?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "lb_page_2_title",
+        "label": "Lookbook 2 Title",
+        "default": "Seafaring & Sporty"
+      },
+      {
+        "type": "textarea",
+        "id": "lb_page_2_des",
+        "label": "Lookbook 2 Content",
+        "default": "The Spring Summer 2013 collection is based on a road trip through California. Drawing on the influences of surfer culture and the vibrant colours of the streets, the collection nods to a 50s aesthetic with clean tailored lines and more fitted silhouettes."
+      },
+      {
+        "type": "image_picker",
+        "id": "lb2_1",
+        "label": "Lookbook 2 Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "lb2_2",
+        "label": "Lookbook 2 Image 2"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_2_btn",
+        "label": "Lookbook 2 Button Name",
+        "default": "View Collection"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_2_url",
+        "label": "Lookbook 2 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Lookbook 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_lb_page_3",
+        "label": "Show Lookbook 3?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "lb_page_3_title",
+        "label": "Lookbook 3 Title",
+        "default": "Spring & Summer 2016"
+      },
+      {
+        "type": "textarea",
+        "id": "lb_page_3_des",
+        "label": "Lookbook 3 Content",
+        "default": "The Spring Summer 2013 collection is based on a road trip through California. Drawing on the influences of surfer culture and the vibrant colours of the streets, the collection nods to a 50s aesthetic with clean tailored lines and more fitted silhouettes."
+      },
+      {
+        "type": "image_picker",
+        "id": "lb3_1",
+        "label": "Lookbook 3 Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "lb3_2",
+        "label": "Lookbook 3 Image 2"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_3_btn",
+        "label": "Lookbook 3 Button Name",
+        "default": "View Collection"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_3_url",
+        "label": "Lookbook 3 URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "Lookbook 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_lb_page_4",
+        "label": "Show Lookbook 4?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "lb_page_4_title",
+        "label": "Lookbook 4 Title",
+        "default": "Autumn Collection Minimal Style"
+      },
+      {
+        "type": "textarea",
+        "id": "lb_page_4_des",
+        "label": "Lookbook 4 Content",
+        "default": "The Spring Summer 2013 collection is based on a road trip through California. Drawing on the influences of surfer culture and the vibrant colours of the streets, the collection nods to a 50s aesthetic with clean tailored lines and more fitted silhouettes."
+      },
+      {
+        "type": "image_picker",
+        "id": "lb4_1",
+        "label": "Lookbook 4 Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "lb4_2",
+        "label": "Lookbook 4 Image 2"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_4_btn",
+        "label": "Lookbook 4 Button Name",
+        "default": "View Collection"
+      },
+      {
+        "type": "text",
+        "id": "lb_page_4_url",
+        "label": "Lookbook 4 URL",
+        "default": "\/collections\/all"
+      }
+    ]
+  },
+  {
+    "name": "Contact us",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_header_contact",
+        "label": "Background Header"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_content_contact",
+        "label": "Image Content Top"
+      },
+      {
+        "type": "header",
+        "content": "Section 1: Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_contact_s1",
+        "label": "Enable Section 1?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_s1_quote_1",
+        "label": "Quote 1",
+        "default": "A store for people who want to"
+      },
+      {
+        "type": "text",
+        "id": "contact_s1_quote_2",
+        "label": "Quote 2",
+        "default": "buy less, but better"
+      },
+      {
+        "type": "text",
+        "id": "contact_s1_author",
+        "label": "Author",
+        "default": "CEO Brilliant"
+      },
+      {
+        "type": "textarea",
+        "id": "contact_s1_content_1",
+        "label": "Content 1",
+        "default": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful."
+      },
+      {
+        "type": "textarea",
+        "id": "contact_s1_content_2",
+        "label": "Content 2",
+        "default": "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+      },
+      {
+        "type": "textarea",
+        "id": "contact_s1_content_3",
+        "label": "Content 3",
+        "default": "The key to more success is to have a lot of pillows. In life you have to take the trash out, if you have trash in your life, take it out, throw it away, get rid of it, major key. How’s business? Boomin. Hammock talk come soon. I’m up to something. Mogul talk. Find peace, life is like a water fall, you’ve gotta flow. You see that bamboo behind me though, you see that bamboo? Ain’t nothin’ like bamboo. Bless up. It’s important to use cocoa butter."
+      },
+      {
+        "type": "text",
+        "id": "contact_s1_btn_name",
+        "label": "Button Name",
+        "default": "more about us"
+      },
+      {
+        "type": "text",
+        "id": "contact_s1_btn_url",
+        "label": "Button URL",
+        "default": "#"
+      },
+      {
+        "type": "header",
+        "content": "Section 2: Info Store & Form Contact"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_contact_s2",
+        "label": "Enable Section 2?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_s2_left_section",
+        "label": "Enable Left Section?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_title_left",
+        "label": "Left Section: Title",
+        "default": "Store"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_store_name",
+        "label": "Name of Store",
+        "default": "Brilliant Store in UK"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_address_name",
+        "label": "Address Name",
+        "default": "address"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_address_info",
+        "label": "Address Info",
+        "default": "1193 West Ray Road Chandler, Arizona"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_phone_name",
+        "label": "Phone Name",
+        "default": "tell phone"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_phone_info",
+        "label": "Phone Info",
+        "default": "+603-314-4692"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_fax_name",
+        "label": "Fax Name",
+        "default": "Fax"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_fax_info",
+        "label": "Fax Info",
+        "default": "+914-428-1193"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_email_name",
+        "label": "Email Name",
+        "default": "email"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_email_info",
+        "label": "Email Info",
+        "default": "engotheme@gmail.com"
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_social_name",
+        "label": "Social Title",
+        "default": "social connect"
+      },
+      {
+        "type": "textarea",
+        "id": "contact_s2_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_s2_right_section",
+        "label": "Enable Right Section?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_s2_title_right",
+        "label": "Right Section: Title",
+        "default": "Get It Touch"
+      },
+      {
+        "type": "header",
+        "content": "Section 3: Opening Hours & Map"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_contact_s3",
+        "label": "Enable Section 3?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_contact_s3_opening_hours",
+        "label": "Enable Opening Hours?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_title",
+        "label": "Title Section",
+        "default": "Opening Hours"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_title_day",
+        "label": "Title Day",
+        "default": "Days"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_title_hours",
+        "label": "Title Hours",
+        "default": "hours"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_monday_name",
+        "label": "Monday Name",
+        "default": "Monday"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_monday_hour",
+        "label": "Monday Hour",
+        "default": "Closed"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_tuesday_name",
+        "label": "Tuesday Name",
+        "default": "Tuesday"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_tuesday_hour",
+        "label": "Tuesday Hour",
+        "default": "11.00am   -  07.00pm"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_wednesday_name",
+        "label": "Wednesday Name",
+        "default": "Wednesday"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_wednesday_hour",
+        "label": "Wednesday Hour",
+        "default": "11.00am   -  07.00pm"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_thursday_name",
+        "label": "Thursday Name",
+        "default": "Thursday"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_thursday_hour",
+        "label": "Thursday Hour",
+        "default": "11.00am   -  07.00pm"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_friday_name",
+        "label": "Friday Name",
+        "default": "Friday"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_friday_hour",
+        "label": "Friday Hour",
+        "default": "11.00am   -  07.00pm"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_saturday_name",
+        "label": "Saturday Name",
+        "default": "Saturday"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_saturday_hour",
+        "label": "Saturday Hour",
+        "default": "11.00am   -  07.00pm"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_sunday_name",
+        "label": "Sunday Name",
+        "default": "Sunday"
+      },
+      {
+        "type": "text",
+        "id": "contact_s3_sunday_hour",
+        "label": "Sunday Hour",
+        "default": "11.00am   -  05.00pm"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_contact_s3_map",
+        "label": "Enable Map?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "gmap_key",
+        "label": "Google Map key"
+      },
+      {
+        "type": "image",
+        "id": "logo-contact.png",
+        "label": "Icon Store in Map"
+      },
+      {
+        "type": "text",
+        "id": "name_store_gmap",
+        "label": "Name of Store then click Icon",
+        "default": "Brilliant Store in UK"
+      },
+      {
+        "type": "text",
+        "id": "latitude_gmap",
+        "label": "Google Map Latitude",
+        "default": "33.3209127"
+      },
+      {
+        "type": "text",
+        "id": "longitude_gmap",
+        "label": "Google Map Longitude",
+        "default": "-111.8005377"
+      }
+    ]
+  },
+  {
+    "name": "About Us",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_header_aboutus",
+        "label": "Background Header"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_content_aboutus",
+        "label": "Image Content Top"
+      },
+      {
+        "type": "header",
+        "content": "Section 1: Our Story"
+      },
+      {
+        "type": "text",
+        "id": "about_us_s1_title",
+        "label": "Title Section",
+        "default": "our story"
+      },
+      {
+        "type": "text",
+        "id": "about_us_s1_title_content_1",
+        "label": "Title Content 1",
+        "default": "we like say"
+      },
+      {
+        "type": "text",
+        "id": "about_us_s1_title_content_2",
+        "label": "Title Content 2",
+        "default": "If shopping doesn’t make you happy then you’re in the wrong shop!"
+      },
+      {
+        "type": "text",
+        "id": "about_us_s1_summary",
+        "label": "Summary",
+        "default": "The key to more success is to have a lot of pillows. In life you have to take the trash out, if you have trash in your life, take it out, throw it away, get rid of it, major key."
+      },
+      {
+        "type": "textarea",
+        "id": "about_us_s1_content_1",
+        "label": "Content Left",
+        "default": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
+      },
+      {
+        "type": "textarea",
+        "id": "about_us_s1_content_2",
+        "label": "Content Right",
+        "default": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+      },
+      {
+        "type": "header",
+        "content": "Section 2: Our Team"
+      },
+      {
+        "type": "text",
+        "id": "about_us_s2_title_1",
+        "label": "Title 1",
+        "default": "Brilliant"
+      },
+      {
+        "type": "text",
+        "id": "about_us_s2_title_2",
+        "label": "Title 2",
+        "default": "team"
+      },
+      {
+        "type": "checkbox",
+        "id": "member_enable_1",
+        "label": "Enable Member 1",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "br-team-1",
+        "label": "Image Member"
+      },
+      {
+        "type": "textarea",
+        "id": "about_us_member_1_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_1_name",
+        "label": "Member Name",
+        "default": "Thomas Garza"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_1_description",
+        "label": "Member Info",
+        "default": "CEO"
+      },
+      {
+        "type": "checkbox",
+        "id": "member_enable_2",
+        "label": "Enable Member 2",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "br-team-2",
+        "label": "Image Member"
+      },
+      {
+        "type": "textarea",
+        "id": "about_us_member_2_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_2_name",
+        "label": "Member Name",
+        "default": "Willie Hubbard"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_2_description",
+        "label": "Member Info",
+        "default": "Founder"
+      },
+      {
+        "type": "checkbox",
+        "id": "member_enable_3",
+        "label": "Enable Member 3",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "br-team-3",
+        "label": "Image Member"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_3_social_instagram",
+        "label": "Social Instagram URL",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "about_us_member_3_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_3_name",
+        "label": "Member Name",
+        "default": "Alice"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_3_description",
+        "label": "Member Info",
+        "default": "CMO"
+      },
+      {
+        "type": "checkbox",
+        "id": "member_enable_4",
+        "label": "Enable Member 4",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "br-team-4",
+        "label": "Image Member"
+      },
+      {
+        "type": "textarea",
+        "id": "about_us_member_4_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_4_name",
+        "label": "Member Name",
+        "default": "Anna"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_4_description",
+        "label": "Member Info",
+        "default": "Designer"
+      },
+      {
+        "type": "checkbox",
+        "id": "member_enable_5",
+        "label": "Enable Member 5",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "br-team-5",
+        "label": "Image Member"
+      },
+      {
+        "type": "textarea",
+        "id": "about_us_member_5_social_content",
+        "label": "Social Content"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_5_name",
+        "label": "Member Name",
+        "default": "Paul Walk"
+      },
+      {
+        "type": "text",
+        "id": "about_us_member_5_description",
+        "label": "Member Info",
+        "default": "Photography"
+      }
+    ]
+  },
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg-header-cart",
+        "label": "Background Header"
+      }
+    ]
+  }
+]

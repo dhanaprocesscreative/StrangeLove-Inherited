@@ -1,0 +1,324 @@
+<!-- /snippets/section-product-mapper.liquid -->
+
+{%- assign top_point1 = section.settings.pmp_ppoint1_top -%}
+{%- assign left_point1 = section.settings.pmp_ppoint1_left -%}
+
+{%- assign top_point2 = section.settings.pmp_ppoint2_top -%}
+{%- assign left_point2 = section.settings.pmp_ppoint2_left -%}
+
+{%- assign top_point3 = section.settings.pmp_ppoint3_top -%}
+{%- assign left_point3 = section.settings.pmp_ppoint3_left -%}
+
+{%- assign top_point4 = section.settings.pmp_ppoint4_top -%}
+{%- assign left_point4 = section.settings.pmp_ppoint4_left -%}
+
+{%- assign top_point5 = section.settings.pmp_ppoint5_top -%}
+{%- assign left_point5 = section.settings.pmp_ppoint5_left -%}
+
+<style>
+  .section-wrm .wrm-pin.wrm-pin1{
+    top: {{top_point1}}%;
+    left: {{left_point1}}%;
+  }
+  .section-wrm .wrm-pin.wrm-pin2{
+    top: {{top_point2}}%;
+    left: {{left_point2}}%;
+  }
+  .section-wrm .wrm-pin.wrm-pin3{
+    top: {{top_point3}}%;
+    left: {{left_point3}}%;
+  }
+  .section-wrm .wrm-pin.wrm-pin4{
+    top: {{top_point4}}%;
+    left: {{left_point4}}%;
+  }
+  .section-wrm .wrm-pin.wrm-pin5{
+    top: {{top_point5}}%;
+    left: {{left_point5}}%;
+  }
+</style>
+
+<div data-section-id="{{ section.id }}" data-section-type="section-collection-intro" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+<section>
+  <div class="slide-banner-full section-wrm">
+    <div class="br-background bg-slide-section" {% if section.settings.pmapper_img == blank %}{% capture _img_url %}pmapper_img.png{% endcapture %}style="background-image: url({{ _img_url | asset_url}});"{% else %}style="background-image: url({{ section.settings.pmapper_img | img_url: "master" }});"{% endif %}>
+      <div class="slide-banner-full-content slide-banner-slide-5">
+        <div class="container">
+          {% if section.settings.pmapper_icon == blank %}
+          {% capture _img_url %}pmapper_icon_content.png{% endcapture %}
+          <img src="{{ _img_url | asset_url}}" alt="">
+          {% else %}
+          <img class="mb-20" src="{{ section.settings.pmapper_icon | img_url: "master" }}" alt="">
+          {% endif %}
+          <span class="fz-20 uppercase black mb-10">{{section.settings.pmapper_content1}}</span>
+          <h2 class="font-secondary black mb-30">{{section.settings.pmapper_content2}}</h2>
+          <span class="fz-20 font-four black mb-60">{{section.settings.pmapper_content3}}</span>
+          {% if section.settings.pmapper_btn_url != blank %}
+          <a href="{{section.settings.pmapper_btn_url}}" class="btn btn-primary">{{section.settings.pmapper_btn_name}}</a>
+          {% endif %}
+        </div>
+      </div>
+      <!-- .slide-banner-content -->
+    </div>
+    
+    <div class="wrap-wrm">
+      {% for i in (1..5) %}
+      {% capture _pmapper_product %}pmapper_p{{i}}{% endcapture %}    
+      {% capture _pmapper_align %}pma_{{i}}{% endcapture %}
+
+      {% assign product = all_products[section.settings[_pmapper_product]] %}    
+      {% assign pmapper_align = section.settings[_pmapper_align] %}
+
+      <div class="wrm-pin wrm-pin{{i}}">
+        <i class="icon-pin"></i>
+        <div class="wrm-popup{% if pmapper_align == "pma_left" %} left{% else %}{% endif %}">
+          {% include 'product-item-mapper' %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- End wrm-pin -->
+    
+  </div>
+  <!-- .slide-banner-full -->
+</section>
+</div>
+
+{% schema %}
+{
+    "name": "Product Mapper",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "pmapper_img",
+        "label": "Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "pmapper_icon",
+        "label": "Icon top"
+      },
+      {
+        "type": "text",
+        "id": "pmapper_content1",
+        "label": "Content 1",
+        "default": "Time-limited sales"
+      },
+      {
+        "type": "text",
+        "id": "pmapper_content2",
+        "label": "Content 2",
+        "default": "Men Collection"
+      },
+      {
+        "type": "text",
+        "id": "pmapper_content3",
+        "label": "Content 3",
+        "default": "The latest products for the long day of climbing"
+      },
+      {
+        "type": "text",
+        "id": "pmapper_btn_name",
+        "label": "Button Name",
+        "default": "shop now"
+      },
+      {
+        "type": "text",
+        "id": "pmapper_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "header",
+        "content": "PRODUCT"
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint1_top",
+        "label": "Product Point 1 - Top Position",
+        "default": "26"
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint1_left",
+        "label": "Product Point 1 - Left Position",
+        "default": "16"
+      },
+      {
+        "type": "product",
+        "id": "pmapper_p1",
+        "label": "Select Product 1?"
+      },
+      {
+        "type": "select",
+        "id": "pma_1",
+        "label": "Popup Product Align?",
+        "options": [
+          {
+            "value": "pma_right",
+            "label": "Right"
+          },
+          {
+            "value": "pma_left",
+            "label": "Left"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint2_top",
+        "label": "Product Point 2 - Top Position",
+        "default": "24"
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint2_left",
+        "label": "Product Point 2 - Left Position",
+        "default": "80"
+      },
+      {
+        "type": "product",
+        "id": "pmapper_p2",
+        "label": "Select Product 2"
+      },
+      {
+        "type": "select",
+        "id": "pma_2",
+        "label": "Popup Product Align?",
+        "options": [
+          {
+            "value": "pma_left",
+            "label": "Left"
+          },
+          {
+            "value": "pma_right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint3_top",
+        "label": "Product Point 3 - Top Position",
+        "default": "45"
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint3_left",
+        "label": "Product Point 3 - Left Position",
+        "default": "31"
+      },
+      {
+        "type": "product",
+        "id": "pmapper_p3",
+        "label": "Select Product 3"
+      },
+      {
+        "type": "select",
+        "id": "pma_3",
+        "label": "Popup Product Align?",
+        "options": [
+          {
+            "value": "pma_right",
+            "label": "Right"
+          },
+          {
+            "value": "pma_left",
+            "label": "Left"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint4_top",
+        "label": "Product Point 4 - Top Position",
+        "default": "75"
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint4_left",
+        "label": "Product Point 4 - Left Position",
+        "default": "37"
+      },
+      {
+        "type": "product",
+        "id": "pmapper_p4",
+        "label": "Select Product 4"
+      },
+      {
+        "type": "select",
+        "id": "pma_4",
+        "label": "Popup Product Align?",
+        "options": [
+          {
+            "value": "pma_right",
+            "label": "Right"
+          },
+          {
+            "value": "pma_left",
+            "label": "Left"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint5_top",
+        "label": "Product Point 5 - Top Position",
+        "default": "58"
+      },
+      {
+        "type": "text",
+        "id": "pmp_ppoint5_left",
+        "label": "Product Point 5 - Left Position",
+        "default": "71"
+      },
+      {
+        "type": "product",
+        "id": "pmapper_p5",
+        "label": "Select Product 5"
+      },
+      {
+        "type": "select",
+        "id": "pma_5",
+        "label": "Popup Product Align?",
+        "options": [
+          {
+            "value": "pma_left",
+            "label": "Left"
+          },
+          {
+            "value": "pma_right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+            "type": "header",
+            "content": "Section Space"
+          },
+          {
+            "type": "text",
+            "id": "margin_top",
+            "label": "Margin Top",
+            "info": "Defined in pixels. Do not add the 'px' unit."
+          },
+          {
+            "type": "text",
+            "id": "margin_bottom",
+            "label": "Margin Bottom",
+            "info": "Defined in pixels. Do not add the 'px' unit."
+          }
+    ],
+    "presets": [
+	    {
+	      "name": "Product Mapper",
+	      "category": "Content"
+	    }
+	  ]
+  }
+{% endschema %}

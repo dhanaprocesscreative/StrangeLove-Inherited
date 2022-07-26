@@ -1,0 +1,441 @@
+{% assign number_of_comments = article.comments_count %}
+
+{% comment %}
+If a comment was just submitted and it has no blank fields, we have an extra comment to count.
+{% endcomment %}
+{% if comment and comment.created_at %}
+{% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+<div class="page-title page-title--classic  mb-30 bg-8" style="background-image: url('{% if section.settings.bg-header-blog-detail != blank %}{{section.settings.bg-header-blog-detail | img_url: "master"}}{% else %}{{ 'bg-header-blog-detail.png' | asset_url }}{% endif %}');">
+  <div class="container">
+    <div class="page-title__main">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <h1 class="text-uppercase mb-5">{{article.title}}</h1>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          {% include 'breadcrumb' %}
+        </div>
+      </div>
+    </div>
+    <!-- page-title__main -->
+  </div>
+</div>
+<!-- page-title -->
+<div id="container" class="container">
+  <div id="layout" class="main-layout {% if section.settings.blog_detail_template == "blog_detail_left_sidebar" %}sidebar-left{% endif %}{% if section.settings.blog_detail_template == "blog_detail_right_sidebar" %}sidebar-right{% endif %}{% if section.settings.blog_detail_template == "blog_detail_no_sidebar" %}sidebar-none{% endif %}">
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main">
+        <section class="pb-80">
+          <h2 class="sr-only">form</h2>
+          <div class="form-search mb-40">
+            {% include 'search-bar' %}
+          </div>
+          <article class="post post--sticky mb-30">
+            {% assign label_sticky = false %}
+            {% if article.tags contains "Sticky" %}
+            {% assign label_sticky = true %}
+            {% endif %}
+
+            {% if article.image %}
+            <header class="entry-header">
+              {% if label_sticky %}
+              <div class="label-sticky">
+                <i class="fa fa-star"></i>
+              </div>
+              {% endif %}
+              <!-- .label-sticky -->
+              <div class="entry-media entry-media-thumbnail">
+                <a href="{{ article.url }}">
+                  <img src="{{ article.image.src | img_url: 'original' }}" alt="{{ article.title }}">
+                </a><!-- br-img -->
+              </div>
+              <!-- .entry-media -->
+            </header>
+            {% endif %}
+            <!-- entry-header -->
+
+            <div class="entry-container">
+              {% if section.settings.show_date %}
+              <div class="post-time">{{article.published_at | date: "%b %d.%Y" }}</div>
+              {% endif %}
+              <!-- post-time -->
+              <h2 class="h1 entry-title">{{ article.title }}</h2>
+              <div class="entry-meta mb-40">
+                <ul class="entry-meta-list">
+                  {% if section.settings.show_author %}
+                  <li>{{ 'blogs.article.poster_by' | t }} <a href="{{ article.url }}">{{ article.author }}</a> {{ 'blogs.article.in_the' | t }} <a href="{{blog.url}}">{{blog.title}}</a></li>
+                  {% endif %}
+                  {% if section.settings.show_numbercomment %}
+                  <li><a class="link-comment" href="#comment_form">{{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}</a></li>
+                  {% endif %}
+                </ul>
+                <!-- .entry-meta-list -->
+              </div>
+              <!-- entry-meta -->
+              <div class="post-content">
+                {{article.content}}
+                <div class="overflow-hidden post-info mb-70">
+                  <span class="small dark"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                  <nav class="small bold">
+                    {% for tag in article.tags %}
+                    {{ tag | link_to_tag: tag }}.
+                    {% endfor %}
+                  </nav>
+                  {% if section.settings.show_author %}
+                  <ul class="entry-meta-list">
+                    <li>{{ 'blogs.article.poster_by' | t }} <a href="{{ article.url }}">{{ article.author }}</a> {{ 'blogs.article.in_the' | t }} <a href="{{blog.url}}">{{blog.title}}</a></li>
+                  </ul>
+                  {% endif %}
+                  <!-- .entry-meta-list -->
+                </div>
+                {% if section.settings.enable_blog_detail_recent_post %}
+                <div class="js-post-mini br-slick-white mb-70 engoc_no_rtl">                 
+                  {% for article in  blogs[section.settings.blog_detail_post_select].articles limit: section.settings.blog_detail_post_limit %}
+                  <article class="post br-background-color text-center">
+                    <div class="entry-container">
+                      {% if section.settings.show_date %}
+                      <div class="post-time">{{article.published_at | date: "%b %d.%Y" }}</div>
+                      {% endif %}
+                      <!-- post-time -->
+                      <h2 class="entry-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                      {% if section.settings.show_author %}
+                      <div class="entry-meta">
+                        <ul class="entry-meta-list">
+                          <li>{{ 'blogs.article.poster_by' | t }} <a href="{{ article.url }}">{{ article.author }}</a> {{ 'blogs.article.in_the' | t }} <a href="{{blog.url}}">{{blog.title}}</a></li>
+                        </ul>
+                        <!-- .entry-meta-list -->
+                      </div>
+                      {% endif %}
+                      <!-- entry-meta -->
+                    </div>
+                    <!-- entry-container -->
+                  </article>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                {% if blog.comments_enabled? %}
+
+                {% comment %}
+                Just like blog.liquid page, define how many comments should be on each page.
+                {% endcomment %}
+
+                {% paginate article.comments by 5 %}
+
+                {% comment %}
+                #comments is required, it is used as an anchor link by Shopify.
+                {% endcomment %}
+
+                <div class="comments mb-70">
+
+                  <h3 class="comments-title text-uppercase mb-40"> Customer Reviews <small>({{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }})</small> </h3>
+
+                  {% if comment and comment.created_at %}
+                  <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p>
+                      {% if blog.moderated? %}
+                      {{ 'blogs.comments.success_moderated' | t }}
+                      {% else %}
+                      {{ 'blogs.comments.success' | t }}
+                      {% endif %}
+                    </p>
+                  </div>
+                  {% endif %}
+
+                  {% if number_of_comments > 0 %}
+                  <ol class="comment">
+                    {% comment %}
+                    If a comment was just submitted with no blank field, show it.
+                    {% endcomment %}
+                    {% if comment and comment.created_at %}
+                    {% include 'comment' %}
+                    {% endif %}
+
+                    {% comment %}
+                    Showing the rest of the comments.
+                    {% endcomment %}
+                    {% for comment in article.comments %}
+                    {% include 'comment' %}
+                    {% endfor %}
+                  </ol><!-- .comment-list -->
+                  {% if paginate.pages > 1 %}
+                  <div class="text-center br-pagination mb-35">
+                    <div class="pagination">
+                      {% if settings.enable_rtl %}
+                      {{ paginate | default_pagination | replace: '&laquo; Previous', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-right"></i>' | replace: 'Next &raquo;', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-left"></i>' }}
+                      {% else %}
+                      {{ paginate | default_pagination | replace: '&laquo; Previous', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-left"></i>' | replace: 'Next &raquo;', '<i style="font-size: 10px;font-weight: 400;" class="fa fa-arrow-right"></i>' }}
+                      {% endif %}
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endif %}
+                </div>
+                {% form 'new_comment', article %}
+                <div id="comment_form" class="comment-respond">
+                  <h3 class="text-uppercase mb-35">{{ 'blogs.comments.title' | t }}</h3>
+                  {{ form.errors | default_errors }}
+                  <form action="#" method="post" id="commentform" class="comment-form frm-contact">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p>
+                          <label class="sr-only" >Name</label>
+                          <input id="author" name="comment[author]" type="text" placeholder="{{ 'blogs.comments.name' | t }}" value="{{ form.author }}">
+                        </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p>
+                          <label class="sr-only" >Email</label>
+                          <input   name="comment[email]" type="email" placeholder="{{ 'blogs.comments.email' | t }}" value="{{ form.email }}">
+                        </p>
+                      </div>
+                    </div>
+                    <p>
+                      <label class="sr-only" >Comment</label>
+                      <textarea id="comment" class="required {% if form.errors contains 'body' %}error{% endif %}" name="comment[body]" cols="45" rows="8" required="required" placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
+                    </p>
+                    <p >
+                      <input name="submit" type="submit" value="submit" class="submit btn-primary">
+                    </p>
+                  </form>
+                </div>
+                {% endform %}
+                {% endpaginate %}
+                {% endif %}
+              </div>
+            </div>
+            <!-- entry-container -->
+          </article>
+        </section>
+      </main>
+      <!-- #main -->
+    </div>
+    <!-- #primary -->
+    {% include 'blog-sidebar' %}
+    <!-- #secondary -->
+  </div>
+  <!-- /#layout -->
+</div>
+
+{% schema %}
+  {
+    "name": "Blog details",
+    "settings": [
+		{
+        "type": "header",
+        "content": "Select Template"
+      },
+      {
+        "type": "select",
+        "id": "blog_detail_template",
+        "options": [
+          {
+            "value": "blog_detail_left_sidebar",
+            "label": "Blog Detail Left Sidebar"
+          },
+          {
+            "value": "blog_detail_right_sidebar",
+            "label": "Blog Detail Right Sidebar"
+          },
+          {
+            "value": "blog_detail_no_sidebar",
+            "label": "Blog Detail No Sidebar"
+          }
+        ],
+        "label": "Select Template Blog",
+        "default": "blog_detail_no_sidebar"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-header-blog-detail",
+        "label": "Background Header"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_date",
+        "label": "Show date?",
+		"default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_author",
+        "label": "Show author?",
+		"default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_numbercomment",
+        "label": "Show number comment?",
+		"default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_blog_detail_recent_post",
+        "label": "Enable Recent Posts ",
+        "default": true
+      },
+      {
+        "type": "blog",
+        "id": "blog_detail_post_select",
+        "label": "Select Category"
+      },
+      {
+        "type": "text",
+        "id": "blog_detail_post_limit",
+        "label": "Limit number",
+        "default": "6"
+      },
+		{
+	"type": "header",
+	"content": "Sidebar config"
+	},
+{
+		"type": "header",
+		"content": "Blog sidebar"
+		},
+	{
+        "type": "header",
+        "content": "Widget Categories"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_widget_categories",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "widget_categories_title",
+        "label": "Widget Title",
+        "default": "Categories"
+      },
+      {
+        "type": "header",
+        "content": "Widget Recent Post"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_widget_recent_post",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "widget_recent_post_title",
+        "label": "Widget Title",
+        "default": "Recent post"
+      },
+      {
+        "type": "blog",
+        "id": "widget_recent_post_select",
+        "label": "Select Category"
+      },
+      {
+        "type": "text",
+        "id": "widget_recent_post_limit",
+        "label": "Limit number",
+        "default": "6"
+      },
+      {
+        "type": "header",
+        "content": "Widget Latest Tweets"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_widget_latest_tweets",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "widget_latest_tweets_title",
+        "label": "Widget Title",
+        "default": "latest tweets"
+      },
+      {
+        "type": "textarea",
+        "id": "widget_latest_tweets_embed",
+        "label": "Embed Code Twitter",
+        "info": "[Get Embed Code Your Twitter Feed](https:\/\/publish.twitter.com)"
+      },
+      {
+        "type": "header",
+        "content": "Widget Gallery Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_widget_gallery_instagram",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "widget_gallery_instagram_title",
+        "label": "Widget Title",
+        "default": "instagram"
+      },
+      {
+        "type": "text",
+        "id": "gallery_instagram_userid",
+        "label": "User ID Instagram",
+        "default": "3672948962"
+      },
+      {
+        "type": "text",
+        "id": "gallery_instagram_access_token",
+        "label": "Access Token Instagram",
+        "default": "3672948962.0f64772.430edb7f711e4665b59777c54d1ed9ce"
+      },
+      {
+        "type": "text",
+        "id": "gallery_instagram_limit_number",
+        "label": "Limit Image",
+        "default": "9"
+      },
+      {
+        "type": "header",
+        "content": "Widget Tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_widget_tags",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "widget_tags_title",
+        "label": "Widget Title",
+        "default": "popular tags"
+      },
+      {
+        "type": "header",
+        "content": "Widget Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_widget_banner",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_post",
+        "label": "Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "widget_banner_url",
+        "label": "Banner to URL",
+        "default": "\/collections\/all"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

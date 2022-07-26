@@ -1,0 +1,81 @@
+<!-- /snippets/header-miniwishlist.liquid -->
+<div class="dropdown dropdown-animation">
+  <a href="/pages/wish-list" data-toggle="dropdown" role="button">
+    <i class="fa {{section.settings.header_icon_wishlist}}" aria-hidden="true"></i>
+    {% if section.settings.wistlist_enable_count %}
+    <span class="count count-wishlist engoc-count-wl"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+    {% endif %}
+  </a>
+  <div class="dropdown-menu dropdown-wishlist">
+    <div class="list-product-mini">
+      {% if customer %}
+      {% assign wish_list_active = false %}
+      <ul class="list-style-none engoc_max_height">
+        {% for tag in customer.tags %}
+        {% assign the_test = 'nutthin' %}
+        {% capture tag_id %}{{ tag }}{% endcapture %}
+        {% assign tag_size = tag_id.size %}
+        {% for tag in customer.tags %}
+        {% capture cur_tag %}{{ tag }}{% endcapture %}
+        {% if cur_tag contains tag_id %}
+        {% assign difference = tag_size | minus:cur_tag.size %}
+        {% if difference == 0 %}
+        {% assign the_test = tag_id %}
+        {% else %}
+        {% assign the_test = 'nutthin' %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% for collection in collections %}
+        {% paginate collection.products by collection.all_products_count %}
+        {% for product in collection.products %}
+        {% capture product_id %}{{ product.id }}{% endcapture %}
+        {% unless used contains product_id %}
+        {% capture diff %}{{ tag_size | minus:product_id.size | money_without_currency | times:100 | divided_by:2 }}{% endcapture %}
+        {% assign check = diff | split:'.' %}
+        {% if check[1] contains '5' %}{% assign display = false %}{% else %}{% assign display = true %}{% endif %}
+        {% if display and the_test contains product_id %}
+
+        {% assign wish_list_active = true %}
+
+        {% assign sold_out = true %}
+        {% if product.available  %}
+        {% assign sold_out = false %}
+        {% endif %}
+        <li>
+          <div class="product-mini">
+            <a href="{{ product.url }}" class="product-mini__img"><img src="{{ product.featured_image.src | product_img_url: 'small' }}" alt="{{ product.featured_image.alt | escape }}"></a>
+            <!-- .product-mini__img -->
+            <div class="product-mini__body">
+              <h4 class="br-product__name"><a href="{{ product.url }}" tabindex="0">{{ product.title | split: '|' | first }}</a></h4>
+              <span class="br-product__price">{{ product.price_min | money }}</span>
+            </div>
+            <!-- .product-mini__body -->
+            <div class="product-mini__button">
+              <a href="/pages/wish-list" class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <!-- .product-mini -->
+        </li>
+        {% capture used %}{{ product_id }} {{ used }}{% endcapture %}
+        {% endif %}
+        {% endunless %}
+        {% endfor %}
+        {% endpaginate %}
+        {% endfor %}
+        {% endfor %}
+      </ul>
+      <a href="/pages/wish-list" class="btn btn-default btn-block">{{ 'wishlist.general.view_wishlist' | t }}</a>
+      {% else %}
+      <p class="text-center">
+        <span>{{ 'wishlist.general.subtext' | t }}</span>
+        <a href="/account/login">{{ 'wishlist.general.sign_in' | t }}</a>
+        <span> - </span>
+        <a href="/account/register">{{ 'wishlist.general.or' | t }}</a>
+      </p>
+      {% endif %}
+    </div>
+
+    <!-- .list-product-mini -->
+  </div>
+</div>

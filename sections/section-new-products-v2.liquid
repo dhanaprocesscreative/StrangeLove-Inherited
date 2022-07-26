@@ -1,0 +1,241 @@
+<!-- section-new-products-v2.liquid -->
+<div data-section-id="{{ section.id }}" data-section-type="section-new-products-v2" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+{% assign products_limit_1 = section.settings.new_product_v2_limit_1 %}
+{% assign col_1 = section.settings.new_product_v2_collection_1 %}
+
+{% assign products_limit_2 = section.settings.new_product_v2_limit_2 %}
+{% assign col_2 = section.settings.new_product_v2_collection_2 %}
+
+<section class="engoc_no_rtl">
+  <div class="container">
+    <div class="br-bb pb-40">
+      <div class="br-relative">
+        <h2 class="br-title">{{section.settings.new_product_v2_title}}</h2>
+      </div>
+      <!-- .br-relative -->
+      <div class="row engoc-row-equal-section-new-product-v2">
+        {% if section.settings.new_product_v2_enable_collection_1 %}
+          {% for product in collections[col_1].products limit: products_limit_1 %}
+          <div class="col-lg-3 col-md-4 col-sm-6 col-tn-6">
+            {% include 'product-item' %}
+          </div>
+          {% else %}
+          	{% include 'onboarding-empty-item-newpv21' %}
+          {% endfor %}
+        {% endif %}
+        {% if section.settings.new_product_v2_enable_banner_1 %}
+        <div class="col-lg-3 hidden-sm hidden-xs  hidden-md">
+          <div class="br-background banner-small-promote bg-small-promote" style="background-image: url('{% if section.settings.banner-small-5 != blank %}{{ section.settings.banner-small-5 | img_url:'master' }}{% else %}{{ 'banner-small-5.png' | asset_url }}{% endif %}');">
+            <div class="banner-small-promote__content text-center">
+              <span class="fz-16 font-secondary dark mb-15">{{section.settings.new_product_v2_banner_1_content_1}} <br> {{section.settings.new_product_v2_banner_1_content_2}}</span>
+              <h2 class="text-uppercase fz-30">{{section.settings.new_product_v2_banner_1_content_3}} <br> {{section.settings.new_product_v2_banner_1_content_4}} <br> {{section.settings.new_product_v2_banner_1_content_5}}</h2>
+              <span class="line"></span>
+              <a href="{{section.settings.new_product_v2_banner_1_btn_url}}" class="uppercase">{{section.settings.new_product_v2_banner_1_btn_name}}  <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <!-- .banner-small-promote__content -->
+          </div>
+          <!-- .banner-small-promote -->
+        </div>
+        {% endif %}
+        {% if section.settings.new_product_v2_enable_banner_2 %}
+        <div class="col-lg-3 hidden-sm hidden-xs  hidden-md ">
+          <div class="br-background banner-small-promote-2 bg-small-promote-2" style="background-image: url('{% if section.settings.banner-small-6 != blank %}{{ section.settings.banner-small-6 | img_url:'master' }}{% else %}{{ 'banner-small-6.png' | asset_url }}{% endif %}');">
+            <div class="banner-small-promote__content text-center">
+              <span class="fz-14 uppercase white mb-50">{{section.settings.new_product_v2_banner_2_content_1}}</span>
+              <p class="font-secondary fz-50 white">{{section.settings.new_product_v2_banner_2_content_2}} <span class="fz-30">{{section.settings.new_product_v2_banner_2_content_3}}</span> {{section.settings.new_product_v2_banner_2_content_4}}</p>
+              <a href="{{section.settings.new_product_v2_banner_2_btn_url}}" class="btn btn-outline btn-white">{{section.settings.new_product_v2_banner_2_btn_name}}</a>
+            </div>
+            <!-- .banner-small-promote__content -->
+          </div>
+          <!-- .banner-small-promote -->
+        </div>
+        {% endif %}
+        {% if section.settings.new_product_v2_enable_collection_2 %}
+          {% for product in collections[col_2].products limit: products_limit_2 %}
+          <div class="col-lg-3 col-md-4 col-sm-6 col-tn-6">
+            {% include 'product-item' %}
+          </div>
+          {% else %}
+          	{% include 'onboarding-empty-item-newpv22' %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+  {
+    "name": "New Products v2",
+    "class" : "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_title",
+        "label": "Title",
+        "default": "new arrivals"
+      },
+      {
+        "type": "checkbox",
+        "id": "new_product_v2_enable_collection_1",
+        "label": "Enable Collection 1?",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "new_product_v2_collection_1",
+        "label": "Select collection 1"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_limit_1",
+        "label": "Limit number of products",
+        "default": "7"
+      },
+      {
+        "type": "checkbox",
+        "id": "new_product_v2_enable_banner_1",
+        "label": "Enable Banner 1?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-small-5",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_1_content_1",
+        "label": "Content 1",
+        "default": "In Case of Holiday"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_1_content_2",
+        "label": "Content 2",
+        "default": "Emergency"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_1_content_3",
+        "label": "Content 3",
+        "default": "THE"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_1_content_4",
+        "label": "Content 4",
+        "default": "Brilliant"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_1_content_5",
+        "label": "Content 5",
+        "default": "GIFT CARD"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_1_btn_name",
+        "label": "Button Name",
+        "default": "get one now"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_1_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "new_product_v2_enable_banner_2",
+        "label": "Enable Banner 2?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-small-6",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_2_content_1",
+        "label": "Content 1",
+        "default": "LOOKBOOK"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_2_content_2",
+        "label": "Content 2",
+        "default": "Spring"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_2_content_3",
+        "label": "Content 3",
+        "default": "&"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_2_content_4",
+        "label": "Content 4",
+        "default": "Summer"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_2_btn_name",
+        "label": "Button Name",
+        "default": "SHOP LOOKBOOK"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_banner_2_btn_url",
+        "label": "Button URL",
+        "default": "\/collections\/all"
+      },
+      {
+        "type": "checkbox",
+        "id": "new_product_v2_enable_collection_2",
+        "label": "Enable Collection 2?",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "new_product_v2_collection_2",
+        "label": "Select collection 2"
+      },
+      {
+        "type": "text",
+        "id": "new_product_v2_limit_2",
+        "label": "Limit number of products",
+        "default": "11"
+      },
+      {
+        "type": "header",
+        "content": "Section Space"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin Top",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin Bottom",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      }
+    ],
+    "presets": [
+      {
+        "name": "New Products v2",
+        "category": "Product"
+      }
+    ]
+  }
+{% endschema %}
